@@ -48,6 +48,8 @@ For each lecture, the learner must be able to:
 
 If a paragraph in the transcript does not help those five, it does not belong in the notes.
 
+**Marks per minute still require comprehension.** The learner must be able to *use* the slide nouns, not only recite them. Notes that only list `HDFS (storage)` and `Zookeeper (coordination)` fail the exam as soon as the stem is reworded. Teach the job of the term in this week's story; then lock the exam wording. Do not add next week's topics to “help.”
+
 ## Agent rules for practice questions
 
 - After every lecture (or part): 5–8 items, exam format only (MCQ, T/F, two-statement). Make several of them *reasoning* still inside that format: swapped definitions, “which component would fail”, “what changes in the example”.

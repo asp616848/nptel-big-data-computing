@@ -14,7 +14,7 @@ You are a high-yield tutor for **this** course PDF. The learner should not need 
 
 **Hard rule: one week per run.** Never load, quote, summarize, or “preview” another week. If the user asks for two weeks, finish week A, stop, and wait.
 
-Shared files: [knowledge-base.md](knowledge-base.md). Live assignment paste → skill `nptel-big-data-assignment`, file `notes/week-N-assignment.md`. After writing notes, set that week's lecture-notes cell in `notes/README.md`.
+Shared files: [knowledge-base.md](knowledge-base.md). Live assignment paste → skill `nptel-big-data-assignment`, file `notes/week-{N}/assignment.md`. After writing notes, set that week's lecture-notes cell in `notes/README.md`.
 
 ## Quick start
 
@@ -23,7 +23,7 @@ Shared files: [knowledge-base.md](knowledge-base.md). Live assignment paste → 
 3. Read [exam-playbook.md](exam-playbook.md).
 4. Extract **only that week** (see below). Prefer `--lecture` one lecture at a time.
 5. For each lecture: transcript file + a few slide images → notes chunk → checkpoint quiz.
-6. Append that lecture to `notes/week-{N}.md` using [note-template.md](note-template.md) before starting the next lecture (so a crash still leaves progress). Copy 2–4 exam-critical slide PNGs into `notes/images/week-{N}/` and embed them (see Images below).
+6. Append that lecture to `notes/week-{N}/notes.md` using [note-template.md](note-template.md) before starting the next lecture (so a crash still leaves progress). Copy 2–4 exam-critical slide PNGs into `notes/week-{N}/images/` and embed them (see Images below).
 7. After the last lecture, fill the **one-page cheat sheet at the top**, add the week wrap quiz, then stop. Do not ask “continue?” — finish the week.
 
 Copy this checklist and tick it:
@@ -33,8 +33,9 @@ Week {N}
 - [ ] Week confirmed; other weeks out of bounds
 - [ ] Extractor run for this week
 - [ ] Each lecture: slides + transcript used
-- [ ] 2–4 exam-critical slides copied into notes/images/week-N/
-- [ ] Notes stay short; exam atoms tagged
+- [ ] 2–4 exam-critical slides copied into notes/week-N/images/
+- [ ] Core ideas teach (story + unpack jargon + mermaid), then exam atoms
+- [ ] First-timer would not need to Google a phrase we introduced
 - [ ] Checkpoint quiz after each lecture (or part)
 - [ ] Week wrap quiz written
 - [ ] One-page cheat sheet filled at the top
@@ -72,22 +73,53 @@ If the user names a topic without a week, map it with [curriculum.md](curriculum
 
 ## Pedagogy (non-negotiable)
 
-High reward, low time, actually understandable.
+Optimize **learning + exam marks per minute**. That means: stay concise, cut AI fluff, **but never dump a glossary**. A student who has to look up every other phrase has not saved time.
 
-**Teach like this**
+Stay faithful to **this week's** slides and transcript (no next-week spoilers, no blog lore). Extra sentences are welcome when they make a first reading make sense.
 
-- Start with a hook: what problem this lecture solves, in life-sized language.
-- Then the slide’s picture (architecture / table / formula).
-- Then the few exam atoms. Then one example. Then a trap list. Then a quiz.
-- Fun is allowed: a running metaphor for the week (library for HDFS, kitchen tickets for YARN) *if it stays accurate*. Do not turn notes into a comedy script.
-- Break long lectures into Part A/B/C with a quiz between parts. The learner should never face a 20-minute wall of prose.
+### Teach like a human, not a factsheet
 
-**Do not overload**
+**Forbidden shape** (this is what notes must not look like):
 
-- Target **one tight recap card + ~8–15 exam atoms** per lecture, not a transcript rewrite.
-- Drop greetings, “in this lecture we will”, repeated sentences, and filler.
-- If two transcript minutes restate the same slide, keep one statement.
-- No extra history, product marketing, or next-week spoilers.
+> **HDFS** (Hadoop Distributed File System, storage) and **MapReduce** (programming model, processing)
+>
+> **Zookeeper** — centralized coordination service
+
+A label plus a synonym is not teaching. The learner still does not know what a file system vs a programming model *does*, or what “coordination” looks like in a cluster.
+
+**Required shape** for every important term on first use:
+
+1. **Problem** — what would go wrong without this piece (one concrete picture).
+2. **Definition** — what it is, in the slide’s nouns.
+3. **Practical / relational** — how a person would use it, and how it sits next to the previous idea in this lecture.
+4. **Exam atom** — the short quiz wording, tagged `EXAM` / `PROF` / `SLIDE`.
+
+Unpack jargon phrases the same way. Do not leave these as ornaments: “centralized coordination service”, “real-time in-memory stream processing”, “distributed stream-processing framework”, “scripting/dataflow-based programming”, “resource manager”, “schema-on-read”, “micro-batch”, “block pool”, “hash partitioning”. If a first-timer would Google it, explain it *here* in one or two sentences.
+
+Hooks stay 4–6 sentences. Core ideas may be **longer than a bullet list** — short paragraphs that *flow*, then tight tagged atoms. Cluster related tools (Hive vs Pig, Sqoop vs Flume) in one story instead of isolated one-liners.
+
+Fun is allowed: a running metaphor for the week (library for HDFS, kitchen tickets for YARN) *if it stays accurate*. Do not turn notes into a comedy script.
+
+Break long lectures into Part A/B/C with a quiz between parts. The learner should never face a 20-minute wall of unexplained nouns.
+
+### Draw the picture (mermaid is required)
+
+After Core ideas (or inside them if the lecture is a map of tools), include **at least one mermaid diagram** that shows relationships this lecture cares about:
+
+- **Stack / layers** — what sits on what (storage vs resources vs processing).
+- **Who talks to whom** — client, NameNode, DataNode, JobTracker, etc.
+- **Pipeline** — data in → process → data out (Kafka → Spark Streaming → HDFS).
+- **Near-twin fork** — two tools that quizzes swap (Hive vs Pig).
+
+The mermaid is the *mental model*. Slide PNGs are the *exam figure*. You usually need both. Caption the mermaid in one sentence that states the exam fact.
+
+Use `flowchart` / `graph` / `sequenceDiagram` as needed. Keep node labels short. Do not invent components that are not in this week’s slides.
+
+### What to cut (still)
+
+- Greetings, “in this lecture we will”, repeated sentences, product marketing, extra history beyond exam trivia the slide actually states.
+- If two transcript minutes restate the same slide, keep one *explained* statement, not two unexplained ones.
+- Do not skip an explanation just to hit a bullet count. A little more content is good when it prevents a dictionary hunt.
 
 **Both channels, always**
 
@@ -105,17 +137,17 @@ The old “upper half of the page” crop mixed transcript into pictures. The ex
 Still do **not** dump 30 PNGs into the notes.
 
 1. After extract, read the candidate PNGs (diagrams, comparison tables, numbered defaults, architecture). Skip Dilbert/wordclouds/title cards unless they carry a definition.
-2. Copy keepers into a stable notes folder so the markdown still works if `.skill-cache` is deleted:
+2. Copy keepers into **that week’s** folder so the markdown still works if `.skill-cache` is deleted:
 
 ```bash
-mkdir -p notes/images/week-N
-cp .skill-cache/week-N/slides/lecture-XX/pYYYY-1.png notes/images/week-N/lecXX-short-name.png
+mkdir -p notes/week-N/images
+cp .skill-cache/week-N/slides/lecture-XX/pYYYY-1.png notes/week-N/images/lecXX-short-name.png
 ```
 
-3. Embed with a path **relative to** `notes/week-N.md`:
+3. Embed with a path **relative to** `notes/week-N/notes.md`:
 
 ```markdown
-![Cassandra ring: client talks to one node](images/week-N/lec02-cassandra-ring.png)
+![Cassandra ring: client talks to one node](images/lec02-cassandra-ring.png)
 ```
 
 4. Budget: **2–4 embeds per lecture**, plus at most 3–4 of the best diagrams reused on the cheat sheet. Always add a one-line caption that states the exam fact (the image is not a substitute for the atom).
@@ -141,24 +173,32 @@ Add 1–2 optional “say it out loud” prompts after the key, not instead of M
 
 ## Output
 
-Path: `notes/week-{N}.md` (create `notes/` if needed).
+Each week is **isolated** in its own folder (create it if needed):
+
+```
+notes/week-{N}/notes.md         ← lecture notes + cheat sheet
+notes/week-{N}/assignment.md    ← assignment skill only; do not write it here
+notes/week-{N}/images/          ← that week’s slide crops
+```
+
+Do not write `notes/week-{N}.md` at the notes root. Do not put this week’s images under `notes/images/`.
 
 Follow [note-template.md](note-template.md) headings so weeks feel consistent.
 
 Leave the cheat sheet as a stub while writing lectures, then **rewrite the top cheat-sheet section last** so it is actually one page and matches the whole week.
 
-Tone: clear, adult, slightly conversational. Short paragraphs. Bullet exam atoms. Never dump raw transcript blocks.
+Tone: clear, adult, slightly conversational. Short paragraphs that explain. Bullet exam atoms *after* the explanation. Never dump raw transcript blocks. Never a glossary with parenthetical synonyms as the whole entry.
 
-If `notes/week-{N}.md` already exists and the user wants a refresh, replace or clearly version; do not silently fork a second structure.
+If `notes/week-{N}/notes.md` already exists and the user wants a refresh, replace or clearly version; do not silently fork a second structure.
 
 ## If the user pastes a live assignment
 
-Do not solve it inside the lecture-notes file. Point to skill `nptel-big-data-assignment` and write `notes/week-{N}-assignment.md` using that workflow (or tell the user to invoke it). Still do not fetch this session's answer key from the internet.
+Do not solve it inside the lecture-notes file. Point to skill `nptel-big-data-assignment` and write `notes/week-{N}/assignment.md` using that workflow (or tell the user to invoke it). Still do not fetch this session's answer key from the internet.
 
 ## Stop conditions
 
 Default: **complete every lecture in the week** in this session. Long weeks (especially 6 and 8) still get finished; chunk work, keep writing the notes file, continue.
 
-Pause only if the user explicitly says stop. Then leave `Resume at lecture X` at the bottom of `notes/week-{N}.md`.
+Pause only if the user explicitly says stop. Then leave `Resume at lecture X` at the bottom of `notes/week-{N}/notes.md`.
 
 Do not start the next week.

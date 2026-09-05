@@ -21,7 +21,7 @@ If these notes saved you time, **please [star this repository](https://github.co
 
 | Path | What it is |
 | --- | --- |
-| [`notes/`](notes/) | Week-by-week lecture notes + assignment packs |
+| [`notes/`](notes/) | One folder per week: lecture notes + assignment pack + images |
 | [`notes/README.md`](notes/README.md) | Progress tracker — which weeks are done |
 | [`Big_Data.pdf`](Big_Data.pdf) | Official course slide book (813 pages) |
 | [`Skills/nptel-big-data-week/`](Skills/nptel-big-data-week/) | Cursor skill to **generate** lecture notes for one week |
@@ -32,7 +32,7 @@ If these notes saved you time, **please [star this repository](https://github.co
 | Week | Topic | Notes | Assignment |
 | --- | --- | :---: | :---: |
 | 1 | Introduction to Big Data | ✅ | ✅ |
-| 2 | Enabling Technologies / Hadoop | — | — |
+| 2 | Enabling Technologies / Hadoop | ✅ | ✅ |
 | 3 | Big Data Platforms (Spark + KV) | — | — |
 | 4 | Storage platforms | — | — |
 | 5 | Streaming / fast data | — | — |
@@ -40,7 +40,7 @@ If these notes saved you time, **please [star this repository](https://github.co
 | 7 | ML with Spark | — | — |
 | 8 | Graph processing | — | — |
 
-*Weeks 2–8 are open for [contributions](CONTRIBUTING.md).*
+*Weeks 3–8 are open for [contributions](CONTRIBUTING.md).*
 
 ---
 
@@ -54,18 +54,18 @@ cd nptel-big-data-computing
 ```
 
 1. Open [`notes/README.md`](notes/README.md) to see what's ready.
-2. Read [`notes/week-1.md`](notes/week-1.md) — start with the **one-page cheat sheet** at the top.
+2. Read [`notes/week-1/notes.md`](notes/week-1/notes.md) — start with the **one-page cheat sheet** at the top.
 3. After each lecture section, try the **checkpoint quiz** (answers are collapsed below).
 4. Before the weekly NPTEL quiz, skim the cheat sheet + **near-twins table** (common wrong answers).
-5. For assignment practice, open [`notes/week-1-assignment.md`](notes/week-1-assignment.md).
+5. For assignment practice, open [`notes/week-1/assignment.md`](notes/week-1/assignment.md).
 
 ### How each week's notes are structured
 
-Every `notes/week-N.md` follows the same shape:
+Every `notes/week-N/notes.md` follows the same shape:
 
 1. **One-page cheat sheet** — 7 things to remember, near-twins, key numbers, exam diagrams.
-2. **Week map** — which lectures matter for the exam.
-3. **Per-lecture sections** — hook → concepts → slide crops → checkpoint quiz.
+2. **Week map** — which lectures matter for the exam (plus a mermaid of how they connect).
+3. **Per-lecture sections** — hook → explained core ideas (not a glossary) → mermaid → slide crops → checkpoint quiz.
 4. **Week wrap quiz** — mixed review at the end.
 
 Budget about **60–90 minutes per week** if you only read the notes (no video).
@@ -106,8 +106,8 @@ In Cursor chat, ask something like:
 The skill will:
 
 - Extract only that week's slides/text from `Big_Data.pdf`
-- Write `notes/week-N.md` using the course templates
-- Copy exam-critical diagrams into `notes/images/week-N/`
+- Write `notes/week-N/notes.md` using the course templates
+- Copy exam-critical diagrams into `notes/week-N/images/`
 - Update the tracker in `notes/README.md`
 
 **Rule:** one week per run — don't ask for multiple weeks at once.
@@ -132,7 +132,7 @@ When the assignment opens on the NPTEL portal:
 
 > *"Use nptel-big-data-assignment. Week 3. Here's the paste: …"*
 
-The skill writes `notes/week-N-assignment.md` with **Answer + Why** for each question and updates the tracker.
+The skill writes `notes/week-N/assignment.md` with **Answer + Why** for each question and updates the tracker.
 
 See also: [`Skills/nptel-big-data-assignment/paste-guide.md`](Skills/nptel-big-data-assignment/paste-guide.md).
 
@@ -148,9 +148,10 @@ See also: [`Skills/nptel-big-data-assignment/paste-guide.md`](Skills/nptel-big-d
 ├── requirements.txt          ← pymupdf for the extractor
 ├── notes/
 │   ├── README.md             ← week completion table
-│   ├── week-N.md             ← lecture notes + cheat sheet
-│   ├── week-N-assignment.md  ← NPTEL assignment Q + solutions
-│   └── images/week-N/        ← embedded slide crops
+│   └── week-N/
+│       ├── notes.md          ← lecture notes + cheat sheet
+│       ├── assignment.md     ← NPTEL assignment Q + solutions
+│       └── images/           ← that week's slide crops
 └── Skills/
     ├── nptel-big-data-week/       ← lecture-notes skill + extractor
     └── nptel-big-data-assignment/ ← assignment skill

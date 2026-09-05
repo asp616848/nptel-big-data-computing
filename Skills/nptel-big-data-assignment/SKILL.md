@@ -18,8 +18,8 @@ Hard rule: **one week**. Week number comes from the user prompt. If missing, ask
 1. Confirm week N (1–8).
 2. Read [paste-guide.md](paste-guide.md), then [assignment-template.md](assignment-template.md).
 3. Read `Skills/nptel-big-data-week/knowledge-base.md` and that week's lecture list in `Skills/nptel-big-data-week/curriculum.md` only.
-4. If `notes/week-{N}.md` exists, use it to justify answers. If it does not, reason from the paste plus (only if needed) `.skill-cache/week-{N}/` or a single-lecture extract for week N. Never open another week.
-5. Write `notes/week-{N}-assignment.md`.
+4. If `notes/week-{N}/notes.md` exists, use it to justify answers. If it does not, reason from the paste plus (only if needed) `.skill-cache/week-{N}/` or a single-lecture extract for week N. Never open another week.
+5. Write `notes/week-{N}/assignment.md` (create `notes/week-{N}/` if needed).
 6. Update the table in `notes/README.md`.
 7. Stop.
 
@@ -35,13 +35,13 @@ Week {N} assignment
 
 ## Output shape
 
-Path: `notes/week-{N}-assignment.md`
+Path: `notes/week-{N}/assignment.md`
 
 To the point. One question after another. **Not** a second copy of the lecture notes.
 
 - Clean stem + options.
 - **Answer** first (letter or True/False).
-- **Why** in 1–3 sentences, tied to a lecture idea / notes heading.
+- **Why** in 1–3 sentences, tied to a lecture idea / notes heading. If a term in the stem is easy to mix up, one clause of *what that term actually means* is allowed.
 - **Trap** only when an option is a near-twin.
 - After the last question: `## Patterns this week` and `## Tips for the final` (see template). That is the only discursive part.
 
@@ -55,7 +55,7 @@ Do not embed lecture slide images unless the assignment itself is about a figure
 
 ## Knowledge base
 
-Lecture notes stay in `notes/week-{N}.md` (other skill). This file is the assignment layer. Cross-link, do not merge the two documents into one.
+Lecture notes stay in `notes/week-{N}/notes.md` (other skill). This file is the assignment layer. Cross-link, do not merge the two documents into one.
 
 See `Skills/nptel-big-data-week/knowledge-base.md`.
 

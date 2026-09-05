@@ -19,7 +19,7 @@ Each item: stem + options cleaned up, then answer and a short why. No lecture-no
 
 **Answer:** **b**
 
-**Why:** One to three sentences. Name the lecture idea (e.g. Lec 4, NameNode metadata). If `notes/week-N.md` exists, point to that heading.
+**Why:** One to three sentences. Name the lecture idea (e.g. Lec 4, NameNode metadata). If `notes/week-N/notes.md` exists, point to that heading.
 
 **Trap:** Why the next-best option is wrong. Skip if obvious.
 

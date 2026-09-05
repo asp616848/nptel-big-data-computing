@@ -6,33 +6,35 @@ Thank you for helping fellow NPTEL learners. Every week you add or fix makes thi
 
 | You can… | How |
 | --- | --- |
-| Add notes for week 2–8 | Use the `nptel-big-data-week` skill or follow the templates in `Skills/nptel-big-data-week/` |
+| Add notes for week 3–8 | Use the `nptel-big-data-week` skill or follow the templates in `Skills/nptel-big-data-week/` |
 | Add assignment solutions | Paste from the NPTEL portal + use `nptel-big-data-assignment` |
-| Fix a wrong answer | Edit `notes/week-N-assignment.md` with **Answer**, **Why**, and cite the slide/lecture |
-| Improve notes | Typos, clearer explanations, better near-twin rows, missing diagrams |
+| Fix a wrong answer | Edit `notes/week-N/assignment.md` with **Answer**, **Why**, and cite the slide/lecture |
+| Improve notes | Typos, clearer explanations, mermaid that shows relationships, better near-twin rows, missing diagrams |
 | Improve skills | Edit `Skills/*/SKILL.md` or the extractor in `Skills/nptel-big-data-week/scripts/` |
 
 ## Before you open a PR
 
 1. **One week per change** when possible — easier to review.
-2. **Don't mix weeks** in a single notes file.
+2. **Don't mix weeks** in a single notes file. Keep everything for week N inside `notes/week-N/`.
 3. **Verify assignment answers** against that week's slides in `Big_Data.pdf`, not random web sources.
 4. If the portal's "Accepted Answers" disagrees with the slides, document both (see existing assignment files).
-5. Copy 2–4 exam-critical slide PNGs into `notes/images/week-N/` when adding lecture notes.
+5. Copy 2–4 exam-critical slide PNGs into `notes/week-N/images/` when adding lecture notes.
 6. Update the table in [`notes/README.md`](notes/README.md).
 
 ## File conventions
 
-### Lecture notes — `notes/week-N.md`
+### Lecture notes — `notes/week-N/notes.md`
 
 Follow [`Skills/nptel-big-data-week/note-template.md`](Skills/nptel-big-data-week/note-template.md):
 
 - One-page cheat sheet at the top
-- Per-lecture sections with checkpoint quizzes
+- Per-lecture sections that **explain** terms (problem → definition → how it relates), then exam atoms — not a glossary of parenthetical synonyms
+- At least one mermaid per lecture showing stack, pipeline, or who-talks-to-whom
+- Checkpoint quizzes
 - Week wrap quiz at the end
-- Embed images from `notes/images/week-N/` only
+- Embed images from `notes/week-N/images/` only (paths like `images/lec04-namenode.png`)
 
-### Assignments — `notes/week-N-assignment.md`
+### Assignments — `notes/week-N/assignment.md`
 
 Follow [`Skills/nptel-big-data-assignment/assignment-template.md`](Skills/nptel-big-data-assignment/assignment-template.md):
 
@@ -49,7 +51,7 @@ Name slides descriptively: `lec04-namenode-blocks.png`, not `p0042-1.png`.
 ```bash
 git checkout -b week-3-notes
 # … make your changes …
-git add notes/week-3.md notes/images/week-3/ notes/README.md
+git add notes/week-3/ notes/README.md
 git commit -m "Add week 3 lecture notes"
 git push origin week-3-notes
 ```

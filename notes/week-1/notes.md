@@ -12,7 +12,7 @@
 3. Hadoop's 4 core modules: Hadoop Common, HDFS (storage), YARN (resource management), MapReduce (processing).
 4. Hadoop 2.0's big change: YARN pulled resource management out of MapReduce, so Spark/Storm/Flink/Giraph can run directly on YARN+HDFS without MapReduce.
 5. HDFS architecture: single NameNode (metadata) + many DataNodes (blocks, replicated); client always asks NameNode first, then talks to the nearest DataNode.
-6. Ecosystem one-liners: Hive=SQL queries, Pig=scripting ETL, Sqoop=RDBMS↔Hadoop transfer, Flume=log ingestion, Oozie=workflow scheduler, Zookeeper=coordination, HBase/Cassandra=NoSQL stores, Spark(+Streaming/MLlib/GraphX)=in-memory engine ~100x faster than MapReduce.
+6. Hive = SQL on Hadoop; Pig = step-by-step dataflow scripts; Sqoop = copy tables from a normal SQL database into Hadoop (and back); Flume = collect logs as they happen; Oozie = “run job A then B”; Zookeeper = the cluster’s shared whiteboard (leader/config/sync); HBase/Cassandra = NoSQL stores; Spark family ≈ keep data in RAM, claimed ~100x vs MapReduce.
 7. Hadoop trivia: created by Doug Cutting & Mike Cafarella in 2005, named after his son's toy elephant; originally for the Nutch search engine.
 
 **Near-twins (left is not right)**
@@ -22,7 +22,7 @@
 | Volume | Velocity | Volume = size at rest; Velocity = speed of arrival (data in motion) |
 | YARN | MapReduce | YARN = resource manager/scheduler; MapReduce = the processing model that runs over it |
 | NameNode | Secondary NameNode | NameNode is the live metadata master; Secondary NameNode only keeps periodic backups, not a hot failover |
-| Hive | Pig | Hive = SQL-like declarative queries; Pig = scripting/dataflow language (Pig Latin) |
+| Hive | Pig | Hive: you write *what* you want (SQL). Pig: you write *the steps* data should flow through (Pig Latin scripts) |
 | Sqoop | Flume | Sqoop moves data between Hadoop and structured RDBMS/SQL stores; Flume ingests unstructured log/event streams into HDFS |
 
 **Numbers / defaults this week**
@@ -34,9 +34,9 @@
 
 **Diagrams**
 
-![IBM's 3V definition](images/week-1/lec01-3vs-ibm.png)
-![Hadoop Ecosystem stack](images/week-1/lec02-hadoop-ecosystem.png)
-![HDFS NameNode/DataNode read-write architecture](images/week-1/lec03-hdfs-namenode-datanode.png)
+![IBM's 3V definition](images/lec01-3vs-ibm.png)
+![Hadoop Ecosystem stack](images/lec02-hadoop-ecosystem.png)
+![HDFS NameNode/DataNode read-write architecture](images/lec03-hdfs-namenode-datanode.png)
 
 ## This week's map
 
@@ -45,6 +45,14 @@
 | 1 | Introduction to Big Data | Defines Big Data + the V's — every quiz opens here |
 | 2 | Big Data Enabling Technologies | Cloud/mobile/social/IoT roots + who uses Big Data (Google, Facebook, NYSE, LHC) |
 | 3 | Hadoop Stack for Big Data | Names every Hadoop-ecosystem tool and its one-line job |
+
+```mermaid
+flowchart LR
+  L1[Lec 1: why RDBMS fails<br/>the V's] --> L2[Lec 2: the toolbox map]
+  L2 --> L3[Lec 3: how Hadoop itself is built]
+```
+
+Week 1 is one story: name the problem → name the tools → see Hadoop’s architecture.
 
 ---
 
@@ -56,39 +64,65 @@ Every company from Walmart to Facebook is drowning in more data than a normal da
 
 ### Slide picture
 
-![IBM's 3V definition: Volume, Velocity, Variety, with data flowing from sensors/web/CRM into "Big Data"](images/week-1/lec01-3vs-ibm.png)
+![IBM's 3V definition: Volume, Velocity, Variety, with data flowing from sensors/web/CRM into "Big Data"](images/lec01-3vs-ibm.png)
 
-![The 3 Big V's (+1): Volume=data at rest, Velocity=data in motion, Variety=data in many forms, Veracity=data in doubt](images/week-1/lec01-4vs-plus1.png)
+![The 3 Big V's (+1): Volume=data at rest, Velocity=data in motion, Variety=data in many forms, Veracity=data in doubt](images/lec01-4vs-plus1.png)
 
-![Scale insight: byte=1 grain of rice ... exabyte=Big Data threshold ... zettabyte=fills Pacific Ocean](images/week-1/lec01-byte-scale-insight.png)
+![Scale insight: byte=1 grain of rice ... exabyte=Big Data threshold ... zettabyte=fills Pacific Ocean](images/lec01-byte-scale-insight.png)
 
-![Harnessing Big Data: OLTP (1968, operational DBs) → OLAP (1983, data warehousing) → RTAP (2010, real-time stream computing)](images/week-1/lec01-oltp-olap-rtap.png)
+![Harnessing Big Data: OLTP (1968, operational DBs) → OLAP (1983, data warehousing) → RTAP (2010, real-time stream computing)](images/lec01-oltp-olap-rtap.png)
 
 ### Core ideas
 
-- **Big Data** — a collection of data sets so large and complex that traditional data-processing applications (classic RDBMS/tools) struggle to process them. `EXAM`
-- **Why now** — sources are (1) people (social posts, GPS, photos), (2) sensors/devices (IoT, smart meters, RFID), (3) organizations (transaction records). `SLIDE`
-- **3 V's (IBM/Gartner's original)** — `EXAM`
-  - **Volume** — the size/scale of data, typically beyond terabytes.
-  - **Velocity** — the speed at which data is generated and must be processed (real-time/streaming).
-  - **Variety** — the different forms data comes in: structured (tables), unstructured (text, audio, video), semi-structured (XML, web data).
-- **Traditional RDBMS is insufficient** — queries are too slow for real-time insight at Big Data scale (e.g., detecting a trending topic before it stops trending). `PROF` — he stresses this is *the* motivating problem for the whole course.
-- **The "+1" V — Veracity** — the doubt/uncertainty in data: noise, inconsistency, incompleteness, latency. Framed as "data in doubt." `EXAM`
-- **Many more V's** (he lists these as extra, not core-testable but quiz-plausible as "which V means ___"): `EXAM`
-  - **Value** — the whole point: what useful insight/business value you extract at the end.
-  - **Valence** — connectedness of data (dense vs. sparse graphs); more-connected data needs different ML algorithms.
-  - **Validity** — accuracy/correctness of data *relative to its intended use*.
-  - **Variability** — how the meaning of data changes over time.
-  - **Viscosity** — data velocity *relative to the timescale of the event being studied*.
-  - **Volatility** — rate of data loss / how long data stays usable (stable lifetime).
-  - **Vocabulary** — metadata describing structure.
-  - **Vagueness** — confusion over what "Big Data" even means for a given application.
-- **Scale insight (rice analogy)** — byte = 1 grain of rice ... terabyte = 2 container ships ... **exabyte is where "Big Data" starts** ... zettabyte = fills the Pacific Ocean (future scale). `SLIDE` `EXAM` (the exabyte-as-threshold framing is quiz bait)
-- **Computing model evolution** — `EXAM`
-  - **OLTP** (1968, Online Transaction Processing) — operational DBMSs, "data at rest," historical reporting.
-  - **OLAP** (1983, Online Analytical Processing) — data warehousing, pulls from multiple DBs for decision-making.
-  - **RTAP** (2010, Real-Time Analytics Processing) — stream computing on "data in motion," Big Data architecture — this is the course's focus.
-- **Analytics evolution** — earlier: descriptive/prescriptive business intelligence (low complexity). Now: **predictive analytics** and data mining, requiring real-time/stream computation on Big Data. `PROF`
+A normal company database (an **RDBMS** — rows and columns, SQL, one or a few powerful servers) is great at “update this bank balance” and “report last month’s sales.” **Big Data** is the name for collections that break that comfort: too large, arriving too fast, or too messy in shape for those traditional tools to finish in time. `EXAM`
+
+Where it comes from, on the slides: (1) people (posts, GPS, photos), (2) sensors/devices (meters, RFID), (3) organizations (transaction logs). `SLIDE`
+
+The original **3 V's** (IBM/Gartner) are three *different* ways data can be “too much”: `EXAM`
+
+- **Volume** — how *much* is sitting there (size at rest; think terabytes and up). A warehouse of receipts.
+- **Velocity** — how *fast* new data shows up and must be reacted to (data in motion; streaming). A firehose, not a filing cabinet.
+- **Variety** — how many *shapes* it takes: structured tables, unstructured audio/video/text, semi-structured XML/web logs.
+
+**Traditional RDBMS is insufficient** because a query that finishes tomorrow is useless for “is this topic trending *now*.” `PROF`
+
+**Veracity** is the well-known extra V: the data may be noisy, incomplete, delayed, or inconsistent — “data in doubt.” Trust is a separate problem from size. `EXAM`
+
+He lists more V's as “which V means ___” bait (not the IBM original three): `EXAM`
+
+- **Value** — why you bother: the insight or money you extract at the end.
+- **Valence** — how *connected* the data is (a dense social graph vs sparse). Connected data wants graph-style algorithms.
+- **Validity** — is it *correct for this use* (a temperature sensor used as a fraud signal may be “valid” for weather and useless for fraud).
+- **Variability** — the *meaning* drifts over time (the same word in 2016 vs 2026).
+- **Viscosity** — speed *relative to the event* (a 1-second delay is fine for a monthly report, fatal for a 50 ms trade).
+- **Volatility** — how fast data *goes stale or is lost* (yesterday’s hot dataset is irrelevant).
+- **Vocabulary** — metadata: the labels that describe structure.
+- **Vagueness** — people do not even agree what “Big Data” means for this app.
+
+**Scale insight (rice analogy)** — byte = 1 grain … terabyte = 2 container ships … **exabyte is where the slides call it Big Data** … zettabyte ≈ Pacific Ocean. `SLIDE` `EXAM`
+
+How *compute* evolved is a timeline of “where the data sits when you analyze it”: `EXAM`
+
+- **OLTP** (1968, Online Transaction Processing) — the operational database that records *each sale as it happens*, then mostly sits “at rest” for later reports. Think checkout counter.
+- **OLAP** (1983, Online Analytical Processing) — copy many operational DBs into a **data warehouse** and slice them for decisions (“sales by region last quarter”). Still batch / historical, not the live firehose.
+- **RTAP** (2010, Real-Time Analytics Processing) — analyze **data in motion** as streams arrive. This is the Big Data architecture the course is aiming at.
+
+Analytics itself moved from descriptive/prescriptive BI toward **predictive** mining that wants that real-time/stream compute. `PROF`
+
+### How it fits together
+
+```mermaid
+flowchart TB
+  sources[People + sensors + organizations]
+  sources --> V[Volume / Velocity / Variety]
+  V --> doubt[Veracity: can we trust it?]
+  doubt --> value[Value: insight we actually use]
+  V --> oltp[OLTP: record transactions, data at rest]
+  oltp --> olap[OLAP: warehouse, batch analysis]
+  olap --> rtap[RTAP: streams, data in motion]
+```
+
+The V's name the *pain*; OLTP → OLAP → RTAP is how industry compute caught up with that pain.
 
 ### Worked example
 
@@ -177,34 +211,88 @@ You now know Big Data is huge, fast, and messy — so what actually stores and c
 
 ### Slide picture
 
-![Hadoop Ecosystem stack: HDFS (storage) → YARN (resource scheduling) → MapReduce (processing) → Pig/Hive/HCatalog on top, HBase and other projects alongside](images/week-1/lec02-hadoop-ecosystem.png)
+![Hadoop Ecosystem stack: HDFS (storage) → YARN (resource scheduling) → MapReduce (processing) → Pig/Hive/HCatalog on top, HBase and other projects alongside](images/lec02-hadoop-ecosystem.png)
 
-![Spark Streaming: Kafka/Flume/HDFS/Kinesis/Twitter feed in → Spark Streaming splits into micro-batches → Spark Engine processes → output to HDFS/Databases/Dashboards](images/week-1/lec02-spark-streaming.png)
+![Spark Streaming: Kafka/Flume/HDFS/Kinesis/Twitter feed in → Spark Streaming splits into micro-batches → Spark Engine processes → output to HDFS/Databases/Dashboards](images/lec02-spark-streaming.png)
 
-![NoSQL data models: Key-Value, Column-Family, Graph, Document — contrasted with SQL's Relational and Analytical(OLAP) models](images/week-1/lec02-nosql-types.png)
+![NoSQL data models: Key-Value, Column-Family, Graph, Document — contrasted with SQL's Relational and Analytical(OLAP) models](images/lec02-nosql-types.png)
 
 ### Core ideas
 
-- **Apache Hadoop** — open-source framework for Big Data with two original core parts: **HDFS** (Hadoop Distributed File System, storage) and **MapReduce** (programming model, processing). `EXAM`
-- **Hadoop 1.0 → 2.0** — Hadoop 2.0 added **YARN** ("Yet Another Resource Negotiator") as a resource manager sitting between HDFS and applications. In 1.0, everything ran through MapReduce; in 2.0, non-MapReduce apps (Spark, Storm, Flink, Giraph) can run directly over YARN + HDFS. `EXAM` `PROF`
-- **YARN internals** — Resource Manager (with a scheduler) allocates resources at the cluster level; each node has a **Node Manager** that manages resources locally in the form of **containers** — the basic unit of allocated resource. `EXAM`
-- **HDFS runs on commodity hardware** — scale-out (add more ordinary machines) rather than scale-up (buy one powerful machine); this cluster of cheap, failure-prone machines is why HDFS needs built-in fault tolerance. `SLIDE`
-- **Simplifying MapReduce programming** — `EXAM`
-  - **Hive** (created at Facebook) — SQL-like queries (HiveSQL/HSQL) over MapReduce; used for data mining.
-  - **Pig** (also Facebook) — scripting/dataflow-based programming over MapReduce.
-- **Non-MapReduce apps over YARN+HDFS** — `EXAM`
-  - **Giraph** (Facebook) — graph processing, used for social-network graph analysis.
-  - **Storm, Spark, Flink** — real-time, in-memory stream processing ("fast data").
-- **NoSQL stores** — Big Data is mostly stored as key-value pairs ("NoSQL"), not fixed-schema SQL tables; each row can have its own set of columns, and schema can change dynamically. Models include Key-Value, Column-Family, Graph, Document. `EXAM`
-  - **HBase** — runs over HDFS; originally Google BigTable, later renamed HBase; started at Facebook for its messaging platform; stores terabytes to petabytes.
-  - **Cassandra** — Facebook-developed, highly scalable distributed NoSQL DB; nodes organized virtually in a **ring** architecture.
-  - **MongoDB** — another NoSQL/key-value style store mentioned alongside HBase and Cassandra.
-- **Zookeeper** (created by Yahoo) — centralized coordination service for the ecosystem's 100+ projects: synchronization, configuration management, leader election, high availability. Small, performance-sensitive, critical, replicated across many machines. `EXAM` `PROF` (the name "Zookeeper" fits the animal-themed Hadoop project names)
-- **Apache Spark** — in-memory Big Data analytics framework over HDFS, enabling "lightning fast" cluster computation. Sub-projects: `EXAM`
-  - **Spark Streaming** — real-time stream processing; ingests from Kafka/Flume/HDFS/Kinesis/Twitter, splits input into **micro-batches** (micro-RDDs), processes in the Spark engine, outputs to HDFS/databases/dashboards.
-  - **Spark MLlib** — distributed, scalable machine learning library (classification, regression, clustering, collaborative filtering, dimensionality reduction).
-  - **Spark GraphX** — parallel large-scale graph computation; extends Spark RDDs with a graph abstraction; implements PageRank, Connected Components, K-core, Triangle Count.
-- **Apache Kafka** — open-source distributed stream-processing framework; captures data streams and feeds them into Spark Streaming, forming a streaming pipeline. `EXAM`
+Picture a warehouse of cheap PCs, not one giant server. **Apache Hadoop** is the open-source “OS” for that warehouse. Originally it had two jobs that quizzes treat as a pair: `EXAM`
+
+- **HDFS** (Hadoop Distributed File System) is the *storage* layer — the warehouse’s filing system. A file is chopped into large chunks (**blocks**), copies live on many machines, and a client asks “where are my pieces?” instead of opening one disk. If one PC dies, another copy still has the block.
+- **MapReduce** is the *processing* layer — a **programming model**, meaning you do not write “talk to 500 machines.” You write two functions: **map** (do something to *each* record where it already sits) and **reduce** (combine the partial answers). Hadoop ships those functions to the machines that hold the data.
+
+HDFS is built for **commodity hardware**: many ordinary, failure-prone machines (**scale-out**) rather than one expensive box (**scale-up**). Fault tolerance is not a luxury; disks *will* die. `SLIDE`
+
+**Hadoop 1.0 vs 2.0.** In 1.0, MapReduce was also the *landlord*: it decided who gets CPU time. So Spark, Storm, etc. could not easily share the cluster. Hadoop 2.0 inserted **YARN** (“Yet Another Resource Negotiator”) between HDFS and the apps. YARN is a **resource manager**: it rents CPU and RAM to jobs the way a hotel front desk rents rooms. After that, MapReduce is *one* guest; Spark/Storm/Flink/Giraph can be guests too, still reading the same HDFS. `EXAM` `PROF`
+
+YARN’s pieces, if you zoom in: `EXAM`
+
+- **Resource Manager** — cluster-wide desk + **scheduler** (“who gets the next rooms”).
+- **Node Manager** — one per machine; the floor supervisor.
+- **Container** — one rented slice of CPU+RAM. A task runs *inside* a container; the container is not a Docker trivia item here, just “the unit of allocation.”
+
+Writing raw MapReduce is painful, so two **simplification layers** sit on top of it: `EXAM`
+
+- **Hive** (Facebook) — you write **SQL-like** queries (HiveSQL/HSQL). *Declarative*: you say *what* you want (“count sales by region”), Hive compiles that into MapReduce jobs. Used for data mining over the warehouse.
+- **Pig** (Facebook in this lecture’s telling) — you write a **script of steps** in **Pig Latin**. That is **scripting / dataflow programming**: you say how data should *flow* (load → filter → group → store), not a single SQL sentence. Same MapReduce underneath, different human interface.
+
+Some apps **skip MapReduce** and run on YARN+HDFS directly: `EXAM`
+
+- **Giraph** (Facebook) — **graph processing**: treat people as nodes and friendships as edges (PageRank-style social analysis), not “rows in a table.”
+- **Storm, Spark, Flink** — **fast data**. MapReduce waits for a whole batch file. **Stream processing** means handle records *as they arrive* (tweets, click logs). **In-memory** means keep working data in RAM instead of writing every intermediate result to disk — that is why these engines feel “real-time” compared with classic MapReduce.
+
+**NoSQL** here means: not a fixed-column SQL table. Big Data is often **key → value** (or related models). Each row can have *different* columns; the schema can change as you go. Slide families: Key-Value, Column-Family, Graph, Document — vs SQL’s Relational and OLAP analytical models. `EXAM`
+
+- **HBase** — a BigTable-style store **on top of HDFS**; Facebook messaging-scale; terabytes to petabytes.
+- **Cassandra** — Facebook’s separate distributed NoSQL DB; nodes sit in a **ring** (each node is a peer on a circle, not a single master like HDFS’s NameNode).
+- **MongoDB** — mentioned with them as another NoSQL/document-ish store.
+
+**Zookeeper** (Yahoo) is not a database and not a job scheduler. With 100+ Hadoop projects, someone must hold the *shared truth*: who is the current **leader**, what is the latest **config**, “wait until all nodes are ready” (**synchronization**), stay up if one copy dies (**high availability**). A **centralized coordination service** is that small, heavily replicated whiteboard. Zookeeper *is* that whiteboard — small, latency-sensitive, critical. The zoo pun is intentional. `EXAM` `PROF`
+
+**Apache Spark** sits on HDFS and tries to keep data **in memory** across a cluster (“lightning fast”). Sub-projects quizzes name: `EXAM`
+
+- **Spark Streaming** — live input (Kafka, Flume, HDFS, Kinesis, Twitter) is chopped into **micro-batches**: tiny bundles of records (also called micro-RDDs) processed one after another so “streaming” is implemented as a fast sequence of mini-jobs, then written to HDFS / DBs / dashboards.
+- **Spark MLlib** — machine learning *distributed* (classification, regression, clustering, collaborative filtering, dimensionality reduction) so the model trains on the cluster, not one laptop.
+- **Spark GraphX** — graphs on Spark RDDs (PageRank, connected components, k-core, triangle count). Different from Giraph: GraphX lives *inside* Spark.
+
+**Apache Kafka** is the **intake pipe** for streams: many producers dump events onto a durable, distributed log; Spark Streaming (or others) **consumes** that log. “Distributed stream-processing framework” in the slide sense: many machines share the work of *capturing and forwarding* the firehose, not computing the final analytics themselves. `EXAM`
+
+### How it fits together
+
+```mermaid
+flowchart TB
+  subgraph store [Storage]
+    HDFS[HDFS: files as blocks on many disks]
+  end
+  subgraph yarn [Hadoop 2.0 landlord]
+    YARN[YARN: rent CPU/RAM as containers]
+  end
+  subgraph onMR [Still compiled to MapReduce]
+    Hive[Hive: SQL]
+    Pig[Pig: dataflow scripts]
+  end
+  subgraph skipMR [Skip MapReduce, still on YARN+HDFS]
+    Spark[Spark / Streaming / MLlib / GraphX]
+    Storm[Storm / Flink]
+    Giraph[Giraph graphs]
+  end
+  subgraph coord [Shared cluster truth]
+    ZK[Zookeeper whiteboard]
+  end
+  HDFS --> YARN
+  YARN --> Hive
+  YARN --> Pig
+  YARN --> Spark
+  YARN --> Storm
+  YARN --> Giraph
+  Kafka[Kafka: capture the stream] --> Spark
+  ZK -.-> YARN
+```
+
+Bottom layer holds bytes; YARN hands out machines; Hive/Pig still ride MapReduce; Spark-family and friends rent YARN directly; Zookeeper keeps the zoo from arguing.
 
 ### Worked example
 
@@ -222,9 +310,9 @@ Trace one streaming pipeline end to end: a live Twitter feed → captured by **K
 
 ### Tiny recap card
 
-- Hadoop 2.0 core = HDFS (storage) + YARN (resource management) + MapReduce (processing).
-- Hive/Pig simplify MapReduce; Giraph/Storm/Spark/Flink bypass MapReduce and run directly on YARN+HDFS.
-- Spark's family (Streaming, MLlib, GraphX) plus Kafka/Zookeeper round out the ecosystem for streaming, ML, graphs, and coordination.
+- Hadoop 2.0 core = HDFS (the filing system) + YARN (who gets machines) + MapReduce (map then combine).
+- Hive = SQL; Pig = dataflow scripts; Giraph/Storm/Spark/Flink can skip MapReduce and still sit on YARN+HDFS.
+- Spark’s family (Streaming micro-batches, MLlib, GraphX) plus Kafka (the intake log) and Zookeeper (the whiteboard) round out streaming, ML, graphs, and coordination.
 
 ### Checkpoint
 
@@ -301,48 +389,91 @@ Lecture 2 gave you the map of tools; this lecture zooms into Hadoop itself — w
 
 ### Slide picture
 
-![High-level Hadoop architecture: Master Node runs TaskTracker+JobTracker (MapReduce layer) and NameNode+DataNode (HDFS layer); Slave Nodes each run a TaskTracker and DataNode](images/week-1/lec03-hadoop-architecture.png)
+![High-level Hadoop architecture: Master Node runs TaskTracker+JobTracker (MapReduce layer) and NameNode+DataNode (HDFS layer); Slave Nodes each run a TaskTracker and DataNode](images/lec03-hadoop-architecture.png)
 
-![HDFS read/write: Client asks NameNode for block metadata, then reads/writes directly to the nearest DataNode; blocks are replicated across racks](images/week-1/lec03-hdfs-namenode-datanode.png)
+![HDFS read/write: Client asks NameNode for block metadata, then reads/writes directly to the nearest DataNode; blocks are replicated across racks](images/lec03-hdfs-namenode-datanode.png)
 
-![Hadoop 1.0 (MapReduce does both processing + resource management) vs Hadoop 2.0 (YARN handles cluster resource management; Tez is the execution engine; MR/Pig/Hive/streaming/graph all run on top)](images/week-1/lec03-hadoop1-vs-hadoop2.png)
+![Hadoop 1.0 (MapReduce does both processing + resource management) vs Hadoop 2.0 (YARN handles cluster resource management; Tez is the execution engine; MR/Pig/Hive/streaming/graph all run on top)](images/lec03-hadoop1-vs-hadoop2.png)
 
 ### Core ideas
 
-- **Origin** — Hadoop was created by **Doug Cutting and Mike Cafarella in 2005**, originally to support the Nutch search engine project. Cutting (then at Yahoo, later Chief Architect at Cloudera) named it after his son's toy elephant. `EXAM` (classic trivia question)
-- **Hadoop = open-source framework for reliable, scalable, distributed computing** for Big Data analytics, running on clusters of **commodity hardware**. `EXAM`
-- **Four core design principles** — `EXAM` `PROF` (explicitly summarized by the professor as the "four different main design issues")
-  1. **Move computation to data**, not data to computation (data is too large to move; started as a **batch processing** framework).
-  2. **Scalability** — scale-out via adding more commodity machines, not scale-up to one powerful machine.
-  3. **Reliability** — failure is the norm with commodity hardware, so fault tolerance is a core design goal (inherited from Google File System / Google MapReduce lineage).
-  4. **Keep all the data as-is**, fit it into a schema only at read time (not at write time) — simplifies later complex analytics.
-- **Apache Hadoop's four basic modules** — `EXAM`
-  1. **Hadoop Common** — shared libraries/utilities used by other modules.
-  2. **HDFS** — distributed file system storing data across commodity machines with high aggregate bandwidth.
-  3. **YARN** — resource manager + scheduler for cluster compute resources.
-  4. **MapReduce** — the programming paradigm/model for distributed computation.
-- **High-level architecture** — one **Master Node** + many **Slave Nodes**. `EXAM`
-  - HDFS layer: single **NameNode** (master) + many **DataNodes** (slaves, one per node).
-  - MapReduce layer: single **JobTracker** (master) + many **TaskTrackers** (one per node).
-  - NameNode and JobTracker typically colocate on the master; DataNode+TaskTracker pairs run on every slave.
-- **HDFS read/write flow** — client contacts the **NameNode** for metadata (which DataNode holds which block), then reads/writes directly with the **closest** DataNode for high-bandwidth access; data is **replicated** across nodes/racks for fault tolerance. `EXAM` `SLIDE`
-- **NameNode fault tolerance** — NameNode and DataNodes exchange continuous **heartbeats**; a dead DataNode is removed from service until it resyncs. Since a single NameNode is a **single point of failure**, a **secondary NameNode** passively keeps recent backups and can take over. `EXAM` `PROF`
-- **MapReduce engine (Hadoop 1.0)** — single **JobTracker** accepts client jobs and pushes tasks out to **TaskTrackers** across the cluster, trying to keep computation close to the data. `EXAM`
-- **YARN (Hadoop 2.0)** — client-server architecture: **ResourceManager** (core, receives client requests) + per-node **NodeManager** (allocates resources locally). Each application gets an **Application Master**, and allocated resource units are **containers**. `EXAM`
-- **Hadoop 1.0 vs 2.0** — `EXAM`
-  - 1.0: only HDFS + MapReduce; MapReduce itself handled both resource management/scheduling *and* data processing.
-  - 2.0: MapReduce's resource-management job is split out into **YARN**; **Tez** becomes the execution engine; MapReduce, Pig, Hive, real-time streaming, and graph processing all now run *on top of* YARN, not only through MapReduce. HDFS becomes **HDFS2** (still redundant, reliable storage).
-- **Distributions/"stacks"** — Google stack (GFS + MapReduce + BigTable + MySQL), Yahoo/Hadoop stack (Hadoop + HBase + Zookeeper etc.), Cloudera's distribution — all packaging the same core ideas differently. `SLIDE`
-- **Ecosystem applications, one-liners** — `EXAM`
-  - **Sqoop** — "SQL-on-Hadoop": bulk-transfers data between Hadoop and SQL/RDBMS data stores.
-  - **HBase** — column-oriented, distributed, key-value NoSQL DB, based on Google BigTable; fast random access to large datasets; not relational.
-  - **Pig** — scripting language (**Pig Latin**), dataflow model, built at Yahoo (2006), simplifies MapReduce, used for ETL (Extract-Transform-Load).
-  - **Hive** — SQL-like queries over MapReduce for storage + analysis.
-  - **Oozie** — workflow scheduler that coordinates Hadoop jobs (MapReduce, Pig, Hive, Sqoop).
-  - **Zookeeper** — centralized coordination service: configuration, naming, distributed synchronization, group services.
-  - **Flume** — distributed, reliable service for collecting/aggregating/moving large amounts of log data into HDFS ("data ingestion").
-  - **Impala** — SQL-based analytics query engine on top of Hadoop, offers low-latency queries.
-  - **Spark** — fast, general-purpose, in-memory large-scale data processing engine; claimed **~100x faster** than MapReduce for suitable applications. `EXAM` (the "100x faster" number is a favorite quiz number)
+**Origin trivia** (cheap marks): **Doug Cutting and Mike Cafarella, 2005**, for the **Nutch** search engine; named after Cutting’s son’s toy elephant; Cutting later at Yahoo / Cloudera. `EXAM`
+
+Hadoop is an open-source framework for **reliable, scalable, distributed** analytics on **commodity** clusters. `EXAM`
+
+Four design issues the professor flags: `EXAM` `PROF`
+
+1. **Move computation to data** — a 10 TB file is expensive to ship across the network; send a small program to the machine that already holds the block. Classic Hadoop is **batch**: wait until a job’s input is ready, then crunch.
+2. **Scalability** — **scale-out** (add PCs), not **scale-up** (buy one supercomputer).
+3. **Reliability** — cheap hardware fails; copies and retries are the design, inherited from Google File System / Google MapReduce.
+4. **Keep data as-is; schema at read time** — dump the raw dump now; decide columns when you query. That is **schema-on-read** (opposite of a bank DB that rejects a write if a column is missing). It makes later weird analytics easier.
+
+Four **modules** of Apache Hadoop: `EXAM`
+
+1. **Hadoop Common** — shared Java libraries the others import (the toolbox, not a daemon you quiz as “storage”).
+2. **HDFS** — the distributed filesystem (high aggregate bandwidth across many disks).
+3. **YARN** — rents CPU/RAM and decides *when* jobs run.
+4. **MapReduce** — the map-then-reduce programming model.
+
+**High-level architecture** — one **Master** + many **Slaves**: `EXAM`
+
+- Storage: **NameNode** (master) + **DataNodes** (one per machine). NameNode is the *catalog*: filenames and “block 7 lives on machines A,B,C.” DataNodes hold the actual bytes.
+- Compute (Hadoop 1.0 names): **JobTracker** (master) + **TaskTrackers** (workers). JobTracker assigns map/reduce tasks; TaskTrackers run them.
+
+**HDFS read/write:** client always asks the **NameNode** first (metadata), then reads/writes the **nearest DataNode** for the actual bytes. Replicas sit on other nodes/racks so a disk or rack death is survivable. `EXAM` `SLIDE`
+
+NameNode and DataNodes keep **heartbeats** (I’m alive pings). A silent DataNode is dropped until it returns. One NameNode is a **single point of failure**. The **Secondary NameNode** is *not* a hot spare that instantly takes traffic; it periodically **checkpoints/backups** metadata so recovery is possible. `EXAM` `PROF`
+
+**MapReduce engine (1.0):** JobTracker takes a job, prefers tasks *next to* the data. `EXAM`
+
+**YARN (2.0):** **ResourceManager** (cluster desk) + **NodeManager** (per machine) + per-app **Application Master** (that job’s own foreman) + **containers** (the rented slice). `EXAM`
+
+**1.0 vs 2.0:** 1.0 = HDFS + MapReduce, and MapReduce *also* scheduled the cluster. 2.0 = **YARN** takes scheduling; **Tez** is named as an execution engine; MapReduce, Pig, Hive, streaming, graphs run *on* YARN; storage is **HDFS2**. `EXAM`
+
+Google vs Yahoo packaging (GFS+MR+BigTable vs Hadoop+HBase+Zookeeper) is slide color, not a new architecture. `SLIDE`
+
+Ecosystem — same map as Lecture 2, now with the jobs quizzes use: `EXAM`
+
+- **Sqoop** — **SQL-on-Hadoop** in the *transfer* sense: bulk-copy *tables* between a normal **RDBMS** (MySQL, Oracle) and Hadoop. Not a query engine.
+- **HBase** — column-oriented, key-value, BigTable lineage; fast *random* get/put on huge data; not SQL joins.
+- **Pig** — **Pig Latin** scripts, dataflow, Yahoo 2006, **ETL** (extract from sources, transform, load into the lake).
+- **Hive** — SQL-like analysis over MapReduce.
+- **Oozie** — **workflow**: “run this MapReduce, then this Hive, then Sqoop.” A to-do list of jobs, not cluster membership.
+- **Zookeeper** — config, naming, sync, group services (the whiteboard). Different from Oozie.
+- **Flume** — **ingest** log/event streams *into* HDFS (agents on web servers pouring logs), not table dumps (that’s Sqoop).
+- **Impala** — SQL analytics on Hadoop with **low latency** (interactive-ish queries vs Hive’s batch feel).
+- **Spark** — general in-memory engine; slide claim **~100x** vs MapReduce when the working set fits RAM. `EXAM`
+
+### How it fits together
+
+```mermaid
+flowchart LR
+  subgraph master [Master]
+    NN[NameNode: catalog]
+    JT[JobTracker 1.0 / ResourceManager 2.0]
+  end
+  subgraph slave [Each slave]
+    DN[DataNode: blocks]
+    TT[TaskTracker 1.0 / NodeManager 2.0]
+  end
+  Client -->|1 where is the file?| NN
+  Client -->|2 read/write bytes| DN
+  JT -->|assign tasks near data| TT
+```
+
+```mermaid
+flowchart TB
+  Sqoop[Sqoop: RDBMS tables ↔ Hadoop]
+  Flume[Flume: logs → HDFS]
+  Oozie[Oozie: order of jobs]
+  ZK[Zookeeper: shared truth]
+  Sqoop --> HDFS[HDFS]
+  Flume --> HDFS
+  Oozie --> Hive[Hive / Pig / MR]
+  ZK -.-> HDFS
+```
+
+Catalog vs bytes is the HDFS split; Sqoop vs Flume is structured dump vs log firehose; Oozie vs Zookeeper is job order vs cluster membership.
 
 ### Worked example
 
@@ -360,9 +491,9 @@ Trace an HDFS write: a client wants to write a file → contacts the **NameNode*
 
 ### Tiny recap card
 
-- Hadoop's 4 design pillars: move computation to data, scale out, be fault-tolerant, keep raw data and schema-on-read.
-- Architecture: Master (NameNode + JobTracker) + Slaves (DataNode + TaskTracker per node); Hadoop 2.0 replaces JobTracker's resource-management role with YARN (ResourceManager + NodeManager).
-- Ecosystem one-liners: Sqoop=RDBMS↔Hadoop transfer, Pig=scripting ETL, Hive=SQL queries, Oozie=workflow scheduler, Zookeeper=coordination, Flume=log ingestion, Spark=in-memory ~100x faster engine.
+- Hadoop's 4 design pillars: move computation to data, scale out, survive disk death, dump raw data and apply schema when you read.
+- Architecture: Master (NameNode + JobTracker) + Slaves (DataNode + TaskTracker); Hadoop 2.0’s landlord is YARN (ResourceManager + NodeManager), not JobTracker-as-scheduler.
+- Sqoop copies SQL tables; Flume pours logs; Pig is step-by-step ETL; Hive is SQL; Oozie orders jobs; Zookeeper is the shared whiteboard; Spark keeps work in RAM (~100x claim).
 
 ### Checkpoint
 
