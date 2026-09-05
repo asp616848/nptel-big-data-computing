@@ -122,7 +122,7 @@ python3 Skills/nptel-big-data-week/scripts/extract_week.py --week 2 --lecture 4
 
 Output lands in `.skill-cache/week-N/` (gitignored; safe to delete and regenerate).
 
-### 4. Solve a weekly NPTEL assignment
+### 4. Store a weekly NPTEL assignment (Knowledge-base management, use only after submission deadline) 
 
 When the assignment opens on the NPTEL portal:
 
