@@ -1,0 +1,97 @@
+{
+  "pdf_relative": "Big_Data.pdf",
+  "footer_to_pdf_offset": 3,
+  "last_content_footer": 809,
+  "weeks": {
+    "1": {
+      "title": "Introduction to Big Data",
+      "footer_start": 1,
+      "footer_end": 78,
+      "lectures": [
+        {"n": 1, "title": "Introduction to Big Data", "footer": 1},
+        {"n": 2, "title": "Big Data Enabling Technologies", "footer": 31},
+        {"n": 3, "title": "Hadoop Stack for Big Data", "footer": 51}
+      ]
+    },
+    "2": {
+      "title": "Hadoop, HDFS and MapReduce",
+      "footer_start": 79,
+      "footer_end": 162,
+      "lectures": [
+        {"n": 4, "title": "Hadoop Distributed File System (HDFS)", "footer": 79},
+        {"n": 5, "title": "Hadoop MapReduce 1.0", "footer": 107},
+        {"n": 6, "title": "Hadoop MapReduce 2.0 (Part-I)", "footer": 113},
+        {"n": 7, "title": "Hadoop MapReduce 2.0 (Part-II)", "footer": 129},
+        {"n": 8, "title": "MapReduce Examples", "footer": 139}
+      ]
+    },
+    "3": {
+      "title": "Spark and Key-Value Stores",
+      "footer_start": 163,
+      "footer_end": 255,
+      "lectures": [
+        {"n": 9, "title": "Parallel Programming with Spark", "footer": 163},
+        {"n": 10, "title": "Introduction to Spark", "footer": 201},
+        {"n": 11, "title": "Spark Built-in Libraries", "footer": 230},
+        {"n": 12, "title": "Design of Key-Value Stores", "footer": 239}
+      ]
+    },
+    "4": {
+      "title": "Storage, CAP, Consistency, Zookeeper, CQL",
+      "footer_start": 256,
+      "footer_end": 359,
+      "lectures": [
+        {"n": 13, "title": "Data Placement Strategies", "footer": 256},
+        {"n": 14, "title": "CAP Theorem", "footer": 269},
+        {"n": 15, "title": "Consistency Solutions", "footer": 283},
+        {"n": 16, "title": "Design of Zookeeper", "footer": 293},
+        {"n": 17, "title": "CQL (Cassandra Query Language)", "footer": 339}
+      ]
+    },
+    "5": {
+      "title": "HBase, Streaming, Sliding Windows, Kafka",
+      "footer_start": 360,
+      "footer_end": 472,
+      "lectures": [
+        {"n": 18, "title": "Design of HBase", "footer": 360},
+        {"n": 19, "title": "Spark Streaming and Sliding Window Analytics (Part-I)", "footer": 381},
+        {"n": 20, "title": "Spark Streaming and Sliding Window Analytics (Part-II)", "footer": 405},
+        {"n": 21, "title": "Sliding Window Analytics", "footer": 430},
+        {"n": 22, "title": "Introduction to Kafka", "footer": 447}
+      ]
+    },
+    "6": {
+      "title": "Big Data Machine Learning and K-means",
+      "footer_start": 473,
+      "footer_end": 595,
+      "lectures": [
+        {"n": 23, "title": "Big Data Machine Learning (Part-I)", "footer": 473},
+        {"n": 24, "title": "Big Data Machine Learning (Part-II)", "footer": 495},
+        {"n": 25, "title": "Machine Learning Algorithm K-means using Map Reduce for Big Data Analytics", "footer": 563},
+        {"n": 26, "title": "Parallel K-means using Map Reduce on Big Data Cluster Analysis", "footer": 586}
+      ]
+    },
+    "7": {
+      "title": "Decision Trees and Predictive Analytics",
+      "footer_start": 596,
+      "footer_end": 694,
+      "lectures": [
+        {"n": 27, "title": "Decision Trees for Big Data Analytics", "footer": 596},
+        {"n": 28, "title": "Big Data Predictive Analytics (Part-I)", "footer": 635},
+        {"n": 29, "title": "Big Data Predictive Analytics (Part-II)", "footer": 658}
+      ]
+    },
+    "8": {
+      "title": "Parameter Servers, PageRank, GraphX",
+      "footer_start": 695,
+      "footer_end": 809,
+      "lectures": [
+        {"n": 30, "title": "Parameter Servers", "footer": 695},
+        {"n": 31, "title": "PageRank Algorithm in Big Data", "footer": 716},
+        {"n": 32, "title": "Spark GraphX & Graph Analytics (Part-I)", "footer": 732},
+        {"n": 33, "title": "Spark GraphX & Graph Analytics (Part-II)", "footer": 761},
+        {"n": 34, "title": "Case Study: Flight Data Analysis using Spark GraphX", "footer": 795}
+      ]
+    }
+  }
+}
