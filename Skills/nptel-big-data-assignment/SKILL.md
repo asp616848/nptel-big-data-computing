@@ -41,9 +41,17 @@ To the point. One question after another. **Not** a second copy of the lecture n
 
 - Clean stem + options.
 - **Answer** first (letter or True/False).
-- **Why** in 1–3 sentences, tied to a lecture idea / notes heading. If a term in the stem is easy to mix up, one clause of *what that term actually means* is allowed.
+- **Why** in 1–3 sentences, tied to a lecture idea / notes heading **from this week only**. If a term in the stem is easy to mix up, one clause of *what that term actually means* is allowed — but only using this week's words.
 - **Trap** only when an option is a near-twin.
 - After the last question: `## Patterns this week` and `## Tips for the final` (see template). That is the only discursive part.
+
+**Portal option vs this week's slides (easy failure mode)**
+
+NPTEL often puts a later-lecture one-liner on an early quiz (example: week 1 option `Kafka – Distributed Commit Log` while Lecture 2 only says Kafka is an open-source *distributed stream-processing framework* that feeds Spark, and “we will discuss later”).
+
+- Do **not** rewrite Lecture 2 as if it taught that later phrase.
+- Do **not** open another week's cache/PDF to “complete” the definition.
+- Why should be: this week's wording is X; the accepted option uses Y; still pick the portal's pair. If Y is not in this week at all, say so in one sentence.
 
 Do not embed lecture slide images unless the assignment itself is about a figure that you actually have.
 

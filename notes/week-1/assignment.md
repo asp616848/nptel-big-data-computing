@@ -185,7 +185,7 @@ Which pair is correctly matched?
 
 **Answer:** **b**
 
-**Why:** Kafka is described in Lecture 2 as an open-source distributed stream-processing framework built around a distributed commit-log abstraction that feeds Spark Streaming.
+**Why:** Lecture 2 only calls Kafka an open-source **distributed stream-processing framework** that feeds Spark Streaming (internals “later”). It never says “commit log.” The portal still pairs Kafka with **Distributed Commit Log** — that one-liner is from the later Kafka lecture, not this week. Pick **b** because the other three pairs are wrong on this week's map.
 
 **Trap:** a/c/d all swap roles: Hive is SQL queries not streaming, Sqoop is RDBMS↔Hadoop transfer not graphs, GraphX is Spark's graph-analytics library not ETL.
 
@@ -223,4 +223,4 @@ Which of the following is the PRIMARY function of Apache ZooKeeper in a distribu
 
 - The Zookeeper/Oozie and NameNode/DataNode swaps are near-certain to reappear reworded — memorize the *function*, not the option letter.
 - Don't just memorize "3 V's" — this assignment shows the extra V's (Volatility, Validity, Veracity) are fair game too.
-- Tool one-liners (Hive=SQL warehouse, Pig=scripting ETL, Sqoop=RDBMS transfer, Flume=log ingestion, Kafka=distributed commit log/streaming, Oozie=workflow scheduler, Zookeeper=coordination) are the highest-leverage thing to drill from this week.
+- Tool one-liners (Hive=SQL warehouse, Pig=scripting ETL, Sqoop=RDBMS transfer, Flume=log ingestion, Kafka=stream intake into Spark this week / “commit log” only later, Oozie=workflow scheduler, Zookeeper=coordination) are the highest-leverage thing to drill from this week. NPTEL may still print a later one-liner on an early quiz — still pick the right *tool*, but do not pretend this week's transcript said it.

@@ -9,7 +9,7 @@ Each week lives in its own folder:
 | 1 | ✅ [notes](week-1/notes.md) | ✅ [assignment](week-1/assignment.md) |
 | 2 | ✅ [notes](week-2/notes.md) | ✅ [assignment](week-2/assignment.md) |
 | 3 | ✅ [notes](week-3/notes.md) | ✅ [assignment](week-3/assignment.md) |
-| 4 | | |
+| 4 | ✅ [notes](week-4/notes.md) | ✅ [assignment](week-4/assignment.md) |
 | 5 | | |
 | 6 | | |
 | 7 | | |

@@ -258,7 +258,9 @@ Some apps **skip MapReduce** and run on YARN+HDFS directly: `EXAM`
 - **Spark MLlib** — machine learning *distributed* (classification, regression, clustering, collaborative filtering, dimensionality reduction) so the model trains on the cluster, not one laptop.
 - **Spark GraphX** — graphs on Spark RDDs (PageRank, connected components, k-core, triangle count). Different from Giraph: GraphX lives *inside* Spark.
 
-**Apache Kafka** is the **intake pipe** for streams: many producers dump events onto a durable, distributed log; Spark Streaming (or others) **consumes** that log. “Distributed stream-processing framework” in the slide sense: many machines share the work of *capturing and forwarding* the firehose, not computing the final analytics themselves. `EXAM`
+**Apache Kafka**, in this lecture: an open-source **distributed stream-processing framework** that **captures** streams and **submits** them to Spark — a pipeline. He explicitly defers the internals (“we will discuss later on”). `EXAM`
+
+The week-1 assignment option `Kafka – Distributed Commit Log` is **not** a Lecture 2 sentence. Do not treat commit-log as a week-1 atom; the phrase shows up when Kafka is taught for real (later). For this week, the identity is: Kafka = intake into Spark Streaming, not Hive/Sqoop/GraphX.
 
 ### How it fits together
 
@@ -312,7 +314,7 @@ Trace one streaming pipeline end to end: a live Twitter feed → captured by **K
 
 - Hadoop 2.0 core = HDFS (the filing system) + YARN (who gets machines) + MapReduce (map then combine).
 - Hive = SQL; Pig = dataflow scripts; Giraph/Storm/Spark/Flink can skip MapReduce and still sit on YARN+HDFS.
-- Spark’s family (Streaming micro-batches, MLlib, GraphX) plus Kafka (the intake log) and Zookeeper (the whiteboard) round out streaming, ML, graphs, and coordination.
+- Spark’s family (Streaming micro-batches, MLlib, GraphX) plus Kafka (capture streams into Spark) and Zookeeper (the whiteboard) round out streaming, ML, graphs, and coordination.
 
 ### Checkpoint
 
@@ -675,6 +677,7 @@ Lecture 1 gave you the *problem*: data has gotten so big, fast, and varied that 
 | Pig | Scripting/dataflow language (Pig Latin) for ETL |
 | Sqoop | Bulk transfer tool: Hadoop ↔ SQL/RDBMS |
 | Flume | Collects and ingests log data into HDFS |
+| Kafka | Captures streams into Spark Streaming |
 | Oozie | Workflow scheduler coordinating Hadoop jobs |
 | Zookeeper | Centralized coordination: config, sync, naming service |
 | HBase | Column-oriented NoSQL store, based on BigTable |

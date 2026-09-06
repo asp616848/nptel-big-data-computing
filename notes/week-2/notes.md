@@ -153,7 +153,7 @@ With replication factor 3, that's 160 × 3 = 480 physical block copies stored ac
 ### Checkpoint
 
 1. What does the HDFS NameNode actually store?
-   a) The full contents of every file
+   a) The full contents of every file 
    b) Metadata — filesystem namespace and block-to-DataNode mapping
    c) A backup copy of every block
    d) Only the replication factor
