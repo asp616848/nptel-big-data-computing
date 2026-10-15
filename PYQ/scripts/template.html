@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Big Data PYQ Bank</title>
+<style>
+:root{--bg:#fff;--fg:#000;--mute:#555;--line:#000;--soft:#e8e8e8;--hi:#000;--hi-fg:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#000;--fg:#fff;--mute:#aaa;--line:#fff;--soft:#222;--hi:#fff;--hi-fg:#000}}
+:root[data-theme="dark"]{--bg:#000;--fg:#fff;--mute:#aaa;--line:#fff;--soft:#222;--hi:#fff;--hi-fg:#000}
+*{box-sizing:border-box;border-radius:0}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
+button,input,select{font:inherit;color:inherit;background:var(--bg);border:1px solid var(--line);padding:4px 8px;border-radius:0}
+button{cursor:pointer}
+button:hover{background:var(--soft)}
+button[aria-pressed="true"],button.on{background:var(--hi);color:var(--hi-fg)}
+header{border-bottom:1px solid var(--line);padding:12px 16px;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;justify-content:space-between}
+h1{font-size:16px;margin:0;font-weight:700;letter-spacing:.02em}
+.sub{color:var(--mute)}
+.wrap{display:grid;grid-template-columns:280px 1fr;min-height:calc(100vh - 50px)}
+aside{border-right:1px solid var(--line);padding:16px;position:sticky;top:0;align-self:start;max-height:100vh;overflow:auto}
+main{padding:16px;max-width:920px}
+.grp{margin-bottom:16px}
+.grp>label,.grp>.lbl{display:block;text-transform:uppercase;font-size:11px;letter-spacing:.08em;color:var(--mute);margin-bottom:4px}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.chips button{padding:2px 8px;min-width:34px}
+aside input[type=search],aside select{width:100%}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.chk{display:flex;gap:6px;align-items:center;margin:4px 0;cursor:pointer}
+.chk input{width:auto;accent-color:var(--fg)}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:16px}
+.card{border:1px solid var(--line);margin-bottom:16px}
+.card.bm{border-width:2px}
+.meta{display:flex;flex-wrap:wrap;gap:4px 12px;border-bottom:1px solid var(--line);padding:4px 12px;font-size:12px;color:var(--mute);align-items:center}
+.meta b{color:var(--fg)}
+.meta .sp{flex:1}
+.meta button{padding:0 6px;font-size:12px}
+.q{padding:12px;white-space:pre-wrap;overflow-wrap:anywhere}
+.imgs{padding:0 12px 12px}
+.imgs img{max-width:100%;border:1px solid var(--line);background:#fff;display:block;margin-top:8px}
+ol.opts{list-style:none;margin:0;padding:0 12px 12px}
+ol.opts li{display:flex;gap:8px;border:1px solid var(--line);margin-top:-1px;padding:6px 8px;cursor:default;overflow-wrap:anywhere}
+ol.opts li .k{flex:none;width:1.5em;font-weight:700}
+ol.opts li.pick{cursor:pointer}
+ol.opts li.pick:hover{background:var(--soft)}
+ol.opts li.sel{outline:2px solid var(--fg);outline-offset:-2px}
+ol.opts li.right{background:var(--hi);color:var(--hi-fg)}
+ol.opts li.wrong{text-decoration:line-through}
+ol.opts li .tag{margin-left:auto;flex:none;font-size:11px;text-transform:uppercase;letter-spacing:.06em}
+.foot{border-top:1px solid var(--line);padding:6px 12px;font-size:12px;color:var(--mute);display:flex;flex-wrap:wrap;gap:4px 16px}
+.foot .flag{border:1px solid var(--line);padding:0 6px;color:var(--fg)}
+.act{padding:0 12px 12px;display:flex;gap:8px;align-items:center}
+details{border-top:1px solid var(--line);padding:6px 12px;font-size:13px}
+details summary{cursor:pointer}
+details div{padding-top:6px;white-space:pre-wrap}
+.empty{border:1px solid var(--line);padding:24px;text-align:center;color:var(--mute)}
+.more{display:block;margin:0 auto 32px}
+@media (max-width:800px){.wrap{grid-template-columns:1fr}aside{position:static;border-right:0;border-bottom:1px solid var(--line);max-height:none}}
+</style>
+</head>
+<body>
+<header>
+  <h1>BIG DATA COMPUTING &mdash; PYQ BANK</h1>
+  <span class="sub" id="totals"></span>
+</header>
+<div class="wrap">
+<aside>
+  <div class="grp"><label for="s">Search</label><input id="s" type="search" placeholder="question or option text"></div>
+  <div class="grp"><span class="lbl">Year</span><div class="chips" id="years"></div></div>
+  <div class="grp"><span class="lbl">Week</span><div class="chips" id="weeks"></div></div>
+  <div class="grp"><label for="topic">Topic</label><select id="topic"></select></div>
+  <div class="grp"><span class="lbl">Type</span><div class="chips" id="types"></div></div>
+  <div class="grp">
+    <label class="chk"><input type="checkbox" id="repOnly"> repeated questions only</label>
+    <label class="chk"><input type="checkbox" id="bmOnly"> bookmarked only</label>
+    <label class="chk"><input type="checkbox" id="flagOnly"> needs review only</label>
+    <label class="chk"><input type="checkbox" id="wrongOnly"> my wrong answers only</label>
+  </div>
+  <div class="grp"><span class="lbl">Mode</span>
+    <div class="chips"><button id="mBrowse" aria-pressed="true">Browse</button><button id="mPractice" aria-pressed="false">Practice</button></div>
+  </div>
+  <div class="grp"><label for="sort">Order</label><select id="sort"><option value="week">by week, then year</option><option value="rep">most repeated first</option><option value="new">newest year first</option></select></div>
+  <div class="grp row"><button id="shuffle">Shuffle</button><button id="reset">Reset filters</button><button id="theme">Theme</button></div>
+  <div class="grp sub" id="stats"></div>
+</aside>
+<main>
+  <div class="bar"><span id="count"></span><span class="sub" id="hint"></span></div>
+  <div id="list"></div>
+  <button class="more" id="more" hidden>Show more</button>
+</main>
+</div>
+<script id="data" type="application/json">/*DATA*/</script>
+<script>
+(function(){
+"use strict";
+var Q = JSON.parse(document.getElementById("data").textContent);
+var FLAGS = {
+  "answer-inferred-from-explanation":"answer inferred from explanation text",
+  "answer-from-explanation":"answer read from explanation text",
+  "answer-from-2023-twin":"no key in source; answer taken from identical 2023 question",
+  "answer-solved":"no key in source; answer solved by us",
+  "options-reconstructed":"options reconstructed (cut off in source PDF)",
+  "options-from-2021-twin":"options restored from 2021 twin",
+  "table-options-reconstructed":"table options rewritten as text",
+  "stem-reconstructed":"stem reconstructed",
+  "stem-restored-from-2021-twin":"stem restored from 2021 twin",
+  "source-lists-two-correct":"source explanation marks two options correct",
+  "multi-answer":"multiple correct answers"
+};
+var REVIEW = ["answer-inferred-from-explanation","answer-from-explanation","answer-from-2023-twin","answer-solved","options-reconstructed","options-from-2021-twin","table-options-reconstructed","stem-reconstructed","stem-restored-from-2021-twin","source-lists-two-correct"];
+var WEEKNAME = {0:"Prerequisites",1:"Intro",2:"Hadoop/MapReduce",3:"Spark/KV",4:"Storage",5:"Streaming",6:"ML basics",7:"ML trees",8:"Graphs"};
+
+function load(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+function save(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+var bm = load("pyq.bm",{});          // id -> 1
+var res = load("pyq.res",{});        // id -> 1 right, 0 wrong
+var S = {years:{},weeks:{},types:{},topic:"",q:"",mode:"browse",shown:50,order:null};
+var picks = {}, shownAns = {};
+
+var $ = function(i){return document.getElementById(i)};
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+
+
+// ---- filter UI
+function chips(box,vals,state,label){
+  vals.forEach(function(v){
+    var b=el("button",null,label?label(v):String(v));b.setAttribute("aria-pressed","false");
+    b.onclick=function(){state[v]=!state[v];b.setAttribute("aria-pressed",state[v]?"true":"false");S.shown=50;render()};
+    box.appendChild(b);
+  });
+}
+var years=[...new Set([].concat.apply([],Q.map(function(q){return q.years})))].sort();
+var weeks=[...new Set([].concat.apply([],Q.map(function(q){return q.weeks})))].sort(function(a,b){return a-b});
+chips($("years"),years,S.years);
+chips($("weeks"),weeks,S.weeks,function(w){return "W"+w});
+chips($("types"),["MCQ","MSQ"],S.types);
+var tops=[...new Set([].concat.apply([],Q.map(function(q){return q.topics})))].sort();
+var sel=$("topic");sel.appendChild(new Option("all topics",""));
+tops.forEach(function(t){sel.appendChild(new Option(t,t))});
+sel.onchange=function(){S.topic=sel.value;S.shown=50;render()};
+$("s").oninput=function(){S.q=this.value.toLowerCase().trim();S.shown=50;render()};
+["repOnly","bmOnly","flagOnly","wrongOnly"].forEach(function(i){$(i).onchange=function(){S.shown=50;render()}});
+$("sort").onchange=function(){S.order=null;S.shown=50;render()};
+function setMode(m){S.mode=m;$("mBrowse").setAttribute("aria-pressed",m==="browse");$("mPractice").setAttribute("aria-pressed",m==="practice");picks={};shownAns={};render()}
+$("mBrowse").onclick=function(){setMode("browse")};
+$("mPractice").onclick=function(){setMode("practice")};
+$("shuffle").onclick=function(){
+  var a=Q.map(function(q){return q.id});
+  for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}
+  S.order={};a.forEach(function(id,i){S.order[id]=i});S.shown=50;render();
+};
+$("reset").onclick=function(){
+  S.years={};S.weeks={};S.types={};S.topic="";S.q="";S.order=null;S.shown=50;
+  document.querySelectorAll(".chips button[aria-pressed]").forEach(function(b){if(b.id!=="mBrowse"&&b.id!=="mPractice")b.setAttribute("aria-pressed","false")});
+  sel.value="";$("s").value="";$("sort").value="week";["repOnly","bmOnly","flagOnly","wrongOnly"].forEach(function(i){$(i).checked=false});render();
+};
+$("theme").onclick=function(){
+  var r=document.documentElement,cur=r.getAttribute("data-theme");
+  var dark=cur?cur==="dark":matchMedia("(prefers-color-scheme:dark)").matches;
+  r.setAttribute("data-theme",dark?"light":"dark");save("pyq.theme",dark?"light":"dark");
+};
+var th=load("pyq.theme",null);if(th)document.documentElement.setAttribute("data-theme",th);
+$("more").onclick=function(){S.shown+=50;render()};
+
+function anyOn(o){return Object.keys(o).some(function(k){return o[k]})}
+function filtered(){
+  var useY=anyOn(S.years),useW=anyOn(S.weeks),useT=anyOn(S.types);
+  var out=Q.filter(function(q){
+    if(useY&&!q.years.some(function(y){return S.years[y]}))return false;
+    if(useW&&!q.weeks.some(function(w){return S.weeks[w]}))return false;
+    if(useT&&!S.types[q.type])return false;
+    if(S.topic&&q.topics.indexOf(S.topic)<0)return false;
+    if($("repOnly").checked&&q.repeat<2)return false;
+    if($("bmOnly").checked&&!bm[q.id])return false;
+    if($("flagOnly").checked&&!q.flags.some(function(f){return REVIEW.indexOf(f)>=0}))return false;
+    if($("wrongOnly").checked&&res[q.id]!==0)return false;
+    if(S.q){
+      var h=(q.question+" "+q.options.map(function(o){return o.text}).join(" ")).toLowerCase();
+      if(h.indexOf(S.q)<0)return false;
+    }
+    return true;
+  });
+  var so=$("sort").value;
+  if(S.order)out.sort(function(a,b){return S.order[a.id]-S.order[b.id]});
+  else if(so==="rep")out.sort(function(a,b){return b.repeat-a.repeat||a.week-b.week});
+  else if(so==="new")out.sort(function(a,b){return b.year-a.year||a.week-b.week||a.qno-b.qno});
+  return out;
+}
+
+function isRevealed(q){return S.mode==="browse"||shownAns[q.id]}
+function card(q){
+  var c=el("article","card"+(bm[q.id]?" bm":""));c.id="q-"+q.id;
+  var m=el("div","meta");
+  m.appendChild(el("b",null,q.id));
+  m.appendChild(el("span",null,"Week "+q.week+" · "+(WEEKNAME[q.week]||"")));
+  m.appendChild(el("span",null,q.type==="MSQ"?"MSQ (select all)":"MCQ"));
+  var rp=el("span",null,"asked "+q.repeat+"x");if(q.repeat>1)rp.style.color="var(--fg)";
+  m.appendChild(rp);
+  m.appendChild(el("span",null,q.appearances.map(function(a){return a.year+" W"+a.week}).join(", ")));
+  m.appendChild(el("span","sp"));
+  var b=el("button",null,bm[q.id]?"[x] saved":"[ ] save");
+  b.onclick=function(){if(bm[q.id])delete bm[q.id];else bm[q.id]=1;save("pyq.bm",bm);render()};
+  m.appendChild(b);c.appendChild(m);
+  c.appendChild(el("div","q",q.question));
+  if(q.images&&q.images.length){var d=el("div","imgs");q.images.forEach(function(s){var i=document.createElement("img");i.src=s;i.alt="figure for "+q.id;i.loading="lazy";d.appendChild(i)});c.appendChild(d)}
+  var ol=el("ol","opts"),rev=isRevealed(q),prac=S.mode==="practice";
+  q.options.forEach(function(o){
+    var li=el("li",prac&&!rev?"pick":"");
+    li.appendChild(el("span","k",o.k));li.appendChild(el("span",null,o.text));
+    var ok=q.answer.indexOf(o.k)>=0,p=picks[q.id]&&picks[q.id][o.k];
+    if(rev&&ok){li.classList.add("right");li.appendChild(el("span","tag","correct"))}
+    else if(rev&&p){li.classList.add("wrong");li.appendChild(el("span","tag","your pick"))}
+    else if(!rev&&p)li.classList.add("sel");
+    if(prac&&!rev)li.onclick=function(){
+      var pk=picks[q.id]=picks[q.id]||{};
+      if(q.type==="MSQ")pk[o.k]=!pk[o.k];else picks[q.id]=(function(){var x={};x[o.k]=true;return x})();
+      if(q.type!=="MSQ")reveal(q);else render();
+    };
+    ol.appendChild(li);
+  });
+  c.appendChild(ol);
+  if(prac&&!rev&&q.type==="MSQ"){var a=el("div","act");var bb=el("button",null,"Check answer");bb.onclick=function(){reveal(q)};a.appendChild(bb);c.appendChild(a)}
+  if(prac&&!rev&&q.type!=="MSQ"){}
+  if(prac&&!rev){var a2=el("div","act");var sb=el("button",null,"Show answer");sb.onclick=function(){shownAns[q.id]=true;render()};a2.appendChild(sb);c.appendChild(a2)}
+  if(rev&&q.explanation){var dt=document.createElement("details");dt.appendChild(el("summary",null,"Explanation (from source PDF)"));dt.appendChild(el("div",null,q.explanation));c.appendChild(dt)}
+  var f=el("div","foot");
+  f.appendChild(el("span",null,"source: "+q.source.file+(q.source.page?" p."+q.source.page:"")+(q.repeat>1?" (latest copy)":"")));
+  q.flags.forEach(function(x){if(FLAGS[x])f.appendChild(el("span","flag",FLAGS[x]))});
+  c.appendChild(f);
+  return c;
+}
+function reveal(q){
+  var pk=picks[q.id]||{},sel=Object.keys(pk).filter(function(k){return pk[k]}).sort().join(""),right=q.answer.slice().sort().join("");
+  if(sel){res[q.id]=sel===right?1:0;save("pyq.res",res)}
+  shownAns[q.id]=true;render();
+}
+function stats(){
+  var ids=Object.keys(res),ok=ids.filter(function(i){return res[i]===1}).length;
+  $("stats").textContent=ids.length?"practice: "+ids.length+" attempted, "+ok+" correct":"";
+}
+function render(){
+  var list=filtered(),box=$("list");box.textContent="";
+  $("count").textContent=list.length+" of "+Q.length+" questions";
+  $("hint").textContent=S.mode==="practice"?"click an option to answer":"correct options are highlighted";
+  if(!list.length)box.appendChild(el("div","empty","No questions match these filters."));
+  list.slice(0,S.shown).forEach(function(q){box.appendChild(card(q))});
+  $("more").hidden=list.length<=S.shown;
+  stats();
+}
+var raw=Q.reduce(function(n,q){return n+q.repeat},0);
+$("totals").textContent=Q.length+" unique questions ("+raw+" asked in total) · "+years[0]+"–"+years[years.length-1];
+render();
+})();
+</script>
+</body>
+</html>
