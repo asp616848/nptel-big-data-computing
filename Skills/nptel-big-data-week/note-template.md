@@ -27,7 +27,7 @@ Fill this **after** all lectures. Keep it to what still fits on one screen: 7 bu
 
 - 
 
-**Diagrams** (reuse files from `images/`, do not copy new ones)
+**Diagrams** (reuse files from `images/`)
 
 ![…](images/…)
 
@@ -55,10 +55,10 @@ Why this lecture exists in the course. One concrete picture. Name the problem in
 
 ### Slide picture
 
-Copy 2–4 exam-critical crops into `notes/week-N/images/` and embed them here. Caption states the fact.
+Embed 2–4 exam-critical slides from `notes/week-N/images/` (every slide is already there as `lecXX-pYYYY.png`). Caption states the fact.
 
 ```markdown
-![NameNode holds names + block locations](images/lec04-namenode.png)
+![NameNode holds names + block locations](images/lec04-p0011-1.png)
 ```
 
 If the figure is decorative or the crop failed, describe it in 3–5 lines instead. Never embed a page that still shows transcript text.

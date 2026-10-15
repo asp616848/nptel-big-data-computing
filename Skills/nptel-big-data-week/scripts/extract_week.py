@@ -8,6 +8,7 @@ Writes a cache the agent can read without opening the rest of the book:
   .skill-cache/week-N/manifest.json
   .skill-cache/week-N/lecture-XX.txt
   .skill-cache/week-N/slides/lecture-XX/pNNNN.png
+  notes/week-N/images/lecXX-pNNNN.png   (copy of every slide)
 """
 from __future__ import annotations
 
@@ -118,6 +119,9 @@ def main() -> int:
         return 1
 
     doc = fitz.open(pdf_path)
+    notes_img_dir = ROOT / "notes" / f"week-{args.week}" / "images"
+    if not args.no_images:
+        notes_img_dir.mkdir(parents=True, exist_ok=True)
     written = []
     for r in ranges:
         # Clamp to document
@@ -150,6 +154,8 @@ def main() -> int:
                 suffix = "" if len(rects) == 1 else f"-{idx + 1}"
                 img_path = slide_dir / f"p{pdf_page:04d}{suffix}.png"
                 pix.save(str(img_path))
+                # Keep EVERY slide next to the notes; notes.md embeds only a subset.
+                shutil.copyfile(img_path, notes_img_dir / f"lec{r['n']:02d}-{img_path.name}")
                 saved_slides.append(
                     {
                         "file": str(img_path.relative_to(out_dir)),

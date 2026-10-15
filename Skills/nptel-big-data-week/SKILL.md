@@ -23,8 +23,9 @@ Shared files: [knowledge-base.md](knowledge-base.md). Live assignment paste → 
 3. Read [exam-playbook.md](exam-playbook.md).
 4. Extract **only that week** (see below). Prefer `--lecture` one lecture at a time.
 5. For each lecture: transcript file + a few slide images → notes chunk → checkpoint quiz.
-6. Append that lecture to `notes/week-{N}/notes.md` using [note-template.md](note-template.md) before starting the next lecture (so a crash still leaves progress). Copy 2–4 exam-critical slide PNGs into `notes/week-{N}/images/` and embed them (see Images below).
-7. After the last lecture, fill the **one-page cheat sheet at the top**, add the week wrap quiz, then stop. Do not ask “continue?” — finish the week.
+6. Append that lecture to `notes/week-{N}/notes.md` using [note-template.md](note-template.md) before starting the next lecture (so a crash still leaves progress). Embed 2–4 exam-critical slide PNGs from `notes/week-{N}/images/` (the extractor already put every slide there; see Images below).
+7. After the last lecture, fill the **one-page cheat sheet at the top**, add the week wrap quiz.
+8. Build the PDF: `.venv/bin/python Skills/nptel-big-data-week/scripts/build_pdf.py --week N` → `notes/week-{N}/notes.pdf`. Check it has the expected page count and that mermaid/images rendered, then stop. Do not ask “continue?” — finish the week.
 
 Copy this checklist and tick it:
 
@@ -33,12 +34,13 @@ Week {N}
 - [ ] Week confirmed; other weeks out of bounds
 - [ ] Extractor run for this week
 - [ ] Each lecture: slides + transcript used
-- [ ] 2–4 exam-critical slides copied into notes/week-N/images/
+- [ ] All slides in notes/week-N/images/ (extractor does it); 2–4 per lecture embedded
 - [ ] Core ideas teach (story + unpack jargon + mermaid), then exam atoms
 - [ ] First-timer would not need to Google a phrase we introduced
 - [ ] Checkpoint quiz after each lecture (or part)
 - [ ] Week wrap quiz written
 - [ ] One-page cheat sheet filled at the top
+- [ ] notes.pdf built from notes.md (build_pdf.py)
 ```
 
 ## Bound the PDF (do not “just read Big_Data.pdf”)
@@ -60,6 +62,7 @@ Outputs (the only source files you may read for content):
 - `.skill-cache/week-N/manifest.json`
 - `.skill-cache/week-N/lecture-XX.txt`
 - `.skill-cache/week-N/slides/lecture-XX/*.png`
+- `notes/week-N/images/lecXX-pNNNN[-k].png` — the same slides, copied next to the notes for the learner (every slide, not just the embedded ones)
 
 **Context limit**
 
@@ -134,20 +137,15 @@ Read slide PNGs from `.skill-cache` using the **image-block crops** (not the ful
 
 The old “upper half of the page” crop mixed transcript into pictures. The extractor now clips each embedded slide by its PDF bbox. That works. Do not invent a new crop.
 
-Still do **not** dump 30 PNGs into the notes.
+Still do **not** dump 30 PNGs into the notes: the folder holds every slide, but `notes.md` embeds only the important subset.
 
 1. After extract, read the candidate PNGs (diagrams, comparison tables, numbered defaults, architecture). Skip Dilbert/wordclouds/title cards unless they carry a definition.
-2. Copy keepers into **that week’s** folder so the markdown still works if `.skill-cache` is deleted:
-
-```bash
-mkdir -p notes/week-N/images
-cp .skill-cache/week-N/slides/lecture-XX/pYYYY-1.png notes/week-N/images/lecXX-short-name.png
-```
+2. The extractor has already copied **every** slide into `notes/week-N/images/` as `lecXX-pYYYY.png` (or `-1`/`-2` when a page holds two slides), so the learner can browse all of them and the notes still work if `.skill-cache` is deleted. Do not copy or rename keepers; embed them where they are. Leave the unembedded slides in the folder.
 
 3. Embed with a path **relative to** `notes/week-N/notes.md`:
 
 ```markdown
-![Cassandra ring: client talks to one node](images/lec02-cassandra-ring.png)
+![Cassandra ring: client talks to one node](images/lec02-p0011-1.png)
 ```
 
 4. Budget: **2–4 embeds per lecture**, plus at most 3–4 of the best diagrams reused on the cheat sheet. Always add a one-line caption that states the exam fact (the image is not a substitute for the atom).
@@ -177,11 +175,14 @@ Each week is **isolated** in its own folder (create it if needed):
 
 ```
 notes/week-{N}/notes.md         ← lecture notes + cheat sheet
+notes/week-{N}/notes.pdf        ← PDF of the same notes.md (built by build_pdf.py, never hand-edited)
 notes/week-{N}/assignment.md    ← assignment skill only; do not write it here
-notes/week-{N}/images/          ← that week’s slide crops
+notes/week-{N}/images/          ← every slide of that week (notes.md embeds a subset)
 ```
 
 Do not write `notes/week-{N}.md` at the notes root. Do not put this week’s images under `notes/images/`.
+
+**PDF:** whenever `notes.md` changes (including a refresh), rebuild `notes.pdf` with `build_pdf.py --week N`. It needs `markdown` (`.venv/bin/pip install markdown`) and Google Chrome/Chromium; mermaid.js is fetched once into `.skill-cache/`. If Chrome is missing, say so and leave the PDF for the user instead of faking one.
 
 Follow [note-template.md](note-template.md) headings so weeks feel consistent.
 
@@ -199,6 +200,6 @@ Do not solve it inside the lecture-notes file. Point to skill `nptel-big-data-as
 
 Default: **complete every lecture in the week** in this session. Long weeks (especially 6 and 8) still get finished; chunk work, keep writing the notes file, continue.
 
-Pause only if the user explicitly says stop. Then leave `Resume at lecture X` at the bottom of `notes/week-{N}/notes.md`.
+Pause only if the user explicitly says stop. Then leave `Resume at lecture X` at the bottom of `notes/week-{N}/notes.md` (build the PDF only when the notes are complete).
 
 Do not start the next week.
