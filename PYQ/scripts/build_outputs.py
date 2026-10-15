@@ -12,7 +12,7 @@ W = {0: "Prerequisites", 1: "Introduction to Big Data", 2: "Hadoop / HDFS / MapR
      4: "Storage: CAP, Cassandra, ZooKeeper", 5: "Streaming: HBase, Kafka, Spark Streaming", 6: "ML basics",
      7: "ML with Spark: trees & ensembles", 8: "Graph processing"}
 out = ["# Big Data Computing: Previous-Year Question Bank", "",
-       f"{len(Q)} unique questions from NPTEL assignments 2019, 2021-2025 (repeats merged; `asked Nx` shows how often one came up). Open `index.html` for filters and practice mode.",
+       f"{len(Q)} unique questions from NPTEL assignments 2019, 2021-2026 (repeats merged; `asked Nx` shows how often one came up). Open `index.html` for filters and practice mode.",
        "Answers marked `*` were not in the source key and were solved or inferred (see flags in the HTML).", ""]
 cur = None
 for q in Q:

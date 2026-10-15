@@ -23,7 +23,7 @@ If these notes saved you time, **please [star this repository](https://github.co
 | --- | --- |
 | [`notes/`](notes/) | One folder per week: lecture notes + assignment pack + images |
 | [`notes/README.md`](notes/README.md) | Progress tracker — which weeks are done |
-| [`PYQ/`](PYQ/) | Previous-year question bank (2019, 2021-2025): 380 unique questions with answers, filters and practice mode. Open `PYQ/index.html` |
+| [`PYQ/`](PYQ/) | Previous-year question bank (2019, 2021-2026): 460 unique questions with answers, filters and practice mode. Open `PYQ/index.html` |
 | [`Big_Data.pdf`](Big_Data.pdf) | Official course slide book (813 pages) |
 | [`Skills/nptel-big-data-week/`](Skills/nptel-big-data-week/) | Cursor skill to **generate** lecture notes for one week |
 | [`Skills/nptel-big-data-assignment/`](Skills/nptel-big-data-assignment/) | Cursor skill to turn a pasted NPTEL assignment into Q + solutions |

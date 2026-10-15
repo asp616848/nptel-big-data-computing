@@ -1,6 +1,6 @@
 # Big Data Computing: Previous-Year Question Bank
 
-380 unique questions from NPTEL assignments 2019, 2021-2025 (repeats merged; `asked Nx` shows how often one came up). Open `index.html` for filters and practice mode.
+460 unique questions from NPTEL assignments 2019, 2021-2026 (repeats merged; `asked Nx` shows how often one came up). Open `index.html` for filters and practice mode.
 Answers marked `*` were not in the source key and were solved or inferred (see flags in the HTML).
 
 ## Week 0 · Prerequisites
@@ -877,6 +877,116 @@ Answers marked `*` were not in the source key and were solved or inferred (see f
 
 > Cassandra is a distributed, highly scalable NoSQL database designed for handling huge volumes of unstructured data.
 
+**2026-W1-Q1** (MCQ, asked 1x: 2026 W1) A dataset was highly useful in 2024, but by 2026 the same dataset becomes irrelevant because the information has lost significance. Which "V" best describes this situation?
+
+- A. Validity
+- B. Veracity
+- C. Volatility
+- D. Venue
+
+**Answer:** C
+
+> week-1 Lecture 1 defines Volatility as the rate of data loss and the stable lifetime of data — exactly "data that used to matter but has since lost significance." Trap: Validity is accuracy/correctness for a given use, not loss of relevance over time; Veracity is about noise/trustworthiness, not aging-out.
+
+**2026-W1-Q2** (MCQ, asked 1x: 2026 W1) Which of the following statements about Oozie is CORRECT?
+
+- A. Oozie is a distributed NoSQL database.
+- B. Oozie is a workflow scheduler system for Hadoop jobs.
+- C. Oozie is used to store data in HDFS.
+- D. Oozie is a machine learning library for Spark.
+
+**Answer:** B
+
+> Lecture 3, Core ideas — Oozie is explicitly defined as the workflow scheduler that manages/coordinates Hadoop jobs. Trap: Options a/c/d misassign Oozie's job to HBase/Cassandra (NoSQL), HDFS (storage), and MLlib (ML library) respectively.
+
+**2026-W1-Q3** (MCQ, asked 1x: 2026 W1) Oozie can directly coordinate which of the following Hadoop ecosystem components?
+
+- A. Hive, Pig, Sqoop, and MapReduce
+- B. HDFS, NameNode, DataNode, and YARN only
+- C. Cassandra, MongoDB, and Redis only
+- D. Spark MLlib and GraphX only
+
+**Answer:** A
+
+> Lecture 3 states Oozie "supports MapReduce, Pig, Hive, and Sqoop" as the jobs it coordinates. Trap: b/c/d list components Oozie does not directly schedule (storage/resource internals, NoSQL stores, Spark libraries).
+
+**2026-W1-Q4** (MCQ, asked 1x: 2026 W1) What is the primary purpose of Apache Flume in the Hadoop ecosystem?
+
+- A. Querying data stored in HDFS
+- B. Collecting and transferring large amounts of log data
+- C. Performing machine learning tasks
+- D. Managing cluster resources
+
+**Answer:** B
+
+> Lecture 3 — Flume is "a distributed reliable available service for efficiently collecting, aggregating, moving large amounts of log data into HDFS," i.e., data ingestion. Trap: a is Hive's job, c is MLlib's, d is YARN's.
+
+**2026-W1-Q5** (MCQ, asked 1x: 2026 W1) What is the primary role of Apache ZooKeeper in a Hadoop ecosystem?
+
+- A. Distributed data storage
+- B. Workflow scheduling
+- C. Distributed coordination and synchronization
+- D. SQL query processing
+
+**Answer:** C
+
+> Lecture 2 and 3 both define Zookeeper as the centralized coordination service — configuration, synchronization, naming, group services, leader election. Trap: b is Oozie's role (near-twin covered in week-1 near-twins table); a is HDFS/HBase, d is Hive.
+
+**2026-W1-Q6** (MCQ, asked 1x: 2026 W1) Hive primarily operates on data stored in:
+
+- A. MongoDB
+- B. Cassandra
+- C. HDFS
+- D. Redis
+
+**Answer:** C
+
+> Hive is a distributed data-management/SQL-query layer for Hadoop, running over MapReduce against data stored in HDFS. Trap: MongoDB/Cassandra/Redis are separate NoSQL stores not part of the Hive-over-Hadoop path.
+
+**2026-W1-Q7** (MCQ, asked 1x: 2026 W1) Which of the following best describes Apache Hive?
+
+- A. A distributed coordination service
+- B. A workflow scheduler
+- C. A data warehouse system built on Hadoop
+- D. A NoSQL database
+
+**Answer:** C
+
+> Lecture 2/3 — Hive provides SQL-like queries (HiveSQL) over MapReduce/HDFS for data mining and analysis, i.e., a data-warehouse layer on Hadoop. Trap: a=Zookeeper, b=Oozie, d=HBase/Cassandra — all near-twins from this week's notes.
+
+**2026-W1-Q8** (MCQ, asked 1x: 2026 W1) Which Hadoop module stores metadata?
+
+- A. DataNode
+- B. TaskTracker
+- C. NameNode
+- D. Reducer
+
+**Answer:** C
+
+> Lecture 3 — the NameNode holds filenames and block-location metadata; DataNodes hold the actual data blocks. Trap: DataNode is the classic swapped-pair distractor (holds data, not metadata).
+
+**2026-W1-Q9** (MCQ, asked 1x: 2026 W1) Which pair is correctly matched?
+
+- A. Hive – Stream Processing
+- B. Kafka – Distributed Commit Log
+- C. Sqoop – Graph Analytics
+- D. GraphX – ETL Tool
+
+**Answer:** B
+
+> Lecture 2 only calls Kafka an open-source **distributed stream-processing framework** that feeds Spark Streaming (internals “later”). It never says “commit log.” The portal still pairs Kafka with **Distributed Commit Log** — that one-liner is from the later Kafka lecture, not this week. Pick **b** because the other three pairs are wrong on this week's map. Trap: a/c/d all swap roles: Hive is SQL queries not streaming, Sqoop is RDBMS↔Hadoop transfer not graphs, GraphX is Spark's graph-analytics library not ETL.
+
+**2026-W1-Q10** (MCQ, asked 1x: 2026 W1) Which of the following is the PRIMARY function of Apache ZooKeeper in a distributed Hadoop environment?
+
+- A. Storing large-scale data across cluster nodes
+- B. Managing distributed coordination, synchronization, and configuration services
+- C. Executing SQL-like queries on HDFS data
+- D. Scheduling Hadoop workflows and jobs
+
+**Answer:** B
+
+> Same Zookeeper definition as Q5 — coordination/sync/config service, not storage, querying, or scheduling. Trap: a=HDFS, c=Hive, d=Oozie.
+
 ## Week 2 · Hadoop / HDFS / MapReduce
 
 **2019-W2-Q8** (MCQ, asked 1x: 2019 W2) For which of the following operations is NO communication with the NameNode required?
@@ -1356,6 +1466,116 @@ Answers marked `*` were not in the source key and were solved or inferred (see f
 
 > A is less relevant in HDFS context. B is correct: Each file/block metadata consumes NameNode memory. C: Replication is more of a function of number of blocks. D: They actually increase the number of map tasks.
 
+**2026-W2-Q1** (MCQ, asked 1x: 2026 W2) Which HDFS component is primarily responsible for monitoring replica counts and initiating re-replication when a block becomes under-replicated?
+
+- A. DataNode
+- B. Client
+- C. NameNode
+- D. Secondary NameNode
+
+**Answer:** C
+
+> The NameNode tracks block-to-DataNode mappings and replication state; per `notes/week-2/notes.md` Lec 4, it detects under-replication via missing heartbeats and restarts the replication process to restore the configured factor. Trap: DataNode only stores and serves blocks — it doesn't decide replication counts, it just executes what the NameNode instructs.
+
+**2026-W2-Q2** (MCQ, asked 1x: 2026 W2) What is the primary purpose of introducing the HDFS Federation?
+
+- A. Increase replication factor
+- B. Increase namespace scalability
+- C. Reduce block size
+- D. Eliminate DataNodes
+
+**Answer:** B
+
+> Lec 4 of `notes/week-2/notes.md` names namespace scalability as Federation's headline benefit (plus performance/isolation), achieved by splitting one NameNode's namespace into multiple independent NameNode+block-pool pairs. Trap: Federation doesn't touch replication factor or block size — those are separate tuning parameters (`dfs.replication`, `dfs.block.size`).
+
+**2026-W2-Q3** (MCQ, asked 1x: 2026 W2) Which of the following is directly affected by the number of HDFS blocks?
+
+- A. NameNode memory usage
+- B. Number of Map tasks
+- C. Both A and B
+- D. Neither A and B
+
+**Answer:** C
+
+> Lec 4 notes: more blocks per file → more NameNode metadata to hold in memory, and at least one map task is typically needed per block, so both scale together with block count. Trap: Picking just one of A/B misses that the lecture explicitly ties block count to both memory pressure *and* task count in the same trade-off discussion.
+
+**2026-W2-Q4** (MCQ, asked 1x: 2026 W2) What is the default value of the parameter `dfs.replication`?
+
+- A. 1
+- B. 2
+- C. 3
+- D. 4
+
+**Answer:** C
+
+> Directly stated in Lec 4: default replication factor is 3, configured via `dfs.replication`.
+
+**2026-W2-Q5** (MCQ, asked 1x: 2026 W2) (Portal repeats the Q4 stem text, but the options describe DataNode failure handling — treating it as intended: "How does the NameNode respond when it detects a DataNode failure?")
+
+- A. Ignores the failure
+- B. Deletes all blocks immediately
+- C. Marks the DataNode and initiates re-replication if needed
+- D. Restarts the DataNode automatically
+
+**Answer:** C
+
+> Lec 4's fault-tolerance section: a DataNode missing heartbeats is marked down, stops receiving new I/O, and the NameNode re-replicates any blocks that fell below the replication factor. Trap: The NameNode cannot restart a DataNode remotely (d) — recovery is via re-replication onto other live nodes, not reviving the failed one.
+
+**2026-W2-Q6** (MCQ, asked 1x: 2026 W2) Which statement about Reduce tasks is TRUE?
+
+- A. A key can be processed by multiple Reducers.
+- B. Each key is assigned to exactly one Reducer.
+- C. Reducers execute before Mappers.
+- D. Reducers never use partitioning.
+
+**Answer:** B
+
+> Lec 6's Reduce/partitioning section: every key routes to exactly one reduce task (commonly via hash partitioning, `hash(key) % num_reduce_tasks`) so all values for that key land together for correct aggregation. Trap: (a) directly contradicts the "each key → one reducer" rule; (c) reverses the map→shuffle→reduce order; (d) partitioning is exactly the mechanism that assigns keys to reducers.
+
+**2026-W2-Q7** (MCQ, asked 1x: 2026 W2) What is the primary role of a Partitioner in MapReduce?
+
+- A. Sort records within a Reducer
+- B. Decide which Reducer receives a key-value pair
+- C. Combine Mapper outputs locally
+- D. Replicate data blocks across HDFS
+
+**Answer:** B
+
+> Lec 6 notes hash partitioning as `reduce_task_number = hash(key) % number_of_reduce_tasks` — the partitioner's job is routing each key to its designated reducer. Trap: (a) sorting-within-reducer and (c) local combining are related but separate shuffle-stage activities, not the partitioner's defining role.
+
+**2026-W2-Q8** (MCQ, asked 1x: 2026 W2) Which YARN component is responsible for detecting task failures for a specific job?
+
+- A. Resource Manager (RM)
+- B. Node Manager (NM)
+- C. Application Master (AM)
+- D. DataNode
+
+**Answer:** C
+
+> Lec 7's YARN section: the Application Master is scoped to one job and negotiates containers plus detects/handles that job's task failures, distinct from the cluster-wide Resource Manager. Trap: RM schedules cluster-wide but doesn't track per-job task failures; that's delegated to each job's own AM.
+
+**2026-W2-Q9** (MCQ, asked 1x: 2026 W2) Which statement about the Reduce function is TRUE?
+
+- A. It accepts an intermediate key and a set of values.
+- B. It processes only one value at a time.
+- C. It cannot aggregate values.
+- D. It always produces multiple output values.
+
+**Answer:** A
+
+> Lec 6 core ideas: reduce takes an intermediate key and an iterator over all values for that key, then aggregates (e.g., sums) them — matching option (a) exactly. Trap: (d) is backwards — the lecture states reduce typically produces 0 or 1 output values per invocation, not "always multiple."
+
+**2026-W2-Q10** (MCQ, asked 1x: 2026 W2) In the Reverse Web-Link Graph application, the Mapper emits:
+
+- A. (source, target)
+- B. (target, source)
+- C. (URL, 1)
+- D. (target, count)
+
+**Answer:** B
+
+> Lec 7 worked example: for edge (source, target), map emits `<target, source>` so reduce can group all sources per target into `<target, list(source)>` — the whole point of "reversing" the link direction. Trap: (a) is the un-reversed direction (that would just replay the original graph); (c) is the URL-access-frequency pattern from a different application in the same lecture.
+
 ## Week 3 · Spark & key-value stores
 
 **2022-W3-Q1** (MCQ, asked 2x: 2021 W3, 2022 W3) Consider the following statements in the context of Spark: Statement 1: Spark improves efficiency through in-memory computing primitives and general computation graphs. Statement 2: Spark improves usability through high-level APIs in Java, Scala, Python and also provides an interactive shell.
@@ -1734,6 +1954,116 @@ Answers marked `*` were not in the source key and were solved or inferred (see f
 
 > • A: Incorrect — MEMORY_ONLY keeps objects in memory in deserialized form. • B: Incorrect — MEMORY_AND_DISK stores in deserialized form first. • C: Incorrect — DISK_ONLY stores data on disk. • D: Correct — MEMORY_ONLY_SER stores serialized objects to save space.
 
+**2026-W3-Q1** (MCQ, asked 1x: 2026 W3) Which statement best explains Spark's fault tolerance mechanism?
+
+- A. Every RDD is replicated across all nodes.
+- B. Every transformation result is written to HDFS.
+- C. Spark tracks lineage and recomputes lost partitions.
+- D. Spark checkpoints every operation by default.
+
+**Answer*:** C
+
+> Lecture 10, "How lineage actually works" — Spark logs the coarse-grained transformations that built each RDD (its lineage); on partition loss it traces the log and recomputes only that partition, at no extra cost when nothing fails. Trap: a/b describe HDFS-style redundancy (block replication / write-through), which is exactly what Spark avoids — that's the "not a backup copy" distinction the notes call out explicitly. d overstates: persistence is opt-in, not automatic.
+
+**2026-W3-Q2** (MCQ, asked 1x: 2026 W3) Which operation below is an Action rather than a Transformation?
+
+- A. collect()
+- B. join()
+- C. map()
+- D. filter()
+
+**Answer*:** A
+
+> Lecture 9 Part B, "Basic actions" — `collect()` pulls the RDD back to the driver, triggering execution. `map`, `filter`, `join` are all lazy transformations that only build the DAG. Trap: join/map/filter are the textbook transformation examples used throughout the notes precisely because they never run until an action like `collect()` forces them.
+
+**2026-W3-Q3** (MCQ, asked 1x: 2026 W3) Which Spark component is responsible for splitting a DAG into stages?
+
+- A. SparkContext
+- B. TaskScheduler
+- C. DAGScheduler
+- D. BlockManager
+
+**Answer*:** C
+
+> Lecture 10, "Execution mechanics" — the DAG scheduler splits the DAG into stages of tasks and submits each stage once ready; the task scheduler then launches those tasks and retries stragglers/failures. Trap: b (TaskScheduler) is the near-twin — it launches/retries tasks *within* a stage, but does not decide the stage boundaries. SparkContext is the entry point, not the scheduler; BlockManager isn't the component the notes name for this job (cache/task execution lives on the executor).
+
+**2026-W3-Q4** (MCQ, asked 1x: 2026 W3) Why is reduceByKey() generally preferred over groupByKey() for aggregation?
+
+- A. It automatically sorts keys.
+- B. It uses combiners on the map side.
+- C. It creates fewer partitions.
+- D. It avoids shuffling completely.
+
+**Answer*:** B
+
+> Lecture 9 Part B, "Key-value pair RDDs" — `reduceByKey` "automatically applies a combiner on the map side," partially summing values before they cross the network, the same optimization idea as a MapReduce combiner. `groupByKey` ships every raw value. Trap: d is wrong — reduceByKey still shuffles, just less data; a/c aren't properties either operation has (no sorting, no partition-count change) per the notes.
+
+**2026-W3-Q5** (MCQ, asked 1x: 2026 W3) In Spark, which operation triggers actual execution of a DAG?
+
+- A. map()
+- B. filter()
+- C. join()
+- D. count()
+
+**Answer*:** D
+
+> Same transformation-vs-action split as Q2 — `count()` is the canonical action used throughout the Lecture 9 log-mining trace ("count is an action, so *this* is the point where Spark actually walks back through the chain and executes everything"). Trap: map/filter/join are all lazy transformations — none of them runs anything by itself.
+
+**2026-W3-Q6** (MCQ, asked 1x: 2026 W3) Which statement about RDDs is FALSE?
+
+- A. RDDs are immutable.
+- B. RDDs can be cached for reuse.
+- C. RDDs automatically rebuild lost data using lineage.
+- D. RDDs support direct modification of existing partitions.
+
+**Answer*:** D
+
+> Lecture 9's RDD definition and the near-twin table both stress RDDs are *immutable* — created only by reading external data or applying coarse-grained transformations, never edited element-by-element/in place. a, b, c are all directly stated properties (immutable, cacheable, lineage-rebuilt). Trap: "Direct modification of existing partitions" is the opposite of coarse-grained, immutable transformations — this is the false statement to pick.
+
+**2026-W3-Q7** (MCQ, asked 1x: 2026 W3) Which feature helps Spark recover lost RDD partitions?
+
+- A. Replication
+- B. Lineage
+- C. Compression
+- D. Scheduling
+
+**Answer*:** B
+
+> Same mechanism as Q1 — lineage is the recorded transformation log Spark replays to recompute a lost partition. Trap: a (Replication) is the HDFS-style mechanism the notes explicitly contrast lineage against; c/d aren't fault-tolerance mechanisms discussed in the notes at all.
+
+**2026-W3-Q8** (MCQ, asked 1x: 2026 W3) SparkContext is:
+
+- A. Storage system
+- B. Main entry point to Spark functionality
+- C. Worker node
+- D. Scheduler
+
+**Answer*:** B
+
+> Lecture 9 Part B and Lecture 10 both define it identically: "A SparkContext ... is the entry point to all Spark functionality," created inside the driver program. Trap: c/d confuse SparkContext with the Worker Nodes / DAGScheduler-TaskScheduler it talks to; a is not a role it has anywhere in the notes.
+
+**2026-W3-Q9** (MCQ, asked 1x: 2026 W3) Which Spark component launches tasks on worker nodes and retries failed tasks?
+
+- A. SparkContext
+- B. DAGScheduler
+- C. BlockManager
+- D. TaskScheduler
+
+**Answer*:** D
+
+> Lecture 10, "Execution mechanics" — "the task scheduler then launches the actual tasks via the cluster manager and retries failed or straggling tasks." This is the mirror of Q3. Trap: b (DAGScheduler) is the near-twin — it splits the DAG into stages but doesn't itself launch/retry individual tasks; that handoff to the task scheduler is exactly what the notes' near-twins section flags.
+
+**2026-W3-Q10** (MCQ, asked 1x: 2026 W3) A Spark application performs multiple iterations over the same dataset. Which feature provides the greatest performance improvement?
+
+- A. HDFS replication
+- B. Data compression
+- C. Caching/Persistence of RDDs
+- D. Increasing block size
+
+**Answer*:** C
+
+> Lecture 9 Part B's PageRank walkthrough is the notes' explicit example: "because `links` and `ranks` are cached RDDs reused every iteration, PageRank is exactly the kind of iterative workload where Spark's in-memory model beats MapReduce" — same logic applies to k-means/logistic regression. Trap: a/b/d are all storage-layer knobs (replication, compression, block size) that don't address the real cost of iterative work — re-reading/recomputing the same data every pass — which only in-memory caching removes.
+
 ## Week 4 · Storage: CAP, Cassandra, ZooKeeper
 
 **2019-W4-Q3** (MCQ, asked 1x: 2019 W4) A _________________ is Cassandra's way of mapping a node to a physical location in the network. It helps determine the location of a node relative to another node in order to ensure efficient request routing. The _____________________can only be used if your network IP allocation is divided along octets in your IP address.
@@ -1838,6 +2168,8 @@ Answers marked `*` were not in the source key and were solved or inferred (see f
 - D. Both Statements are false
 
 **Answer:** C
+
+> Cassandra uses a protocol called gossip to discover location and state information about the other nodes participating in a Cassandra cluster. Gossip is a peer-to-peer communication protocol in which nodes periodically exchange state information about themselves and about other nodes they know about.
 
 **2022-W4-Q6** (MCQ, asked 3x: 2019 W4, 2021 W4, 2022 W4) Cassandra uses a protocol called __________________to discover location and state information about the other nodes participating in a Cassandra cluster.
 
@@ -2191,6 +2523,116 @@ Answers marked `*` were not in the source key and were solved or inferred (see f
 **Answer:** C
 
 > • A: Incorrect — Not about hardware. • B: Incorrect — Latency impacts speed, not impossibility. • C: Correct — Partitions can always occur; a system must choose between C and A during them. • D: Incorrect — Replication speed is not the fundamental reason.
+
+**2026-W4-Q1** (MCQ, asked 1x: 2026 W4) Which Cassandra replication strategy is specifically designed for multi-datacenter deployments?
+
+- A. Simple Strategy
+- B. Network Topology Strategy
+- C. Random Partitioner
+- D. Byte Ordered Partitioner
+
+**Answer*:** B
+
+> Lec 13 (Data Placement Strategies) — Simple Strategy just uses a partitioner within one ring; Network Topology Strategy is the one that explicitly "requires multiple data center deployments," placing a fixed number of replicas per DC and walking the ring clockwise onto different racks. Trap: Random Partitioner and Byte Ordered Partitioner are the two *partitioner* choices used inside Simple Strategy, not replication strategies themselves.
+
+**2026-W4-Q2** (MCQ, asked 1x: 2026 W4) What is the primary purpose of Cassandra's Bloom Filter?
+
+- A. Store key-value pairs permanently
+- B. Compress SSTables
+- C. Quickly determine if a key may exist in an SSTable
+- D. Replace indexing structures
+
+**Answer*:** C
+
+> Lec 13 — the Bloom filter is checked before touching disk, to find which SSTable a key is likely in; it's a cheap existence pre-check, not storage itself. Trap: It does not replace the index file — the notes explicitly list the SSTable's index file and the Bloom filter as two separate pieces working together.
+
+**2026-W4-Q3** (MCQ, asked 1x: 2026 W4) Which statement about Bloom Filters is TRUE?
+
+- A. They may produce false negatives.
+- B. They never produce false positives.
+- C. They may produce false positives but never false negatives
+- D. They guarantee exact membership testing.
+
+**Answer*:** C
+
+> Lec 13's own definition: checking for existence can say "present" when a key isn't actually there (false positive, ~0.02% in the slide's example) but it never says "absent" for a key that is actually present (no false negatives). Trap: (a) and (d) invert the guarantee; (b) is close but wrong direction — false positives *do* happen, just rarely.
+
+**2026-W4-Q4** (MCQ, asked 1x: 2026 W4) In Cassandra, why are writes generally faster than reads?
+
+- A. Reads use only memory.
+- B. Writes avoid disk operations entirely.
+- C. Writes are append-oriented using Commit Logs and MemTables
+- D. Reads bypass SSTables.
+
+**Answer*:** C
+
+> Lec 13 — a write only needs to append to the commit log and update the in-memory Memtable (write-back) before acking; it doesn't need to touch an SSTable on the critical path. Reads, by contrast, may have to check Memtable, row cache, Bloom filter, key cache, and one or more SSTables (Lec 17's read path). Trap: (b) overstates it — the commit log write *is* a disk operation, just a fast sequential append, not the slower flush/compaction path.
+
+**2026-W4-Q5** (MCQ, asked 1x: 2026 W4) Which Cassandra consistency level is the FASTEST for writes?
+
+- A. ALL
+- B. QUORUM
+- C. ONE
+- D. ANY
+
+**Answer*:** D
+
+> Lec 14 — ANY lets any server (not even necessarily a replica) ack the write, so the coordinator can cache it and reply immediately; the notes list ANY explicitly as "fastest." Trap: ONE is faster than ALL/QUORUM but still requires an actual replica to be updated, so it's slower than ANY.
+
+**2026-W4-Q6** (MCQ, asked 1x: 2026 W4) According to CAP theorem, Cassandra primarily chooses:
+
+- A. Consistency and Availability
+- B. Consistency and Partition Tolerance
+- C. Availability and Partition Tolerance
+- D. Atomicity and Durability
+
+**Answer*:** C
+
+> Lec 14 — the CAP Theorem Fallout slide places Cassandra in the AP camp (Availability + Partition tolerance) with eventual/weak consistency, alongside Dynamo and Voldemort. Trap: (b) is HBase/BigTable/Spanner's choice, not Cassandra's; (d) mixes in ACID terms that belong to RDBMS, not CAP.
+
+**2026-W4-Q7** (MCQ, asked 1x: 2026 W4) Which property defines Eventual Consistency?
+
+- A. All replicas are instantly synchronized.
+- B. Replicas converge if updates stop.
+- C. Reads always return latest value.
+- D. No stale reads are possible.
+
+**Answer*:** B
+
+> Lec 14/15 — eventual consistency's defining guarantee is that "if all writes to a key stop, all its replicas will eventually converge"; while writes continue, reads can lag behind (the "moving wave" described in Lec 14). Trap: (a), (c), (d) all describe strong/linearizable consistency, the opposite end of the spectrum from eventual consistency.
+
+**2026-W4-Q8** (MCQ, asked 1x: 2026 W4) What happens if a ZooKeeper ensemble loses majority availability?
+
+- A. A new leader is elected immediately.
+- B. Remaining node becomes leader.
+- C. No leader can be elected.
+- D. System switches to standalone mode.
+
+**Answer*:** C
+
+> Lec 16, Part B — the worked example (3 nodes, 2 die) shows that with only a minority surviving, Zookeeper deliberately elects no leader at all, rather than risk a split-brain scenario; a leader is only elected/kept when a majority (2f+1 for f failures) is available. Trap: (b) contradicts the majority rule — a single surviving node out of three is not enough to become leader.
+
+**2026-W4-Q9** (MCQ, asked 1x: 2026 W4) Which ZooKeeper design goal ensures that all updates are processed in a globally agreed order?
+
+- A. Ordered
+- B. Replicated
+- C. Fast
+- D. Atomic
+
+**Answer*:** A
+
+> Lec 16, Part A lists Zookeeper's four design goals (Simple, Replicated, Ordered, Fast) separately; "Ordered" is specifically the one where "Zookeeper will timestamp each update with a number... reflects the order of the transaction." Trap: Atomicity (from the guarantees list, not the design-goals list) is about an update being all-or-nothing, not about global ordering across updates.
+
+**2026-W4-Q10** (MCQ, asked 1x: 2026 W4) What is the default type of znode in ZooKeeper?
+
+- A. Ephemeral
+- B. Sequential
+- C. Temporary
+- D. Persistent
+
+**Answer*:** D
+
+> Lec 16, Part A — the notes state persistent znodes are "the default type of znode," remaining until explicitly deleted, as opposed to ephemeral (tied to a session) or sequential (auto-numbered). Trap: "Temporary" isn't one of the three znode types the lecture names at all (Persistent, Ephemeral, Sequential).
 
 ## Week 5 · Streaming: HBase, Kafka, Spark Streaming
 
@@ -2670,6 +3112,116 @@ Answers marked `*` were not in the source key and were solved or inferred (see f
 
 **Answer:** A
 
+**2026-W5-Q1** (MCQ, asked 1x: 2026 W5) What is the fundamental processing model used by Spark Streaming?
+
+- A. Record-at-a-time processing
+- B. Micro-batch processing
+- C. Batch-only processing
+- D. Pipeline processing
+
+**Answer*:** B
+
+> Lec 19/20 — Spark Streaming runs a streaming computation "as a series of very small, deterministic batch jobs," chopping the live stream into X-second batches and treating each as an RDD. Trap: (a) is Storm's model, explicitly contrasted against Spark Streaming's approach; (c) ignores that it processes *live* data, not just static batches; (d) is a generic term, not the model this course names.
+
+**2026-W5-Q2** (MCQ, asked 1x: 2026 W5) Which abstraction represents a stream of data in Spark Streaming?
+
+- A. DataFrame
+- B. RDD
+- C. DStream
+- D. Dataset
+
+**Answer*:** C
+
+> Lec 20 — a DStream (Discretized Stream) is defined as the sequence of RDDs, one per batch interval, that together represent the stream over time. Trap: An RDD (b) is what *each individual batch* of a DStream becomes, not the stream abstraction itself; DataFrame/Dataset belong to the later Structured Streaming API, not this lecture's DStream-based model.
+
+**2026-W5-Q3** (MCQ, asked 1x: 2026 W5) Which of the following is NOT a supported Spark Streaming input source?
+
+- A. Kafka
+- B. Flume
+- C. Twitter
+- D. HDFS Block Replicator
+
+**Answer*:** D
+
+> Lec 19/20 list the built-in receivers/sources explicitly: Kafka, Flume, Twitter, ZeroMQ, Kinesis, TCP sockets, HDFS (as a data source, not a "Block Replicator"). "HDFS Block Replicator" is not a named component anywhere in the notes. Trap: HDFS itself is a valid source; the fabricated qualifier "Block Replicator" is what makes this option wrong, not HDFS being excluded.
+
+**2026-W5-Q4** (MCQ, asked 1x: 2026 W5) Why is maintaining two separate stacks for batch and streaming considered problematic?
+
+- A. Reduces throughput
+- B. Doubles implementation and operational effort
+- C. Prevents fault tolerance
+- D. Eliminates scalability
+
+**Answer*:** B
+
+> Lec 19 — the lecture states plainly that two different stacks "require different programming models and also different efforts... and requires an operational cost," which is the motivation for Spark Streaming's unified engine. Trap: (a), (c), (d) are all overstatements the notes never make — separate stacks were called inefficient and costly, not literally incapable of throughput, fault tolerance, or scale.
+
+**2026-W5-Q5** (MCQ, asked 1x: 2026 W5) What is the main advantage of Spark Streaming's micro-batch architecture?
+
+- A. Eliminates RDDs
+- B. Supports only offline processing
+- C. Provides fault tolerance and scalability
+- D. Requires no cluster
+
+**Answer*:** C
+
+> Lec 19/20 — the recurring requirements list (scale to hundreds/thousands of nodes, second-scale latency, efficient failure recovery) is exactly what the micro-batch/RDD design was built to satisfy; fault tolerance comes from block replication + RDD lineage, scalability from treating each batch as a normal distributable RDD. Trap: (a) is backwards — micro-batches *are* RDDs, not an alternative to them; (b) and (d) contradict the entire premise of Spark Streaming being for live, clustered processing.
+
+**2026-W5-Q6** (MCQ, asked 1x: 2026 W5) Which Spark Streaming feature helps recover lost data after worker failure?
+
+- A. Replicated input data and RDD lineage
+- B. ZooKeeper election
+- C. Kafka partitions
+- D. SQL optimizer
+
+**Answer*:** A
+
+> Lec 20 — "RDDs remember the sequence of operations... and batches of input data are replicated in the memory of multiple worker nodes," so lost data from a worker failure is recomputed using lineage from the (replicated) input. Trap: ZooKeeper election (b) is how Kafka/HBase choose a new leader, not how Spark Streaming recovers a worker's lost data; Kafka partitions (c) belong to Lec 22, a different system in this same week, not Spark Streaming's own fault-tolerance mechanism.
+
+**2026-W5-Q7** (MCQ, asked 1x: 2026 W5) Which function maintains arbitrary state across batches?
+
+- A. `updateStateByKey()`
+- B. `reduceByKey()`
+- C. `union()`
+- D. `collect()`
+
+**Answer*:** A
+
+> Lec 20 — `updateStateByKey` is defined as the operation for "arbitrary stateful computation," maintaining per-key state across the entire life of the stream (e.g., tracking a per-user mood as new tweets arrive), unlike a window which only looks at a bounded recent range. Trap: `reduceByKey` (b) only reduces within a single batch/RDD, not across the stream's history; `union` and `collect` are ordinary RDD operations with no stateful memory at all.
+
+**2026-W5-Q8** (MCQ, asked 1x: 2026 W5) In Spark Streaming, every interval results in:
+
+- A. A new ZooKeeper node
+- B. An RDD graph computation
+- C. A new Kafka broker
+- D. A new DataNode
+
+**Answer*:** B
+
+> Lec 20 — "every interval an RDD graph is computed from [the] DStream graph... for each action a Spark job is computed," directly naming the per-interval RDD graph computation. Trap: (a), (c), (d) confuse Spark Streaming's own execution cycle with infrastructure from other systems this week (Zookeeper znodes, Kafka brokers, HDFS DataNodes) that aren't created per batch interval.
+
+**2026-W5-Q9** (MCQ, asked 1x: 2026 W5) Which statement about Spark Streaming fault tolerance is TRUE?
+
+- A. Lost data cannot be recovered.
+- B. Transformations are exactly-once and fault-tolerant
+- C. Only input data is fault tolerant.
+- D. Failures require manual data recreation.
+
+**Answer*:** B
+
+> Lec 20 states directly: "all transformations are fault tolerant and follow the exactly once transformations," achieved via input replication plus checkpointing/lineage-based recomputation. Trap: (a) and (d) contradict the lecture's explicit recovery mechanisms (replication, lineage, checkpointing); (c) is too narrow — the notes state transformations themselves are fault tolerant, not just the raw input.
+
+**2026-W5-Q10** (MCQ, asked 1x: 2026 W5) Which requirement is NOT listed for a stream-processing framework in Spark Streaming?
+
+- A. Second-scale latency
+- B. Efficient fault tolerance
+- C. Scalability
+- D. Fixed single-node execution
+
+**Answer*:** D
+
+> Lec 19 lists the requirements explicitly: scale to hundreds/thousands of nodes, achieve second-scale latency, recover efficiently from failures, and integrate batch with interactive processing. "Fixed single-node execution" is the opposite of the scale-out requirement actually stated. Trap: (a), (b), (c) are each named requirements almost verbatim in the notes; only (d) inverts the lecture's actual point about needing to scale *out*, not stay single-node.
+
 ## Week 6 · ML basics
 
 **2022-W6-Q2** (MCQ, asked 3x: 2019 W6, 2021 W6, 2022 W6) Identify the correct statement in context of Regressive model of Machine Learning.
@@ -3048,6 +3600,116 @@ Answers marked `*` were not in the source key and were solved or inferred (see f
 
 **Answer:** A
 
+**2026-W6-Q1** (MCQ, asked 1x: 2026 W6) Cluster analysis is primarily a:
+
+- A. Supervised learning technique
+- B. Reinforcement learning technique
+- C. Unsupervised learning technique
+- D. Deep learning technique
+
+**Answer:** C
+
+> Lec 23/25 — clustering data has no target label, so cluster analysis and association analysis are the unsupervised techniques (notes: Lec 23 "Supervised vs unsupervised"). Trap: (a) classification and regression are the supervised ones.
+
+**2026-W6-Q2** (MCQ, asked 1x: 2026 W6) What is the main goal of cluster analysis?
+
+- A. Predict future values
+- B. Organize similar items into groups
+- C. Classify labeled data
+- D. Reduce storage space
+
+**Answer:** B
+
+> Lec 23/25 — the slide definition: "organize similar items in your dataset into groups" (segmentation). Trap: (a) is regression/predictive analytics, (c) is classification.
+
+**2026-W6-Q3** (MCQ, asked 1x: 2026 W6) Which similarity measure calculates straight-line distance between two points?
+
+- A. Manhattan Distance
+- B. Cosine Similarity
+- C. Euclidean Distance
+- D. Hamming Distance
+
+**Answer:** C
+
+> Lec 25 similarity-measures slide: Euclidean = distance along a straight line between A and B. Trap: Manhattan only moves along the axes (horizontal/vertical path); Hamming is not on the slide.
+
+**2026-W6-Q4** (MCQ, asked 1x: 2026 W6) Which similarity measure is based on the angle between vectors?
+
+- A. Euclidean Distance
+- B. Manhattan Distance
+- C. Cosine Similarity
+- D. Jaccard Distance
+
+**Answer:** C
+
+> Lec 25 — cosine similarity is the cosine of the angle between two vectors (normalised dot product), good for sparse document vectors.
+
+**2026-W6-Q5** (MCQ, asked 1x: 2026 W6) What is a common application of cluster analysis?
+
+- A. Customer segmentation
+- B. Sorting algorithms
+- C. Compiler optimization
+- D. CPU scheduling
+
+**Answer:** A
+
+> Lec 23/25 — customer segmentation is the headline application (also crime hotspots, weather patterns, news grouping).
+
+**2026-W6-Q6** (MCQ, asked 1x: 2026 W6) Which algorithm is most commonly associated with cluster analysis?
+
+- A. Decision Tree
+- B. Naïve Bayes
+- C. K-Means
+- D. Logistic Regression
+
+**Answer:** C
+
+> Lec 25/26 — K-means is the classical clustering algorithm taught this week; decision tree, Naïve Bayes and logistic regression are classification methods.
+
+**2026-W6-Q7** (MCQ, asked 1x: 2026 W6) What is the first step of the K-Means algorithm?
+
+- A. Compute accuracy
+- B. Select initial centroids
+- C. Normalize output
+- D. Remove outliers
+
+**Answer:** B
+
+> Lec 25 — select K initial centroids, then iterate (assign to closest centroid, recompute centroids as means).
+
+**2026-W6-Q8** (MCQ, asked 1x: 2026 W6) Which metric is commonly used to evaluate K-Means clustering quality?
+
+- A. Accuracy
+- B. Recall
+- C. WSSE
+- D. Precision
+
+**Answer:** C
+
+> Lec 25 — WSSE (within-cluster sum of squared error) is the sum of squared distances from each sample to its centroid. Accuracy/precision/recall need labels, which clustering does not have. Trap: (a), (b), (d) are classification metrics from Lec 24.
+
+**2026-W6-Q9** (MCQ, asked 1x: 2026 W6) If WSSE decreases, it generally indicates:
+
+- A. Better cluster compactness
+- B. Worse clustering
+- C. More classification errors
+- D. Data loss
+
+**Answer:** A
+
+> Lec 25 — lower WSSE means samples sit closer to their centroids, i.e. more compact clusters. Slide caution: lower WSSE is numerically better, not automatically "more correct", and a bigger K always lowers it.
+
+**2026-W6-Q10** (MCQ, asked 1x: 2026 W6) K-Means stops iterating when:
+
+- A. No changes occur in centroids
+- B. Accuracy becomes 100%
+- C. Dataset becomes empty
+- D. Number of features decreases
+
+**Answer:** A
+
+> Lec 25 stopping criteria — no change in centroids (so no sample changes cluster), or relaxed: fewer than a threshold (e.g. 1%) of samples change clusters. Trap: (b) clustering has no labels, so no accuracy.
+
 ## Week 7 · ML with Spark: trees & ensembles
 
 **2019-W7-Q3** (MCQ, asked 1x: 2019 W7) Given an attribute table shown below, which stores the basic information of attribute a, including the row identifier of instance row_id , values of attribute values (a) and class labels of instances c. Which of the following attribute will first provide the pure subset ?
@@ -3403,6 +4065,116 @@ Answers marked `*` were not in the source key and were solved or inferred (see f
 - D. Randomly drop features
 
 **Answer:** A
+
+**2026-W7-Q1** (MCQ, asked 1x: 2026 W7) Random Forest is best described as:
+
+- A. A single deep decision tree
+- B. A clustering algorithm
+- C. A neural network ensemble
+- D. A bagging of de-correlated decision trees
+
+**Answer:** D
+
+> Lec 28 slide: "Random Forest algorithm is a bagging of de-correlated decision trees" (bootstrap samples + a random subset of features at each split).
+
+**2026-W7-Q2** (MCQ, asked 1x: 2026 W7) What is the main purpose of Bagging?
+
+- A. Increase bias
+- B. Reduce prediction variance
+- C. Reduce dataset size
+- D. Increase overfitting
+
+**Answer:** B
+
+> Lec 28 — bagging (bootstrap aggregation) averages many models, so noisy parts cancel; "bagging works because it reduces the variance of the predictions" (bias–variance trade-off).
+
+**2026-W7-Q3** (MCQ, asked 1x: 2026 W7) Bootstrap in Bagging refers to:
+
+- A. Sampling with replacement
+- B. Feature scaling
+- C. Gradient computation
+- D. Data normalization
+
+**Answer:** A
+
+> Lec 28 — a bootstrap dataset is a same-size replica of the data made by random sampling **with replacement** (rows may repeat or be missing).
+
+**2026-W7-Q4** (MCQ, asked 1x: 2026 W7) In Random Forest, at each split:
+
+- A. All features are always evaluated
+- B. Random subset of features is selected
+- C. Features are ignored
+- D. Only one feature exists
+
+**Answer:** B
+
+> Lec 28 — select m out of p input variables at random as split candidates (m = √p classification, p/3 regression); this is what makes the trees de-correlated. Trap: (a) describes an ordinary decision tree.
+
+**2026-W7-Q5** (MCQ, asked 1x: 2026 W7) Random Forest can naturally support parallel processing because:
+
+- A. Trees are built independently
+- B. Trees share memory
+- C. Trees use one processor
+- D. Trees require sequential execution
+
+**Answer:** A
+
+> Lec 28 — each tree is trained on its own bootstrap sample independent of the others, so forests train in a distributed environment with a high degree of parallelism. Trap: (d) describes boosting, where each tree depends on the previous one.
+
+**2026-W7-Q6** (MCQ, asked 1x: 2026 W7) Boosting combines:
+
+- A. Strong classifiers only
+- B. Weak classifiers into a strong ensemble
+- C. Clusters into datasets
+- D. Databases into warehouses
+
+**Answer:** B
+
+> Lec 29 slide: "Boosting is a method for combining outputs of many weak classifiers to produce a powerful ensemble."
+
+**2026-W7-Q7** (MCQ, asked 1x: 2026 W7) Gradient Boosting builds models:
+
+- A. In a single step
+- B. Iteratively
+- C. Randomly
+- D. Without training
+
+**Answer:** B
+
+> Lec 29 — the complex model is built iteratively; each step fits a simple tree to the current residuals (or gradients) and adds it to the ensemble.
+
+**2026-W7-Q8** (MCQ, asked 1x: 2026 W7) In Gradient Boosted Trees, the base learners are usually:
+
+- A. Decision Trees
+- B. Neural Networks
+- C. K-Means Clusters
+- D. Support Vectors
+
+**Answer:** A
+
+> Lec 29 — f(x) = h₁(x) + … + h_M(x) where each h_m is a decision tree. Trap: (b) the lecture contrasts boosting with neural networks, which start from a very complex model.
+
+**2026-W7-Q9** (MCQ, asked 1x: 2026 W7) Cross-validation is mainly used to:
+
+- A. Increase dataset size
+- B. Assess model quality and select best parameters
+- C. Reduce number of features
+- D. Perform clustering
+
+**Answer:** B
+
+> Lec 29 — cross-validation "helps to assess the quality of a machine learning model and to find the best model among the family of models" (Spark: `CrossValidator` + `ParamGridBuilder`, e.g. maxDepth 1–8, 10 folds).
+
+**2026-W7-Q10** (MCQ, asked 1x: 2026 W7) Recommended learning rate for Gradient Boosting is:
+
+- A. Greater than 1
+- B. Equal to 5
+- C. Less than or equal to 0.1
+- D. Equal to 10
+
+**Answer:** C
+
+> Lec 29 GBT algorithm slide: v (regularization / learning rate) recommended ≤ 0.1; small steps, like gradient descent, need more iterations but give a better model.
 
 ## Week 8 · Graph processing
 
@@ -3842,3 +4614,113 @@ Answers marked `*` were not in the source key and were solved or inferred (see f
 - D. All of the above
 
 **Answer:** A
+
+**2026-W8-Q1** (MCQ, asked 1x: 2026 W8) What is the main goal of GraphX?
+
+- A. Database management
+- B. Unify data-parallel and graph-parallel analytics
+- C. Replace Spark SQL
+- D. Replace HDFS
+
+**Answer:** B
+
+> Lec 32/34 — GraphX is a distributed framework that unifies graph-parallel and data-parallel computation so the whole analytics pipeline runs in one system (tables and graphs as views of the same data).
+
+**2026-W8-Q2** (MCQ, asked 1x: 2026 W8) Which phase is NOT part of the Graph-Parallel Pattern?
+
+- A. Gather
+- B. Apply
+- C. Scatter
+- D. Shuffle Sort
+
+**Answer:** D
+
+> Lec 32 — the graph-parallel pattern is Gather (collect from neighbours), Apply (compute the new value), Scatter (send to neighbours). Shuffle Sort belongs to MapReduce.
+
+**2026-W8-Q3** (MCQ, asked 1x: 2026 W8) Which GraphX operator joins vertices and edges together?
+
+- A. `mapV()`
+- B. `subgraph()`
+- C. `triplets`
+- D. `reverse()`
+
+**Answer:** C
+
+> Lec 33 — the `triplets` operator joins vertices and edges: an edge plus both its end vertices. Trap: `subgraph` filters, `reverse` flips edge direction, `mapV` transforms vertex properties.
+
+**2026-W8-Q4** (MCQ, asked 1x: 2026 W8) In GraphX, a Property Graph consists of:
+
+- A. Only vertices
+- B. Only edges
+- C. Vertices and edges with properties
+- D. Tables only
+
+**Answer:** C
+
+> Lec 33 — a property graph is a vertex property table (ID + property) and an edge property table (source ID, destination ID, property).
+
+**2026-W8-Q5** (MCQ, asked 1x: 2026 W8) Which graph algorithm is commonly used to identify influential vertices?
+
+- A. K-Means
+- B. PageRank
+- C. Apriori
+- D. Frequent Pattern Growth
+
+**Answer:** B
+
+> Lec 31/32/34 — PageRank scores vertices by the links pointing to them (links from many pages and from high-rank pages); the flight case study uses it to list the most influential airports.
+
+**2026-W8-Q6** (MCQ, asked 1x: 2026 W8) Triangle Counting is mainly used for:
+
+- A. Sorting vertices
+- B. Community detection
+- C. Data compression
+- D. Replication
+
+**Answer:** B
+
+> Lec 32/33 — counting triangles through a vertex measures the cohesiveness of its community: more triangles = a stronger community, fewer = weaker.
+
+**2026-W8-Q7** (MCQ, asked 1x: 2026 W8) Which optimization reduces communication by avoiding unnecessary joins?
+
+- A. Join Elimination
+- B. Data Duplication
+- C. Replication Factor
+- D. Hash Partitioning
+
+**Answer:** A
+
+> Lec 33 — join elimination identifies and bypasses the join for unused triplet fields (PageRank reads only the source attribute), giving about a 2× reduction in communication.
+
+**2026-W8-Q8** (MCQ, asked 1x: 2026 W8) Which GraphX feature helps accelerate joins and construct subgraphs efficiently?
+
+- A. Bloom Filters
+- B. Indexing and Bitmaps
+- C. Commit Logs
+- D. MemTables
+
+**Answer:** B
+
+> Lec 33 "Additional Query Optimizations" — indexing and bitmaps accelerate joins across graphs and efficiently construct subgraphs. Trap: (c) and (d) are not GraphX features.
+
+**2026-W8-Q9** (MCQ, asked 1x: 2026 W8) Which statement best describes GraphX?
+
+- A. Graph-only processing framework
+- B. Batch-only processing framework
+- C. Unified analytics framework for graph and data processing
+- D. SQL replacement system
+
+**Answer:** C
+
+> Lec 32/34 — tables and graphs are composable views of the same physical data; GraphX unifies data-parallel and graph-parallel processing in one system.
+
+**2026-W8-Q10** (MCQ, asked 1x: 2026 W8) Which GraphX optimization reuses routing tables, edge adjacency information, and indices across graphs and subgraphs?
+
+- A. Substantial Index and Data Reuse
+- B. Active Edge Indexing
+- C. Join Elimination
+- D. Pregel Messaging
+
+**Answer:** A
+
+> Lec 33 — "Substantial index and data reuse: reuse routing tables across graphs and sub-graphs; reuse edge adjacency information and indices." Trap: (b) active-edge indexing avoids scanning all edges each iteration; it is a different optimisation.

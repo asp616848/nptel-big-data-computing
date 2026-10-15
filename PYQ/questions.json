@@ -5036,6 +5036,559 @@
   ]
  },
  {
+  "id": "2026-W1-Q1",
+  "year": 2026,
+  "week": 1,
+  "qno": 1,
+  "type": "MCQ",
+  "question": "A dataset was highly useful in 2024, but by 2026 the same dataset becomes irrelevant because the information has lost significance. Which \"V\" best describes this situation?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Validity"
+   },
+   {
+    "k": "B",
+    "text": "Veracity"
+   },
+   {
+    "k": "C",
+    "text": "Volatility"
+   },
+   {
+    "k": "D",
+    "text": "Venue"
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explanation": "week-1 Lecture 1 defines Volatility as the rate of data loss and the stable lifetime of data — exactly \"data that used to matter but has since lost significance.\" Trap: Validity is accuracy/correctness for a given use, not loss of relevance over time; Veracity is about noise/trustworthiness, not aging-out.",
+  "source": {
+   "file": "notes/week-1/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "Intro to Big Data"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W1-Q1",
+    "year": 2026,
+    "week": 1,
+    "qno": 1
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   1
+  ]
+ },
+ {
+  "id": "2026-W1-Q2",
+  "year": 2026,
+  "week": 1,
+  "qno": 2,
+  "type": "MCQ",
+  "question": "Which of the following statements about Oozie is CORRECT?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Oozie is a distributed NoSQL database."
+   },
+   {
+    "k": "B",
+    "text": "Oozie is a workflow scheduler system for Hadoop jobs."
+   },
+   {
+    "k": "C",
+    "text": "Oozie is used to store data in HDFS."
+   },
+   {
+    "k": "D",
+    "text": "Oozie is a machine learning library for Spark."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explanation": "Lecture 3, Core ideas — Oozie is explicitly defined as the workflow scheduler that manages/coordinates Hadoop jobs. Trap: Options a/c/d misassign Oozie's job to HBase/Cassandra (NoSQL), HDFS (storage), and MLlib (ML library) respectively.",
+  "source": {
+   "file": "notes/week-1/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "HDFS",
+   "Intro to Big Data",
+   "Spark"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W1-Q2",
+    "year": 2026,
+    "week": 1,
+    "qno": 2
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   1
+  ]
+ },
+ {
+  "id": "2026-W1-Q3",
+  "year": 2026,
+  "week": 1,
+  "qno": 3,
+  "type": "MCQ",
+  "question": "Oozie can directly coordinate which of the following Hadoop ecosystem components?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Hive, Pig, Sqoop, and MapReduce"
+   },
+   {
+    "k": "B",
+    "text": "HDFS, NameNode, DataNode, and YARN only"
+   },
+   {
+    "k": "C",
+    "text": "Cassandra, MongoDB, and Redis only"
+   },
+   {
+    "k": "D",
+    "text": "Spark MLlib and GraphX only"
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explanation": "Lecture 3 states Oozie \"supports MapReduce, Pig, Hive, and Sqoop\" as the jobs it coordinates. Trap: b/c/d list components Oozie does not directly schedule (storage/resource internals, NoSQL stores, Spark libraries).",
+  "source": {
+   "file": "notes/week-1/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "Cassandra",
+   "GraphX/PageRank",
+   "HDFS",
+   "Hive/Pig/Sqoop/Flume",
+   "Intro to Big Data",
+   "MapReduce",
+   "Spark",
+   "YARN"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W1-Q3",
+    "year": 2026,
+    "week": 1,
+    "qno": 3
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   1
+  ]
+ },
+ {
+  "id": "2026-W1-Q4",
+  "year": 2026,
+  "week": 1,
+  "qno": 4,
+  "type": "MCQ",
+  "question": "What is the primary purpose of Apache Flume in the Hadoop ecosystem?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Querying data stored in HDFS"
+   },
+   {
+    "k": "B",
+    "text": "Collecting and transferring large amounts of log data"
+   },
+   {
+    "k": "C",
+    "text": "Performing machine learning tasks"
+   },
+   {
+    "k": "D",
+    "text": "Managing cluster resources"
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explanation": "Lecture 3 — Flume is \"a distributed reliable available service for efficiently collecting, aggregating, moving large amounts of log data into HDFS,\" i.e., data ingestion. Trap: a is Hive's job, c is MLlib's, d is YARN's.",
+  "source": {
+   "file": "notes/week-1/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "HDFS",
+   "Hive/Pig/Sqoop/Flume",
+   "Intro to Big Data"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W1-Q4",
+    "year": 2026,
+    "week": 1,
+    "qno": 4
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   1
+  ]
+ },
+ {
+  "id": "2026-W1-Q5",
+  "year": 2026,
+  "week": 1,
+  "qno": 5,
+  "type": "MCQ",
+  "question": "What is the primary role of Apache ZooKeeper in a Hadoop ecosystem?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Distributed data storage"
+   },
+   {
+    "k": "B",
+    "text": "Workflow scheduling"
+   },
+   {
+    "k": "C",
+    "text": "Distributed coordination and synchronization"
+   },
+   {
+    "k": "D",
+    "text": "SQL query processing"
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explanation": "Lecture 2 and 3 both define Zookeeper as the centralized coordination service — configuration, synchronization, naming, group services, leader election. Trap: b is Oozie's role (near-twin covered in week-1 near-twins table); a is HDFS/HBase, d is Hive.",
+  "source": {
+   "file": "notes/week-1/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "Intro to Big Data",
+   "ZooKeeper"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W1-Q5",
+    "year": 2026,
+    "week": 1,
+    "qno": 5
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   1
+  ]
+ },
+ {
+  "id": "2026-W1-Q6",
+  "year": 2026,
+  "week": 1,
+  "qno": 6,
+  "type": "MCQ",
+  "question": "Hive primarily operates on data stored in:",
+  "options": [
+   {
+    "k": "A",
+    "text": "MongoDB"
+   },
+   {
+    "k": "B",
+    "text": "Cassandra"
+   },
+   {
+    "k": "C",
+    "text": "HDFS"
+   },
+   {
+    "k": "D",
+    "text": "Redis"
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explanation": "Hive is a distributed data-management/SQL-query layer for Hadoop, running over MapReduce against data stored in HDFS. Trap: MongoDB/Cassandra/Redis are separate NoSQL stores not part of the Hive-over-Hadoop path.",
+  "source": {
+   "file": "notes/week-1/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "Cassandra",
+   "HDFS",
+   "Hive/Pig/Sqoop/Flume",
+   "Intro to Big Data"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W1-Q6",
+    "year": 2026,
+    "week": 1,
+    "qno": 6
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   1
+  ]
+ },
+ {
+  "id": "2026-W1-Q7",
+  "year": 2026,
+  "week": 1,
+  "qno": 7,
+  "type": "MCQ",
+  "question": "Which of the following best describes Apache Hive?",
+  "options": [
+   {
+    "k": "A",
+    "text": "A distributed coordination service"
+   },
+   {
+    "k": "B",
+    "text": "A workflow scheduler"
+   },
+   {
+    "k": "C",
+    "text": "A data warehouse system built on Hadoop"
+   },
+   {
+    "k": "D",
+    "text": "A NoSQL database"
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explanation": "Lecture 2/3 — Hive provides SQL-like queries (HiveSQL) over MapReduce/HDFS for data mining and analysis, i.e., a data-warehouse layer on Hadoop. Trap: a=Zookeeper, b=Oozie, d=HBase/Cassandra — all near-twins from this week's notes.",
+  "source": {
+   "file": "notes/week-1/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "Hive/Pig/Sqoop/Flume",
+   "Intro to Big Data"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W1-Q7",
+    "year": 2026,
+    "week": 1,
+    "qno": 7
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   1
+  ]
+ },
+ {
+  "id": "2026-W1-Q8",
+  "year": 2026,
+  "week": 1,
+  "qno": 8,
+  "type": "MCQ",
+  "question": "Which Hadoop module stores metadata?",
+  "options": [
+   {
+    "k": "A",
+    "text": "DataNode"
+   },
+   {
+    "k": "B",
+    "text": "TaskTracker"
+   },
+   {
+    "k": "C",
+    "text": "NameNode"
+   },
+   {
+    "k": "D",
+    "text": "Reducer"
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explanation": "Lecture 3 — the NameNode holds filenames and block-location metadata; DataNodes hold the actual data blocks. Trap: DataNode is the classic swapped-pair distractor (holds data, not metadata).",
+  "source": {
+   "file": "notes/week-1/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "HDFS",
+   "Intro to Big Data",
+   "MapReduce"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W1-Q8",
+    "year": 2026,
+    "week": 1,
+    "qno": 8
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   1
+  ]
+ },
+ {
+  "id": "2026-W1-Q9",
+  "year": 2026,
+  "week": 1,
+  "qno": 9,
+  "type": "MCQ",
+  "question": "Which pair is correctly matched?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Hive – Stream Processing"
+   },
+   {
+    "k": "B",
+    "text": "Kafka – Distributed Commit Log"
+   },
+   {
+    "k": "C",
+    "text": "Sqoop – Graph Analytics"
+   },
+   {
+    "k": "D",
+    "text": "GraphX – ETL Tool"
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explanation": "Lecture 2 only calls Kafka an open-source **distributed stream-processing framework** that feeds Spark Streaming (internals “later”). It never says “commit log.” The portal still pairs Kafka with **Distributed Commit Log** — that one-liner is from the later Kafka lecture, not this week. Pick **b** because the other three pairs are wrong on this week's map. Trap: a/c/d all swap roles: Hive is SQL queries not streaming, Sqoop is RDBMS↔Hadoop transfer not graphs, GraphX is Spark's graph-analytics library not ETL.",
+  "source": {
+   "file": "notes/week-1/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "GraphX/PageRank",
+   "Hive/Pig/Sqoop/Flume",
+   "Intro to Big Data",
+   "Kafka"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W1-Q9",
+    "year": 2026,
+    "week": 1,
+    "qno": 9
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   1
+  ]
+ },
+ {
+  "id": "2026-W1-Q10",
+  "year": 2026,
+  "week": 1,
+  "qno": 10,
+  "type": "MCQ",
+  "question": "Which of the following is the PRIMARY function of Apache ZooKeeper in a distributed Hadoop environment?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Storing large-scale data across cluster nodes"
+   },
+   {
+    "k": "B",
+    "text": "Managing distributed coordination, synchronization, and configuration services"
+   },
+   {
+    "k": "C",
+    "text": "Executing SQL-like queries on HDFS data"
+   },
+   {
+    "k": "D",
+    "text": "Scheduling Hadoop workflows and jobs"
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explanation": "Same Zookeeper definition as Q5 — coordination/sync/config service, not storage, querying, or scheduling. Trap: a=HDFS, c=Hive, d=Oozie.",
+  "source": {
+   "file": "notes/week-1/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "HDFS",
+   "Intro to Big Data",
+   "ZooKeeper"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W1-Q10",
+    "year": 2026,
+    "week": 1,
+    "qno": 10
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   1
+  ]
+ },
+ {
   "id": "2019-W2-Q8",
   "year": 2019,
   "week": 2,
@@ -7589,6 +8142,548 @@
   ]
  },
  {
+  "id": "2026-W2-Q1",
+  "year": 2026,
+  "week": 2,
+  "qno": 1,
+  "type": "MCQ",
+  "question": "Which HDFS component is primarily responsible for monitoring replica counts and initiating re-replication when a block becomes under-replicated?",
+  "options": [
+   {
+    "k": "A",
+    "text": "DataNode"
+   },
+   {
+    "k": "B",
+    "text": "Client"
+   },
+   {
+    "k": "C",
+    "text": "NameNode"
+   },
+   {
+    "k": "D",
+    "text": "Secondary NameNode"
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explanation": "The NameNode tracks block-to-DataNode mappings and replication state; per `notes/week-2/notes.md` Lec 4, it detects under-replication via missing heartbeats and restarts the replication process to restore the configured factor. Trap: DataNode only stores and serves blocks — it doesn't decide replication counts, it just executes what the NameNode instructs.",
+  "source": {
+   "file": "notes/week-2/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "HDFS",
+   "Hadoop / HDFS / MapReduce"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W2-Q1",
+    "year": 2026,
+    "week": 2,
+    "qno": 1
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   2
+  ]
+ },
+ {
+  "id": "2026-W2-Q2",
+  "year": 2026,
+  "week": 2,
+  "qno": 2,
+  "type": "MCQ",
+  "question": "What is the primary purpose of introducing the HDFS Federation?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Increase replication factor"
+   },
+   {
+    "k": "B",
+    "text": "Increase namespace scalability"
+   },
+   {
+    "k": "C",
+    "text": "Reduce block size"
+   },
+   {
+    "k": "D",
+    "text": "Eliminate DataNodes"
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explanation": "Lec 4 of `notes/week-2/notes.md` names namespace scalability as Federation's headline benefit (plus performance/isolation), achieved by splitting one NameNode's namespace into multiple independent NameNode+block-pool pairs. Trap: Federation doesn't touch replication factor or block size — those are separate tuning parameters (`dfs.replication`, `dfs.block.size`).",
+  "source": {
+   "file": "notes/week-2/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "HDFS",
+   "Hadoop / HDFS / MapReduce"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W2-Q2",
+    "year": 2026,
+    "week": 2,
+    "qno": 2
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   2
+  ]
+ },
+ {
+  "id": "2026-W2-Q3",
+  "year": 2026,
+  "week": 2,
+  "qno": 3,
+  "type": "MCQ",
+  "question": "Which of the following is directly affected by the number of HDFS blocks?",
+  "options": [
+   {
+    "k": "A",
+    "text": "NameNode memory usage"
+   },
+   {
+    "k": "B",
+    "text": "Number of Map tasks"
+   },
+   {
+    "k": "C",
+    "text": "Both A and B"
+   },
+   {
+    "k": "D",
+    "text": "Neither A and B"
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explanation": "Lec 4 notes: more blocks per file → more NameNode metadata to hold in memory, and at least one map task is typically needed per block, so both scale together with block count. Trap: Picking just one of A/B misses that the lecture explicitly ties block count to both memory pressure *and* task count in the same trade-off discussion.",
+  "source": {
+   "file": "notes/week-2/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "HDFS",
+   "Hadoop / HDFS / MapReduce"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W2-Q3",
+    "year": 2026,
+    "week": 2,
+    "qno": 3
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   2
+  ]
+ },
+ {
+  "id": "2026-W2-Q4",
+  "year": 2026,
+  "week": 2,
+  "qno": 4,
+  "type": "MCQ",
+  "question": "What is the default value of the parameter `dfs.replication`?",
+  "options": [
+   {
+    "k": "A",
+    "text": "1"
+   },
+   {
+    "k": "B",
+    "text": "2"
+   },
+   {
+    "k": "C",
+    "text": "3"
+   },
+   {
+    "k": "D",
+    "text": "4"
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explanation": "Directly stated in Lec 4: default replication factor is 3, configured via `dfs.replication`.",
+  "source": {
+   "file": "notes/week-2/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "HDFS",
+   "Hadoop / HDFS / MapReduce"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W2-Q4",
+    "year": 2026,
+    "week": 2,
+    "qno": 4
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   2
+  ]
+ },
+ {
+  "id": "2026-W2-Q5",
+  "year": 2026,
+  "week": 2,
+  "qno": 5,
+  "type": "MCQ",
+  "question": "(Portal repeats the Q4 stem text, but the options describe DataNode failure handling — treating it as intended: \"How does the NameNode respond when it detects a DataNode failure?\")",
+  "options": [
+   {
+    "k": "A",
+    "text": "Ignores the failure"
+   },
+   {
+    "k": "B",
+    "text": "Deletes all blocks immediately"
+   },
+   {
+    "k": "C",
+    "text": "Marks the DataNode and initiates re-replication if needed"
+   },
+   {
+    "k": "D",
+    "text": "Restarts the DataNode automatically"
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explanation": "Lec 4's fault-tolerance section: a DataNode missing heartbeats is marked down, stops receiving new I/O, and the NameNode re-replicates any blocks that fell below the replication factor. Trap: The NameNode cannot restart a DataNode remotely (d) — recovery is via re-replication onto other live nodes, not reviving the failed one.",
+  "source": {
+   "file": "notes/week-2/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "HDFS",
+   "Hadoop / HDFS / MapReduce"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W2-Q5",
+    "year": 2026,
+    "week": 2,
+    "qno": 5
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   2
+  ]
+ },
+ {
+  "id": "2026-W2-Q6",
+  "year": 2026,
+  "week": 2,
+  "qno": 6,
+  "type": "MCQ",
+  "question": "Which statement about Reduce tasks is TRUE?",
+  "options": [
+   {
+    "k": "A",
+    "text": "A key can be processed by multiple Reducers."
+   },
+   {
+    "k": "B",
+    "text": "Each key is assigned to exactly one Reducer."
+   },
+   {
+    "k": "C",
+    "text": "Reducers execute before Mappers."
+   },
+   {
+    "k": "D",
+    "text": "Reducers never use partitioning."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explanation": "Lec 6's Reduce/partitioning section: every key routes to exactly one reduce task (commonly via hash partitioning, `hash(key) % num_reduce_tasks`) so all values for that key land together for correct aggregation. Trap: (a) directly contradicts the \"each key → one reducer\" rule; (c) reverses the map→shuffle→reduce order; (d) partitioning is exactly the mechanism that assigns keys to reducers.",
+  "source": {
+   "file": "notes/week-2/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "Hadoop / HDFS / MapReduce",
+   "MapReduce"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W2-Q6",
+    "year": 2026,
+    "week": 2,
+    "qno": 6
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   2
+  ]
+ },
+ {
+  "id": "2026-W2-Q7",
+  "year": 2026,
+  "week": 2,
+  "qno": 7,
+  "type": "MCQ",
+  "question": "What is the primary role of a Partitioner in MapReduce?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Sort records within a Reducer"
+   },
+   {
+    "k": "B",
+    "text": "Decide which Reducer receives a key-value pair"
+   },
+   {
+    "k": "C",
+    "text": "Combine Mapper outputs locally"
+   },
+   {
+    "k": "D",
+    "text": "Replicate data blocks across HDFS"
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explanation": "Lec 6 notes hash partitioning as `reduce_task_number = hash(key) % number_of_reduce_tasks` — the partitioner's job is routing each key to its designated reducer. Trap: (a) sorting-within-reducer and (c) local combining are related but separate shuffle-stage activities, not the partitioner's defining role.",
+  "source": {
+   "file": "notes/week-2/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "HDFS",
+   "Hadoop / HDFS / MapReduce",
+   "MapReduce"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W2-Q7",
+    "year": 2026,
+    "week": 2,
+    "qno": 7
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   2
+  ]
+ },
+ {
+  "id": "2026-W2-Q8",
+  "year": 2026,
+  "week": 2,
+  "qno": 8,
+  "type": "MCQ",
+  "question": "Which YARN component is responsible for detecting task failures for a specific job?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Resource Manager (RM)"
+   },
+   {
+    "k": "B",
+    "text": "Node Manager (NM)"
+   },
+   {
+    "k": "C",
+    "text": "Application Master (AM)"
+   },
+   {
+    "k": "D",
+    "text": "DataNode"
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explanation": "Lec 7's YARN section: the Application Master is scoped to one job and negotiates containers plus detects/handles that job's task failures, distinct from the cluster-wide Resource Manager. Trap: RM schedules cluster-wide but doesn't track per-job task failures; that's delegated to each job's own AM.",
+  "source": {
+   "file": "notes/week-2/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "HDFS",
+   "Hadoop / HDFS / MapReduce",
+   "YARN"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W2-Q8",
+    "year": 2026,
+    "week": 2,
+    "qno": 8
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   2
+  ]
+ },
+ {
+  "id": "2026-W2-Q9",
+  "year": 2026,
+  "week": 2,
+  "qno": 9,
+  "type": "MCQ",
+  "question": "Which statement about the Reduce function is TRUE?",
+  "options": [
+   {
+    "k": "A",
+    "text": "It accepts an intermediate key and a set of values."
+   },
+   {
+    "k": "B",
+    "text": "It processes only one value at a time."
+   },
+   {
+    "k": "C",
+    "text": "It cannot aggregate values."
+   },
+   {
+    "k": "D",
+    "text": "It always produces multiple output values."
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explanation": "Lec 6 core ideas: reduce takes an intermediate key and an iterator over all values for that key, then aggregates (e.g., sums) them — matching option (a) exactly. Trap: (d) is backwards — the lecture states reduce typically produces 0 or 1 output values per invocation, not \"always multiple.\"",
+  "source": {
+   "file": "notes/week-2/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "Hadoop / HDFS / MapReduce"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W2-Q9",
+    "year": 2026,
+    "week": 2,
+    "qno": 9
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   2
+  ]
+ },
+ {
+  "id": "2026-W2-Q10",
+  "year": 2026,
+  "week": 2,
+  "qno": 10,
+  "type": "MCQ",
+  "question": "In the Reverse Web-Link Graph application, the Mapper emits:",
+  "options": [
+   {
+    "k": "A",
+    "text": "(source, target)"
+   },
+   {
+    "k": "B",
+    "text": "(target, source)"
+   },
+   {
+    "k": "C",
+    "text": "(URL, 1)"
+   },
+   {
+    "k": "D",
+    "text": "(target, count)"
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explanation": "Lec 7 worked example: for edge (source, target), map emits `<target, source>` so reduce can group all sources per target into `<target, list(source)>` — the whole point of \"reversing\" the link direction. Trap: (a) is the un-reversed direction (that would just replay the original graph); (c) is the URL-access-frequency pattern from a different application in the same lecture.",
+  "source": {
+   "file": "notes/week-2/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "GraphX/PageRank",
+   "Hadoop / HDFS / MapReduce",
+   "MapReduce"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W2-Q10",
+    "year": 2026,
+    "week": 2,
+    "qno": 10
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   2
+  ]
+ },
+ {
   "id": "2022-W3-Q1",
   "year": 2022,
   "week": 3,
@@ -9646,6 +10741,570 @@
   ]
  },
  {
+  "id": "2026-W3-Q1",
+  "year": 2026,
+  "week": 3,
+  "qno": 1,
+  "type": "MCQ",
+  "question": "Which statement best explains Spark's fault tolerance mechanism?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Every RDD is replicated across all nodes."
+   },
+   {
+    "k": "B",
+    "text": "Every transformation result is written to HDFS."
+   },
+   {
+    "k": "C",
+    "text": "Spark tracks lineage and recomputes lost partitions."
+   },
+   {
+    "k": "D",
+    "text": "Spark checkpoints every operation by default."
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explanation": "Lecture 10, \"How lineage actually works\" — Spark logs the coarse-grained transformations that built each RDD (its lineage); on partition loss it traces the log and recomputes only that partition, at no extra cost when nothing fails. Trap: a/b describe HDFS-style redundancy (block replication / write-through), which is exactly what Spark avoids — that's the \"not a backup copy\" distinction the notes call out explicitly. d overstates: persistence is opt-in, not automatic.",
+  "source": {
+   "file": "notes/week-3/assignment.md",
+   "page": null
+  },
+  "flags": [
+   "answer-solved"
+  ],
+  "topics": [
+   "HDFS",
+   "Spark",
+   "Spark & key-value stores"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W3-Q1",
+    "year": 2026,
+    "week": 3,
+    "qno": 1
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   3
+  ]
+ },
+ {
+  "id": "2026-W3-Q2",
+  "year": 2026,
+  "week": 3,
+  "qno": 2,
+  "type": "MCQ",
+  "question": "Which operation below is an Action rather than a Transformation?",
+  "options": [
+   {
+    "k": "A",
+    "text": "collect()"
+   },
+   {
+    "k": "B",
+    "text": "join()"
+   },
+   {
+    "k": "C",
+    "text": "map()"
+   },
+   {
+    "k": "D",
+    "text": "filter()"
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explanation": "Lecture 9 Part B, \"Basic actions\" — `collect()` pulls the RDD back to the driver, triggering execution. `map`, `filter`, `join` are all lazy transformations that only build the DAG. Trap: join/map/filter are the textbook transformation examples used throughout the notes precisely because they never run until an action like `collect()` forces them.",
+  "source": {
+   "file": "notes/week-3/assignment.md",
+   "page": null
+  },
+  "flags": [
+   "answer-solved"
+  ],
+  "topics": [
+   "MapReduce",
+   "Spark & key-value stores"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W3-Q2",
+    "year": 2026,
+    "week": 3,
+    "qno": 2
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   3
+  ]
+ },
+ {
+  "id": "2026-W3-Q3",
+  "year": 2026,
+  "week": 3,
+  "qno": 3,
+  "type": "MCQ",
+  "question": "Which Spark component is responsible for splitting a DAG into stages?",
+  "options": [
+   {
+    "k": "A",
+    "text": "SparkContext"
+   },
+   {
+    "k": "B",
+    "text": "TaskScheduler"
+   },
+   {
+    "k": "C",
+    "text": "DAGScheduler"
+   },
+   {
+    "k": "D",
+    "text": "BlockManager"
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explanation": "Lecture 10, \"Execution mechanics\" — the DAG scheduler splits the DAG into stages of tasks and submits each stage once ready; the task scheduler then launches those tasks and retries stragglers/failures. Trap: b (TaskScheduler) is the near-twin — it launches/retries tasks *within* a stage, but does not decide the stage boundaries. SparkContext is the entry point, not the scheduler; BlockManager isn't the component the notes name for this job (cache/task execution lives on the executor).",
+  "source": {
+   "file": "notes/week-3/assignment.md",
+   "page": null
+  },
+  "flags": [
+   "answer-solved"
+  ],
+  "topics": [
+   "Spark",
+   "Spark & key-value stores"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W3-Q3",
+    "year": 2026,
+    "week": 3,
+    "qno": 3
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   3
+  ]
+ },
+ {
+  "id": "2026-W3-Q4",
+  "year": 2026,
+  "week": 3,
+  "qno": 4,
+  "type": "MCQ",
+  "question": "Why is reduceByKey() generally preferred over groupByKey() for aggregation?",
+  "options": [
+   {
+    "k": "A",
+    "text": "It automatically sorts keys."
+   },
+   {
+    "k": "B",
+    "text": "It uses combiners on the map side."
+   },
+   {
+    "k": "C",
+    "text": "It creates fewer partitions."
+   },
+   {
+    "k": "D",
+    "text": "It avoids shuffling completely."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explanation": "Lecture 9 Part B, \"Key-value pair RDDs\" — `reduceByKey` \"automatically applies a combiner on the map side,\" partially summing values before they cross the network, the same optimization idea as a MapReduce combiner. `groupByKey` ships every raw value. Trap: d is wrong — reduceByKey still shuffles, just less data; a/c aren't properties either operation has (no sorting, no partition-count change) per the notes.",
+  "source": {
+   "file": "notes/week-3/assignment.md",
+   "page": null
+  },
+  "flags": [
+   "answer-solved"
+  ],
+  "topics": [
+   "MapReduce",
+   "Spark & key-value stores"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W3-Q4",
+    "year": 2026,
+    "week": 3,
+    "qno": 4
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   3
+  ]
+ },
+ {
+  "id": "2026-W3-Q5",
+  "year": 2026,
+  "week": 3,
+  "qno": 5,
+  "type": "MCQ",
+  "question": "In Spark, which operation triggers actual execution of a DAG?",
+  "options": [
+   {
+    "k": "A",
+    "text": "map()"
+   },
+   {
+    "k": "B",
+    "text": "filter()"
+   },
+   {
+    "k": "C",
+    "text": "join()"
+   },
+   {
+    "k": "D",
+    "text": "count()"
+   }
+  ],
+  "answer": [
+   "D"
+  ],
+  "explanation": "Same transformation-vs-action split as Q2 — `count()` is the canonical action used throughout the Lecture 9 log-mining trace (\"count is an action, so *this* is the point where Spark actually walks back through the chain and executes everything\"). Trap: map/filter/join are all lazy transformations — none of them runs anything by itself.",
+  "source": {
+   "file": "notes/week-3/assignment.md",
+   "page": null
+  },
+  "flags": [
+   "answer-solved"
+  ],
+  "topics": [
+   "MapReduce",
+   "Spark",
+   "Spark & key-value stores"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W3-Q5",
+    "year": 2026,
+    "week": 3,
+    "qno": 5
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   3
+  ]
+ },
+ {
+  "id": "2026-W3-Q6",
+  "year": 2026,
+  "week": 3,
+  "qno": 6,
+  "type": "MCQ",
+  "question": "Which statement about RDDs is FALSE?",
+  "options": [
+   {
+    "k": "A",
+    "text": "RDDs are immutable."
+   },
+   {
+    "k": "B",
+    "text": "RDDs can be cached for reuse."
+   },
+   {
+    "k": "C",
+    "text": "RDDs automatically rebuild lost data using lineage."
+   },
+   {
+    "k": "D",
+    "text": "RDDs support direct modification of existing partitions."
+   }
+  ],
+  "answer": [
+   "D"
+  ],
+  "explanation": "Lecture 9's RDD definition and the near-twin table both stress RDDs are *immutable* — created only by reading external data or applying coarse-grained transformations, never edited element-by-element/in place. a, b, c are all directly stated properties (immutable, cacheable, lineage-rebuilt). Trap: \"Direct modification of existing partitions\" is the opposite of coarse-grained, immutable transformations — this is the false statement to pick.",
+  "source": {
+   "file": "notes/week-3/assignment.md",
+   "page": null
+  },
+  "flags": [
+   "answer-solved"
+  ],
+  "topics": [
+   "Spark",
+   "Spark & key-value stores"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W3-Q6",
+    "year": 2026,
+    "week": 3,
+    "qno": 6
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   3
+  ]
+ },
+ {
+  "id": "2026-W3-Q7",
+  "year": 2026,
+  "week": 3,
+  "qno": 7,
+  "type": "MCQ",
+  "question": "Which feature helps Spark recover lost RDD partitions?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Replication"
+   },
+   {
+    "k": "B",
+    "text": "Lineage"
+   },
+   {
+    "k": "C",
+    "text": "Compression"
+   },
+   {
+    "k": "D",
+    "text": "Scheduling"
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explanation": "Same mechanism as Q1 — lineage is the recorded transformation log Spark replays to recompute a lost partition. Trap: a (Replication) is the HDFS-style mechanism the notes explicitly contrast lineage against; c/d aren't fault-tolerance mechanisms discussed in the notes at all.",
+  "source": {
+   "file": "notes/week-3/assignment.md",
+   "page": null
+  },
+  "flags": [
+   "answer-solved"
+  ],
+  "topics": [
+   "HDFS",
+   "Spark",
+   "Spark & key-value stores"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W3-Q7",
+    "year": 2026,
+    "week": 3,
+    "qno": 7
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   3
+  ]
+ },
+ {
+  "id": "2026-W3-Q8",
+  "year": 2026,
+  "week": 3,
+  "qno": 8,
+  "type": "MCQ",
+  "question": "SparkContext is:",
+  "options": [
+   {
+    "k": "A",
+    "text": "Storage system"
+   },
+   {
+    "k": "B",
+    "text": "Main entry point to Spark functionality"
+   },
+   {
+    "k": "C",
+    "text": "Worker node"
+   },
+   {
+    "k": "D",
+    "text": "Scheduler"
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explanation": "Lecture 9 Part B and Lecture 10 both define it identically: \"A SparkContext ... is the entry point to all Spark functionality,\" created inside the driver program. Trap: c/d confuse SparkContext with the Worker Nodes / DAGScheduler-TaskScheduler it talks to; a is not a role it has anywhere in the notes.",
+  "source": {
+   "file": "notes/week-3/assignment.md",
+   "page": null
+  },
+  "flags": [
+   "answer-solved"
+  ],
+  "topics": [
+   "Spark",
+   "Spark & key-value stores"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W3-Q8",
+    "year": 2026,
+    "week": 3,
+    "qno": 8
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   3
+  ]
+ },
+ {
+  "id": "2026-W3-Q9",
+  "year": 2026,
+  "week": 3,
+  "qno": 9,
+  "type": "MCQ",
+  "question": "Which Spark component launches tasks on worker nodes and retries failed tasks?",
+  "options": [
+   {
+    "k": "A",
+    "text": "SparkContext"
+   },
+   {
+    "k": "B",
+    "text": "DAGScheduler"
+   },
+   {
+    "k": "C",
+    "text": "BlockManager"
+   },
+   {
+    "k": "D",
+    "text": "TaskScheduler"
+   }
+  ],
+  "answer": [
+   "D"
+  ],
+  "explanation": "Lecture 10, \"Execution mechanics\" — \"the task scheduler then launches the actual tasks via the cluster manager and retries failed or straggling tasks.\" This is the mirror of Q3. Trap: b (DAGScheduler) is the near-twin — it splits the DAG into stages but doesn't itself launch/retry individual tasks; that handoff to the task scheduler is exactly what the notes' near-twins section flags.",
+  "source": {
+   "file": "notes/week-3/assignment.md",
+   "page": null
+  },
+  "flags": [
+   "answer-solved"
+  ],
+  "topics": [
+   "Spark",
+   "Spark & key-value stores"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W3-Q9",
+    "year": 2026,
+    "week": 3,
+    "qno": 9
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   3
+  ]
+ },
+ {
+  "id": "2026-W3-Q10",
+  "year": 2026,
+  "week": 3,
+  "qno": 10,
+  "type": "MCQ",
+  "question": "A Spark application performs multiple iterations over the same dataset. Which feature provides the greatest performance improvement?",
+  "options": [
+   {
+    "k": "A",
+    "text": "HDFS replication"
+   },
+   {
+    "k": "B",
+    "text": "Data compression"
+   },
+   {
+    "k": "C",
+    "text": "Caching/Persistence of RDDs"
+   },
+   {
+    "k": "D",
+    "text": "Increasing block size"
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explanation": "Lecture 9 Part B's PageRank walkthrough is the notes' explicit example: \"because `links` and `ranks` are cached RDDs reused every iteration, PageRank is exactly the kind of iterative workload where Spark's in-memory model beats MapReduce\" — same logic applies to k-means/logistic regression. Trap: a/b/d are all storage-layer knobs (replication, compression, block size) that don't address the real cost of iterative work — re-reading/recomputing the same data every pass — which only in-memory caching removes.",
+  "source": {
+   "file": "notes/week-3/assignment.md",
+   "page": null
+  },
+  "flags": [
+   "answer-solved"
+  ],
+  "topics": [
+   "HDFS",
+   "Spark",
+   "Spark & key-value stores"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W3-Q10",
+    "year": 2026,
+    "week": 3,
+    "qno": 10
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   3
+  ]
+ },
+ {
   "id": "2019-W4-Q3",
   "year": 2019,
   "week": 4,
@@ -10212,7 +11871,7 @@
   "answer": [
    "C"
   ],
-  "explanation": "",
+  "explanation": "Cassandra uses a protocol called gossip to discover location and state information about the other nodes participating in a Cassandra cluster. Gossip is a peer-to-peer communication protocol in which nodes periodically exchange state information about themselves and about other nodes they know about.",
   "source": {
    "file": "2022_A-1 to 8_solu.pdf",
    "page": 15
@@ -12154,6 +13813,569 @@
   "repeat": 1,
   "years": [
    2025
+  ],
+  "weeks": [
+   4
+  ]
+ },
+ {
+  "id": "2026-W4-Q1",
+  "year": 2026,
+  "week": 4,
+  "qno": 1,
+  "type": "MCQ",
+  "question": "Which Cassandra replication strategy is specifically designed for multi-datacenter deployments?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Simple Strategy"
+   },
+   {
+    "k": "B",
+    "text": "Network Topology Strategy"
+   },
+   {
+    "k": "C",
+    "text": "Random Partitioner"
+   },
+   {
+    "k": "D",
+    "text": "Byte Ordered Partitioner"
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explanation": "Lec 13 (Data Placement Strategies) — Simple Strategy just uses a partitioner within one ring; Network Topology Strategy is the one that explicitly \"requires multiple data center deployments,\" placing a fixed number of replicas per DC and walking the ring clockwise onto different racks. Trap: Random Partitioner and Byte Ordered Partitioner are the two *partitioner* choices used inside Simple Strategy, not replication strategies themselves.",
+  "source": {
+   "file": "notes/week-4/assignment.md",
+   "page": null
+  },
+  "flags": [
+   "answer-solved"
+  ],
+  "topics": [
+   "Cassandra",
+   "HDFS",
+   "MapReduce",
+   "Storage: CAP, Cassandra, ZooKeeper"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W4-Q1",
+    "year": 2026,
+    "week": 4,
+    "qno": 1
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   4
+  ]
+ },
+ {
+  "id": "2026-W4-Q2",
+  "year": 2026,
+  "week": 4,
+  "qno": 2,
+  "type": "MCQ",
+  "question": "What is the primary purpose of Cassandra's Bloom Filter?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Store key-value pairs permanently"
+   },
+   {
+    "k": "B",
+    "text": "Compress SSTables"
+   },
+   {
+    "k": "C",
+    "text": "Quickly determine if a key may exist in an SSTable"
+   },
+   {
+    "k": "D",
+    "text": "Replace indexing structures"
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explanation": "Lec 13 — the Bloom filter is checked before touching disk, to find which SSTable a key is likely in; it's a cheap existence pre-check, not storage itself. Trap: It does not replace the index file — the notes explicitly list the SSTable's index file and the Bloom filter as two separate pieces working together.",
+  "source": {
+   "file": "notes/week-4/assignment.md",
+   "page": null
+  },
+  "flags": [
+   "answer-solved"
+  ],
+  "topics": [
+   "Cassandra",
+   "Storage: CAP, Cassandra, ZooKeeper"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W4-Q2",
+    "year": 2026,
+    "week": 4,
+    "qno": 2
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   4
+  ]
+ },
+ {
+  "id": "2026-W4-Q3",
+  "year": 2026,
+  "week": 4,
+  "qno": 3,
+  "type": "MCQ",
+  "question": "Which statement about Bloom Filters is TRUE?",
+  "options": [
+   {
+    "k": "A",
+    "text": "They may produce false negatives."
+   },
+   {
+    "k": "B",
+    "text": "They never produce false positives."
+   },
+   {
+    "k": "C",
+    "text": "They may produce false positives but never false negatives"
+   },
+   {
+    "k": "D",
+    "text": "They guarantee exact membership testing."
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explanation": "Lec 13's own definition: checking for existence can say \"present\" when a key isn't actually there (false positive, ~0.02% in the slide's example) but it never says \"absent\" for a key that is actually present (no false negatives). Trap: (a) and (d) invert the guarantee; (b) is close but wrong direction — false positives *do* happen, just rarely.",
+  "source": {
+   "file": "notes/week-4/assignment.md",
+   "page": null
+  },
+  "flags": [
+   "answer-solved"
+  ],
+  "topics": [
+   "Storage: CAP, Cassandra, ZooKeeper"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W4-Q3",
+    "year": 2026,
+    "week": 4,
+    "qno": 3
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   4
+  ]
+ },
+ {
+  "id": "2026-W4-Q4",
+  "year": 2026,
+  "week": 4,
+  "qno": 4,
+  "type": "MCQ",
+  "question": "In Cassandra, why are writes generally faster than reads?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Reads use only memory."
+   },
+   {
+    "k": "B",
+    "text": "Writes avoid disk operations entirely."
+   },
+   {
+    "k": "C",
+    "text": "Writes are append-oriented using Commit Logs and MemTables"
+   },
+   {
+    "k": "D",
+    "text": "Reads bypass SSTables."
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explanation": "Lec 13 — a write only needs to append to the commit log and update the in-memory Memtable (write-back) before acking; it doesn't need to touch an SSTable on the critical path. Reads, by contrast, may have to check Memtable, row cache, Bloom filter, key cache, and one or more SSTables (Lec 17's read path). Trap: (b) overstates it — the commit log write *is* a disk operation, just a fast sequential append, not the slower flush/compaction path.",
+  "source": {
+   "file": "notes/week-4/assignment.md",
+   "page": null
+  },
+  "flags": [
+   "answer-solved"
+  ],
+  "topics": [
+   "Cassandra",
+   "Storage: CAP, Cassandra, ZooKeeper"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W4-Q4",
+    "year": 2026,
+    "week": 4,
+    "qno": 4
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   4
+  ]
+ },
+ {
+  "id": "2026-W4-Q5",
+  "year": 2026,
+  "week": 4,
+  "qno": 5,
+  "type": "MCQ",
+  "question": "Which Cassandra consistency level is the FASTEST for writes?",
+  "options": [
+   {
+    "k": "A",
+    "text": "ALL"
+   },
+   {
+    "k": "B",
+    "text": "QUORUM"
+   },
+   {
+    "k": "C",
+    "text": "ONE"
+   },
+   {
+    "k": "D",
+    "text": "ANY"
+   }
+  ],
+  "answer": [
+   "D"
+  ],
+  "explanation": "Lec 14 — ANY lets any server (not even necessarily a replica) ack the write, so the coordinator can cache it and reply immediately; the notes list ANY explicitly as \"fastest.\" Trap: ONE is faster than ALL/QUORUM but still requires an actual replica to be updated, so it's slower than ANY.",
+  "source": {
+   "file": "notes/week-4/assignment.md",
+   "page": null
+  },
+  "flags": [
+   "answer-solved"
+  ],
+  "topics": [
+   "CAP",
+   "Cassandra",
+   "Storage: CAP, Cassandra, ZooKeeper"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W4-Q5",
+    "year": 2026,
+    "week": 4,
+    "qno": 5
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   4
+  ]
+ },
+ {
+  "id": "2026-W4-Q6",
+  "year": 2026,
+  "week": 4,
+  "qno": 6,
+  "type": "MCQ",
+  "question": "According to CAP theorem, Cassandra primarily chooses:",
+  "options": [
+   {
+    "k": "A",
+    "text": "Consistency and Availability"
+   },
+   {
+    "k": "B",
+    "text": "Consistency and Partition Tolerance"
+   },
+   {
+    "k": "C",
+    "text": "Availability and Partition Tolerance"
+   },
+   {
+    "k": "D",
+    "text": "Atomicity and Durability"
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explanation": "Lec 14 — the CAP Theorem Fallout slide places Cassandra in the AP camp (Availability + Partition tolerance) with eventual/weak consistency, alongside Dynamo and Voldemort. Trap: (b) is HBase/BigTable/Spanner's choice, not Cassandra's; (d) mixes in ACID terms that belong to RDBMS, not CAP.",
+  "source": {
+   "file": "notes/week-4/assignment.md",
+   "page": null
+  },
+  "flags": [
+   "answer-solved"
+  ],
+  "topics": [
+   "CAP",
+   "Cassandra",
+   "Storage: CAP, Cassandra, ZooKeeper"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W4-Q6",
+    "year": 2026,
+    "week": 4,
+    "qno": 6
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   4
+  ]
+ },
+ {
+  "id": "2026-W4-Q7",
+  "year": 2026,
+  "week": 4,
+  "qno": 7,
+  "type": "MCQ",
+  "question": "Which property defines Eventual Consistency?",
+  "options": [
+   {
+    "k": "A",
+    "text": "All replicas are instantly synchronized."
+   },
+   {
+    "k": "B",
+    "text": "Replicas converge if updates stop."
+   },
+   {
+    "k": "C",
+    "text": "Reads always return latest value."
+   },
+   {
+    "k": "D",
+    "text": "No stale reads are possible."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explanation": "Lec 14/15 — eventual consistency's defining guarantee is that \"if all writes to a key stop, all its replicas will eventually converge\"; while writes continue, reads can lag behind (the \"moving wave\" described in Lec 14). Trap: (a), (c), (d) all describe strong/linearizable consistency, the opposite end of the spectrum from eventual consistency.",
+  "source": {
+   "file": "notes/week-4/assignment.md",
+   "page": null
+  },
+  "flags": [
+   "answer-solved"
+  ],
+  "topics": [
+   "CAP",
+   "Storage: CAP, Cassandra, ZooKeeper"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W4-Q7",
+    "year": 2026,
+    "week": 4,
+    "qno": 7
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   4
+  ]
+ },
+ {
+  "id": "2026-W4-Q8",
+  "year": 2026,
+  "week": 4,
+  "qno": 8,
+  "type": "MCQ",
+  "question": "What happens if a ZooKeeper ensemble loses majority availability?",
+  "options": [
+   {
+    "k": "A",
+    "text": "A new leader is elected immediately."
+   },
+   {
+    "k": "B",
+    "text": "Remaining node becomes leader."
+   },
+   {
+    "k": "C",
+    "text": "No leader can be elected."
+   },
+   {
+    "k": "D",
+    "text": "System switches to standalone mode."
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explanation": "Lec 16, Part B — the worked example (3 nodes, 2 die) shows that with only a minority surviving, Zookeeper deliberately elects no leader at all, rather than risk a split-brain scenario; a leader is only elected/kept when a majority (2f+1 for f failures) is available. Trap: (b) contradicts the majority rule — a single surviving node out of three is not enough to become leader.",
+  "source": {
+   "file": "notes/week-4/assignment.md",
+   "page": null
+  },
+  "flags": [
+   "answer-solved"
+  ],
+  "topics": [
+   "Storage: CAP, Cassandra, ZooKeeper",
+   "ZooKeeper"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W4-Q8",
+    "year": 2026,
+    "week": 4,
+    "qno": 8
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   4
+  ]
+ },
+ {
+  "id": "2026-W4-Q9",
+  "year": 2026,
+  "week": 4,
+  "qno": 9,
+  "type": "MCQ",
+  "question": "Which ZooKeeper design goal ensures that all updates are processed in a globally agreed order?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Ordered"
+   },
+   {
+    "k": "B",
+    "text": "Replicated"
+   },
+   {
+    "k": "C",
+    "text": "Fast"
+   },
+   {
+    "k": "D",
+    "text": "Atomic"
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explanation": "Lec 16, Part A lists Zookeeper's four design goals (Simple, Replicated, Ordered, Fast) separately; \"Ordered\" is specifically the one where \"Zookeeper will timestamp each update with a number... reflects the order of the transaction.\" Trap: Atomicity (from the guarantees list, not the design-goals list) is about an update being all-or-nothing, not about global ordering across updates.",
+  "source": {
+   "file": "notes/week-4/assignment.md",
+   "page": null
+  },
+  "flags": [
+   "answer-solved"
+  ],
+  "topics": [
+   "Storage: CAP, Cassandra, ZooKeeper",
+   "ZooKeeper"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W4-Q9",
+    "year": 2026,
+    "week": 4,
+    "qno": 9
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   4
+  ]
+ },
+ {
+  "id": "2026-W4-Q10",
+  "year": 2026,
+  "week": 4,
+  "qno": 10,
+  "type": "MCQ",
+  "question": "What is the default type of znode in ZooKeeper?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Ephemeral"
+   },
+   {
+    "k": "B",
+    "text": "Sequential"
+   },
+   {
+    "k": "C",
+    "text": "Temporary"
+   },
+   {
+    "k": "D",
+    "text": "Persistent"
+   }
+  ],
+  "answer": [
+   "D"
+  ],
+  "explanation": "Lec 16, Part A — the notes state persistent znodes are \"the default type of znode,\" remaining until explicitly deleted, as opposed to ephemeral (tied to a session) or sequential (auto-numbered). Trap: \"Temporary\" isn't one of the three znode types the lecture names at all (Persistent, Ephemeral, Sequential).",
+  "source": {
+   "file": "notes/week-4/assignment.md",
+   "page": null
+  },
+  "flags": [
+   "answer-solved"
+  ],
+  "topics": [
+   "Storage: CAP, Cassandra, ZooKeeper",
+   "ZooKeeper"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W4-Q10",
+    "year": 2026,
+    "week": 4,
+    "qno": 10
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
   ],
   "weeks": [
    4
@@ -14895,6 +17117,573 @@
   ]
  },
  {
+  "id": "2026-W5-Q1",
+  "year": 2026,
+  "week": 5,
+  "qno": 1,
+  "type": "MCQ",
+  "question": "What is the fundamental processing model used by Spark Streaming?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Record-at-a-time processing"
+   },
+   {
+    "k": "B",
+    "text": "Micro-batch processing"
+   },
+   {
+    "k": "C",
+    "text": "Batch-only processing"
+   },
+   {
+    "k": "D",
+    "text": "Pipeline processing"
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explanation": "Lec 19/20 — Spark Streaming runs a streaming computation \"as a series of very small, deterministic batch jobs,\" chopping the live stream into X-second batches and treating each as an RDD. Trap: (a) is Storm's model, explicitly contrasted against Spark Streaming's approach; (c) ignores that it processes *live* data, not just static batches; (d) is a generic term, not the model this course names.",
+  "source": {
+   "file": "notes/week-5/assignment.md",
+   "page": null
+  },
+  "flags": [
+   "answer-solved"
+  ],
+  "topics": [
+   "Spark",
+   "Streaming: HBase, Kafka, Spark Streaming"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W5-Q1",
+    "year": 2026,
+    "week": 5,
+    "qno": 1
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   5
+  ]
+ },
+ {
+  "id": "2026-W5-Q2",
+  "year": 2026,
+  "week": 5,
+  "qno": 2,
+  "type": "MCQ",
+  "question": "Which abstraction represents a stream of data in Spark Streaming?",
+  "options": [
+   {
+    "k": "A",
+    "text": "DataFrame"
+   },
+   {
+    "k": "B",
+    "text": "RDD"
+   },
+   {
+    "k": "C",
+    "text": "DStream"
+   },
+   {
+    "k": "D",
+    "text": "Dataset"
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explanation": "Lec 20 — a DStream (Discretized Stream) is defined as the sequence of RDDs, one per batch interval, that together represent the stream over time. Trap: An RDD (b) is what *each individual batch* of a DStream becomes, not the stream abstraction itself; DataFrame/Dataset belong to the later Structured Streaming API, not this lecture's DStream-based model.",
+  "source": {
+   "file": "notes/week-5/assignment.md",
+   "page": null
+  },
+  "flags": [
+   "answer-solved"
+  ],
+  "topics": [
+   "Spark",
+   "Streaming: HBase, Kafka, Spark Streaming"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W5-Q2",
+    "year": 2026,
+    "week": 5,
+    "qno": 2
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   5
+  ]
+ },
+ {
+  "id": "2026-W5-Q3",
+  "year": 2026,
+  "week": 5,
+  "qno": 3,
+  "type": "MCQ",
+  "question": "Which of the following is NOT a supported Spark Streaming input source?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Kafka"
+   },
+   {
+    "k": "B",
+    "text": "Flume"
+   },
+   {
+    "k": "C",
+    "text": "Twitter"
+   },
+   {
+    "k": "D",
+    "text": "HDFS Block Replicator"
+   }
+  ],
+  "answer": [
+   "D"
+  ],
+  "explanation": "Lec 19/20 list the built-in receivers/sources explicitly: Kafka, Flume, Twitter, ZeroMQ, Kinesis, TCP sockets, HDFS (as a data source, not a \"Block Replicator\"). \"HDFS Block Replicator\" is not a named component anywhere in the notes. Trap: HDFS itself is a valid source; the fabricated qualifier \"Block Replicator\" is what makes this option wrong, not HDFS being excluded.",
+  "source": {
+   "file": "notes/week-5/assignment.md",
+   "page": null
+  },
+  "flags": [
+   "answer-solved"
+  ],
+  "topics": [
+   "HDFS",
+   "Hive/Pig/Sqoop/Flume",
+   "Kafka",
+   "Spark",
+   "Streaming: HBase, Kafka, Spark Streaming"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W5-Q3",
+    "year": 2026,
+    "week": 5,
+    "qno": 3
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   5
+  ]
+ },
+ {
+  "id": "2026-W5-Q4",
+  "year": 2026,
+  "week": 5,
+  "qno": 4,
+  "type": "MCQ",
+  "question": "Why is maintaining two separate stacks for batch and streaming considered problematic?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Reduces throughput"
+   },
+   {
+    "k": "B",
+    "text": "Doubles implementation and operational effort"
+   },
+   {
+    "k": "C",
+    "text": "Prevents fault tolerance"
+   },
+   {
+    "k": "D",
+    "text": "Eliminates scalability"
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explanation": "Lec 19 — the lecture states plainly that two different stacks \"require different programming models and also different efforts... and requires an operational cost,\" which is the motivation for Spark Streaming's unified engine. Trap: (a), (c), (d) are all overstatements the notes never make — separate stacks were called inefficient and costly, not literally incapable of throughput, fault tolerance, or scale.",
+  "source": {
+   "file": "notes/week-5/assignment.md",
+   "page": null
+  },
+  "flags": [
+   "answer-solved"
+  ],
+  "topics": [
+   "Streaming: HBase, Kafka, Spark Streaming"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W5-Q4",
+    "year": 2026,
+    "week": 5,
+    "qno": 4
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   5
+  ]
+ },
+ {
+  "id": "2026-W5-Q5",
+  "year": 2026,
+  "week": 5,
+  "qno": 5,
+  "type": "MCQ",
+  "question": "What is the main advantage of Spark Streaming's micro-batch architecture?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Eliminates RDDs"
+   },
+   {
+    "k": "B",
+    "text": "Supports only offline processing"
+   },
+   {
+    "k": "C",
+    "text": "Provides fault tolerance and scalability"
+   },
+   {
+    "k": "D",
+    "text": "Requires no cluster"
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explanation": "Lec 19/20 — the recurring requirements list (scale to hundreds/thousands of nodes, second-scale latency, efficient failure recovery) is exactly what the micro-batch/RDD design was built to satisfy; fault tolerance comes from block replication + RDD lineage, scalability from treating each batch as a normal distributable RDD. Trap: (a) is backwards — micro-batches *are* RDDs, not an alternative to them; (b) and (d) contradict the entire premise of Spark Streaming being for live, clustered processing.",
+  "source": {
+   "file": "notes/week-5/assignment.md",
+   "page": null
+  },
+  "flags": [
+   "answer-solved"
+  ],
+  "topics": [
+   "Spark",
+   "Streaming: HBase, Kafka, Spark Streaming"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W5-Q5",
+    "year": 2026,
+    "week": 5,
+    "qno": 5
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   5
+  ]
+ },
+ {
+  "id": "2026-W5-Q6",
+  "year": 2026,
+  "week": 5,
+  "qno": 6,
+  "type": "MCQ",
+  "question": "Which Spark Streaming feature helps recover lost data after worker failure?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Replicated input data and RDD lineage"
+   },
+   {
+    "k": "B",
+    "text": "ZooKeeper election"
+   },
+   {
+    "k": "C",
+    "text": "Kafka partitions"
+   },
+   {
+    "k": "D",
+    "text": "SQL optimizer"
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explanation": "Lec 20 — \"RDDs remember the sequence of operations... and batches of input data are replicated in the memory of multiple worker nodes,\" so lost data from a worker failure is recomputed using lineage from the (replicated) input. Trap: ZooKeeper election (b) is how Kafka/HBase choose a new leader, not how Spark Streaming recovers a worker's lost data; Kafka partitions (c) belong to Lec 22, a different system in this same week, not Spark Streaming's own fault-tolerance mechanism.",
+  "source": {
+   "file": "notes/week-5/assignment.md",
+   "page": null
+  },
+  "flags": [
+   "answer-solved"
+  ],
+  "topics": [
+   "Kafka",
+   "Spark",
+   "Streaming: HBase, Kafka, Spark Streaming",
+   "ZooKeeper"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W5-Q6",
+    "year": 2026,
+    "week": 5,
+    "qno": 6
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   5
+  ]
+ },
+ {
+  "id": "2026-W5-Q7",
+  "year": 2026,
+  "week": 5,
+  "qno": 7,
+  "type": "MCQ",
+  "question": "Which function maintains arbitrary state across batches?",
+  "options": [
+   {
+    "k": "A",
+    "text": "`updateStateByKey()`"
+   },
+   {
+    "k": "B",
+    "text": "`reduceByKey()`"
+   },
+   {
+    "k": "C",
+    "text": "`union()`"
+   },
+   {
+    "k": "D",
+    "text": "`collect()`"
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explanation": "Lec 20 — `updateStateByKey` is defined as the operation for \"arbitrary stateful computation,\" maintaining per-key state across the entire life of the stream (e.g., tracking a per-user mood as new tweets arrive), unlike a window which only looks at a bounded recent range. Trap: `reduceByKey` (b) only reduces within a single batch/RDD, not across the stream's history; `union` and `collect` are ordinary RDD operations with no stateful memory at all.",
+  "source": {
+   "file": "notes/week-5/assignment.md",
+   "page": null
+  },
+  "flags": [
+   "answer-solved"
+  ],
+  "topics": [
+   "Streaming: HBase, Kafka, Spark Streaming"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W5-Q7",
+    "year": 2026,
+    "week": 5,
+    "qno": 7
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   5
+  ]
+ },
+ {
+  "id": "2026-W5-Q8",
+  "year": 2026,
+  "week": 5,
+  "qno": 8,
+  "type": "MCQ",
+  "question": "In Spark Streaming, every interval results in:",
+  "options": [
+   {
+    "k": "A",
+    "text": "A new ZooKeeper node"
+   },
+   {
+    "k": "B",
+    "text": "An RDD graph computation"
+   },
+   {
+    "k": "C",
+    "text": "A new Kafka broker"
+   },
+   {
+    "k": "D",
+    "text": "A new DataNode"
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explanation": "Lec 20 — \"every interval an RDD graph is computed from [the] DStream graph... for each action a Spark job is computed,\" directly naming the per-interval RDD graph computation. Trap: (a), (c), (d) confuse Spark Streaming's own execution cycle with infrastructure from other systems this week (Zookeeper znodes, Kafka brokers, HDFS DataNodes) that aren't created per batch interval.",
+  "source": {
+   "file": "notes/week-5/assignment.md",
+   "page": null
+  },
+  "flags": [
+   "answer-solved"
+  ],
+  "topics": [
+   "GraphX/PageRank",
+   "HDFS",
+   "Kafka",
+   "Spark",
+   "Streaming: HBase, Kafka, Spark Streaming",
+   "ZooKeeper"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W5-Q8",
+    "year": 2026,
+    "week": 5,
+    "qno": 8
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   5
+  ]
+ },
+ {
+  "id": "2026-W5-Q9",
+  "year": 2026,
+  "week": 5,
+  "qno": 9,
+  "type": "MCQ",
+  "question": "Which statement about Spark Streaming fault tolerance is TRUE?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Lost data cannot be recovered."
+   },
+   {
+    "k": "B",
+    "text": "Transformations are exactly-once and fault-tolerant"
+   },
+   {
+    "k": "C",
+    "text": "Only input data is fault tolerant."
+   },
+   {
+    "k": "D",
+    "text": "Failures require manual data recreation."
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explanation": "Lec 20 states directly: \"all transformations are fault tolerant and follow the exactly once transformations,\" achieved via input replication plus checkpointing/lineage-based recomputation. Trap: (a) and (d) contradict the lecture's explicit recovery mechanisms (replication, lineage, checkpointing); (c) is too narrow — the notes state transformations themselves are fault tolerant, not just the raw input.",
+  "source": {
+   "file": "notes/week-5/assignment.md",
+   "page": null
+  },
+  "flags": [
+   "answer-solved"
+  ],
+  "topics": [
+   "Spark",
+   "Streaming: HBase, Kafka, Spark Streaming"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W5-Q9",
+    "year": 2026,
+    "week": 5,
+    "qno": 9
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   5
+  ]
+ },
+ {
+  "id": "2026-W5-Q10",
+  "year": 2026,
+  "week": 5,
+  "qno": 10,
+  "type": "MCQ",
+  "question": "Which requirement is NOT listed for a stream-processing framework in Spark Streaming?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Second-scale latency"
+   },
+   {
+    "k": "B",
+    "text": "Efficient fault tolerance"
+   },
+   {
+    "k": "C",
+    "text": "Scalability"
+   },
+   {
+    "k": "D",
+    "text": "Fixed single-node execution"
+   }
+  ],
+  "answer": [
+   "D"
+  ],
+  "explanation": "Lec 19 lists the requirements explicitly: scale to hundreds/thousands of nodes, achieve second-scale latency, recover efficiently from failures, and integrate batch with interactive processing. \"Fixed single-node execution\" is the opposite of the scale-out requirement actually stated. Trap: (a), (b), (c) are each named requirements almost verbatim in the notes; only (d) inverts the lecture's actual point about needing to scale *out*, not stay single-node.",
+  "source": {
+   "file": "notes/week-5/assignment.md",
+   "page": null
+  },
+  "flags": [
+   "answer-solved"
+  ],
+  "topics": [
+   "Spark",
+   "Streaming: HBase, Kafka, Spark Streaming"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W5-Q10",
+    "year": 2026,
+    "week": 5,
+    "qno": 10
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   5
+  ]
+ },
+ {
   "id": "2022-W6-Q2",
   "year": 2022,
   "week": 6,
@@ -17087,6 +19876,543 @@
   ]
  },
  {
+  "id": "2026-W6-Q1",
+  "year": 2026,
+  "week": 6,
+  "qno": 1,
+  "type": "MCQ",
+  "question": "Cluster analysis is primarily a:",
+  "options": [
+   {
+    "k": "A",
+    "text": "Supervised learning technique"
+   },
+   {
+    "k": "B",
+    "text": "Reinforcement learning technique"
+   },
+   {
+    "k": "C",
+    "text": "Unsupervised learning technique"
+   },
+   {
+    "k": "D",
+    "text": "Deep learning technique"
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explanation": "Lec 23/25 — clustering data has no target label, so cluster analysis and association analysis are the unsupervised techniques (notes: Lec 23 \"Supervised vs unsupervised\"). Trap: (a) classification and regression are the supervised ones.",
+  "source": {
+   "file": "notes/week-6/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "ML basics: regression, k-means"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W6-Q1",
+    "year": 2026,
+    "week": 6,
+    "qno": 1
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   6
+  ]
+ },
+ {
+  "id": "2026-W6-Q2",
+  "year": 2026,
+  "week": 6,
+  "qno": 2,
+  "type": "MCQ",
+  "question": "What is the main goal of cluster analysis?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Predict future values"
+   },
+   {
+    "k": "B",
+    "text": "Organize similar items into groups"
+   },
+   {
+    "k": "C",
+    "text": "Classify labeled data"
+   },
+   {
+    "k": "D",
+    "text": "Reduce storage space"
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explanation": "Lec 23/25 — the slide definition: \"organize similar items in your dataset into groups\" (segmentation). Trap: (a) is regression/predictive analytics, (c) is classification.",
+  "source": {
+   "file": "notes/week-6/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "ML basics: regression, k-means"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W6-Q2",
+    "year": 2026,
+    "week": 6,
+    "qno": 2
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   6
+  ]
+ },
+ {
+  "id": "2026-W6-Q3",
+  "year": 2026,
+  "week": 6,
+  "qno": 3,
+  "type": "MCQ",
+  "question": "Which similarity measure calculates straight-line distance between two points?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Manhattan Distance"
+   },
+   {
+    "k": "B",
+    "text": "Cosine Similarity"
+   },
+   {
+    "k": "C",
+    "text": "Euclidean Distance"
+   },
+   {
+    "k": "D",
+    "text": "Hamming Distance"
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explanation": "Lec 25 similarity-measures slide: Euclidean = distance along a straight line between A and B. Trap: Manhattan only moves along the axes (horizontal/vertical path); Hamming is not on the slide.",
+  "source": {
+   "file": "notes/week-6/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "ML",
+   "ML basics: regression, k-means"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W6-Q3",
+    "year": 2026,
+    "week": 6,
+    "qno": 3
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   6
+  ]
+ },
+ {
+  "id": "2026-W6-Q4",
+  "year": 2026,
+  "week": 6,
+  "qno": 4,
+  "type": "MCQ",
+  "question": "Which similarity measure is based on the angle between vectors?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Euclidean Distance"
+   },
+   {
+    "k": "B",
+    "text": "Manhattan Distance"
+   },
+   {
+    "k": "C",
+    "text": "Cosine Similarity"
+   },
+   {
+    "k": "D",
+    "text": "Jaccard Distance"
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explanation": "Lec 25 — cosine similarity is the cosine of the angle between two vectors (normalised dot product), good for sparse document vectors.",
+  "source": {
+   "file": "notes/week-6/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "ML",
+   "ML basics: regression, k-means"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W6-Q4",
+    "year": 2026,
+    "week": 6,
+    "qno": 4
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   6
+  ]
+ },
+ {
+  "id": "2026-W6-Q5",
+  "year": 2026,
+  "week": 6,
+  "qno": 5,
+  "type": "MCQ",
+  "question": "What is a common application of cluster analysis?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Customer segmentation"
+   },
+   {
+    "k": "B",
+    "text": "Sorting algorithms"
+   },
+   {
+    "k": "C",
+    "text": "Compiler optimization"
+   },
+   {
+    "k": "D",
+    "text": "CPU scheduling"
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explanation": "Lec 23/25 — customer segmentation is the headline application (also crime hotspots, weather patterns, news grouping).",
+  "source": {
+   "file": "notes/week-6/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "ML basics: regression, k-means"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W6-Q5",
+    "year": 2026,
+    "week": 6,
+    "qno": 5
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   6
+  ]
+ },
+ {
+  "id": "2026-W6-Q6",
+  "year": 2026,
+  "week": 6,
+  "qno": 6,
+  "type": "MCQ",
+  "question": "Which algorithm is most commonly associated with cluster analysis?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Decision Tree"
+   },
+   {
+    "k": "B",
+    "text": "Naïve Bayes"
+   },
+   {
+    "k": "C",
+    "text": "K-Means"
+   },
+   {
+    "k": "D",
+    "text": "Logistic Regression"
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explanation": "Lec 25/26 — K-means is the classical clustering algorithm taught this week; decision tree, Naïve Bayes and logistic regression are classification methods.",
+  "source": {
+   "file": "notes/week-6/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "ML",
+   "ML basics: regression, k-means"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W6-Q6",
+    "year": 2026,
+    "week": 6,
+    "qno": 6
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   6
+  ]
+ },
+ {
+  "id": "2026-W6-Q7",
+  "year": 2026,
+  "week": 6,
+  "qno": 7,
+  "type": "MCQ",
+  "question": "What is the first step of the K-Means algorithm?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Compute accuracy"
+   },
+   {
+    "k": "B",
+    "text": "Select initial centroids"
+   },
+   {
+    "k": "C",
+    "text": "Normalize output"
+   },
+   {
+    "k": "D",
+    "text": "Remove outliers"
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explanation": "Lec 25 — select K initial centroids, then iterate (assign to closest centroid, recompute centroids as means).",
+  "source": {
+   "file": "notes/week-6/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "ML",
+   "ML basics: regression, k-means"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W6-Q7",
+    "year": 2026,
+    "week": 6,
+    "qno": 7
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   6
+  ]
+ },
+ {
+  "id": "2026-W6-Q8",
+  "year": 2026,
+  "week": 6,
+  "qno": 8,
+  "type": "MCQ",
+  "question": "Which metric is commonly used to evaluate K-Means clustering quality?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Accuracy"
+   },
+   {
+    "k": "B",
+    "text": "Recall"
+   },
+   {
+    "k": "C",
+    "text": "WSSE"
+   },
+   {
+    "k": "D",
+    "text": "Precision"
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explanation": "Lec 25 — WSSE (within-cluster sum of squared error) is the sum of squared distances from each sample to its centroid. Accuracy/precision/recall need labels, which clustering does not have. Trap: (a), (b), (d) are classification metrics from Lec 24.",
+  "source": {
+   "file": "notes/week-6/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "ML",
+   "ML basics: regression, k-means"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W6-Q8",
+    "year": 2026,
+    "week": 6,
+    "qno": 8
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   6
+  ]
+ },
+ {
+  "id": "2026-W6-Q9",
+  "year": 2026,
+  "week": 6,
+  "qno": 9,
+  "type": "MCQ",
+  "question": "If WSSE decreases, it generally indicates:",
+  "options": [
+   {
+    "k": "A",
+    "text": "Better cluster compactness"
+   },
+   {
+    "k": "B",
+    "text": "Worse clustering"
+   },
+   {
+    "k": "C",
+    "text": "More classification errors"
+   },
+   {
+    "k": "D",
+    "text": "Data loss"
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explanation": "Lec 25 — lower WSSE means samples sit closer to their centroids, i.e. more compact clusters. Slide caution: lower WSSE is numerically better, not automatically \"more correct\", and a bigger K always lowers it.",
+  "source": {
+   "file": "notes/week-6/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "ML",
+   "ML basics: regression, k-means"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W6-Q9",
+    "year": 2026,
+    "week": 6,
+    "qno": 9
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   6
+  ]
+ },
+ {
+  "id": "2026-W6-Q10",
+  "year": 2026,
+  "week": 6,
+  "qno": 10,
+  "type": "MCQ",
+  "question": "K-Means stops iterating when:",
+  "options": [
+   {
+    "k": "A",
+    "text": "No changes occur in centroids"
+   },
+   {
+    "k": "B",
+    "text": "Accuracy becomes 100%"
+   },
+   {
+    "k": "C",
+    "text": "Dataset becomes empty"
+   },
+   {
+    "k": "D",
+    "text": "Number of features decreases"
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explanation": "Lec 25 stopping criteria — no change in centroids (so no sample changes cluster), or relaxed: fewer than a threshold (e.g. 1%) of samples change clusters. Trap: (b) clustering has no labels, so no accuracy.",
+  "source": {
+   "file": "notes/week-6/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "ML",
+   "ML basics: regression, k-means"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W6-Q10",
+    "year": 2026,
+    "week": 6,
+    "qno": 10
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   6
+  ]
+ },
+ {
   "id": "2019-W7-Q3",
   "year": 2019,
   "week": 7,
@@ -19153,6 +22479,546 @@
   "repeat": 1,
   "years": [
    2025
+  ],
+  "weeks": [
+   7
+  ]
+ },
+ {
+  "id": "2026-W7-Q1",
+  "year": 2026,
+  "week": 7,
+  "qno": 1,
+  "type": "MCQ",
+  "question": "Random Forest is best described as:",
+  "options": [
+   {
+    "k": "A",
+    "text": "A single deep decision tree"
+   },
+   {
+    "k": "B",
+    "text": "A clustering algorithm"
+   },
+   {
+    "k": "C",
+    "text": "A neural network ensemble"
+   },
+   {
+    "k": "D",
+    "text": "A bagging of de-correlated decision trees"
+   }
+  ],
+  "answer": [
+   "D"
+  ],
+  "explanation": "Lec 28 slide: \"Random Forest algorithm is a bagging of de-correlated decision trees\" (bootstrap samples + a random subset of features at each split).",
+  "source": {
+   "file": "notes/week-7/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "ML",
+   "ML with Spark: trees & ensembles"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W7-Q1",
+    "year": 2026,
+    "week": 7,
+    "qno": 1
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   7
+  ]
+ },
+ {
+  "id": "2026-W7-Q2",
+  "year": 2026,
+  "week": 7,
+  "qno": 2,
+  "type": "MCQ",
+  "question": "What is the main purpose of Bagging?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Increase bias"
+   },
+   {
+    "k": "B",
+    "text": "Reduce prediction variance"
+   },
+   {
+    "k": "C",
+    "text": "Reduce dataset size"
+   },
+   {
+    "k": "D",
+    "text": "Increase overfitting"
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explanation": "Lec 28 — bagging (bootstrap aggregation) averages many models, so noisy parts cancel; \"bagging works because it reduces the variance of the predictions\" (bias–variance trade-off).",
+  "source": {
+   "file": "notes/week-7/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "ML",
+   "ML with Spark: trees & ensembles"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W7-Q2",
+    "year": 2026,
+    "week": 7,
+    "qno": 2
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   7
+  ]
+ },
+ {
+  "id": "2026-W7-Q3",
+  "year": 2026,
+  "week": 7,
+  "qno": 3,
+  "type": "MCQ",
+  "question": "Bootstrap in Bagging refers to:",
+  "options": [
+   {
+    "k": "A",
+    "text": "Sampling with replacement"
+   },
+   {
+    "k": "B",
+    "text": "Feature scaling"
+   },
+   {
+    "k": "C",
+    "text": "Gradient computation"
+   },
+   {
+    "k": "D",
+    "text": "Data normalization"
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explanation": "Lec 28 — a bootstrap dataset is a same-size replica of the data made by random sampling **with replacement** (rows may repeat or be missing).",
+  "source": {
+   "file": "notes/week-7/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "ML",
+   "ML with Spark: trees & ensembles"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W7-Q3",
+    "year": 2026,
+    "week": 7,
+    "qno": 3
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   7
+  ]
+ },
+ {
+  "id": "2026-W7-Q4",
+  "year": 2026,
+  "week": 7,
+  "qno": 4,
+  "type": "MCQ",
+  "question": "In Random Forest, at each split:",
+  "options": [
+   {
+    "k": "A",
+    "text": "All features are always evaluated"
+   },
+   {
+    "k": "B",
+    "text": "Random subset of features is selected"
+   },
+   {
+    "k": "C",
+    "text": "Features are ignored"
+   },
+   {
+    "k": "D",
+    "text": "Only one feature exists"
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explanation": "Lec 28 — select m out of p input variables at random as split candidates (m = √p classification, p/3 regression); this is what makes the trees de-correlated. Trap: (a) describes an ordinary decision tree.",
+  "source": {
+   "file": "notes/week-7/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "ML",
+   "ML with Spark: trees & ensembles"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W7-Q4",
+    "year": 2026,
+    "week": 7,
+    "qno": 4
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   7
+  ]
+ },
+ {
+  "id": "2026-W7-Q5",
+  "year": 2026,
+  "week": 7,
+  "qno": 5,
+  "type": "MCQ",
+  "question": "Random Forest can naturally support parallel processing because:",
+  "options": [
+   {
+    "k": "A",
+    "text": "Trees are built independently"
+   },
+   {
+    "k": "B",
+    "text": "Trees share memory"
+   },
+   {
+    "k": "C",
+    "text": "Trees use one processor"
+   },
+   {
+    "k": "D",
+    "text": "Trees require sequential execution"
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explanation": "Lec 28 — each tree is trained on its own bootstrap sample independent of the others, so forests train in a distributed environment with a high degree of parallelism. Trap: (d) describes boosting, where each tree depends on the previous one.",
+  "source": {
+   "file": "notes/week-7/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "ML",
+   "ML with Spark: trees & ensembles"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W7-Q5",
+    "year": 2026,
+    "week": 7,
+    "qno": 5
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   7
+  ]
+ },
+ {
+  "id": "2026-W7-Q6",
+  "year": 2026,
+  "week": 7,
+  "qno": 6,
+  "type": "MCQ",
+  "question": "Boosting combines:",
+  "options": [
+   {
+    "k": "A",
+    "text": "Strong classifiers only"
+   },
+   {
+    "k": "B",
+    "text": "Weak classifiers into a strong ensemble"
+   },
+   {
+    "k": "C",
+    "text": "Clusters into datasets"
+   },
+   {
+    "k": "D",
+    "text": "Databases into warehouses"
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explanation": "Lec 29 slide: \"Boosting is a method for combining outputs of many weak classifiers to produce a powerful ensemble.\"",
+  "source": {
+   "file": "notes/week-7/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "ML",
+   "ML with Spark: trees & ensembles"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W7-Q6",
+    "year": 2026,
+    "week": 7,
+    "qno": 6
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   7
+  ]
+ },
+ {
+  "id": "2026-W7-Q7",
+  "year": 2026,
+  "week": 7,
+  "qno": 7,
+  "type": "MCQ",
+  "question": "Gradient Boosting builds models:",
+  "options": [
+   {
+    "k": "A",
+    "text": "In a single step"
+   },
+   {
+    "k": "B",
+    "text": "Iteratively"
+   },
+   {
+    "k": "C",
+    "text": "Randomly"
+   },
+   {
+    "k": "D",
+    "text": "Without training"
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explanation": "Lec 29 — the complex model is built iteratively; each step fits a simple tree to the current residuals (or gradients) and adds it to the ensemble.",
+  "source": {
+   "file": "notes/week-7/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "ML",
+   "ML with Spark: trees & ensembles"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W7-Q7",
+    "year": 2026,
+    "week": 7,
+    "qno": 7
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   7
+  ]
+ },
+ {
+  "id": "2026-W7-Q8",
+  "year": 2026,
+  "week": 7,
+  "qno": 8,
+  "type": "MCQ",
+  "question": "In Gradient Boosted Trees, the base learners are usually:",
+  "options": [
+   {
+    "k": "A",
+    "text": "Decision Trees"
+   },
+   {
+    "k": "B",
+    "text": "Neural Networks"
+   },
+   {
+    "k": "C",
+    "text": "K-Means Clusters"
+   },
+   {
+    "k": "D",
+    "text": "Support Vectors"
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explanation": "Lec 29 — f(x) = h₁(x) + … + h_M(x) where each h_m is a decision tree. Trap: (b) the lecture contrasts boosting with neural networks, which start from a very complex model.",
+  "source": {
+   "file": "notes/week-7/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "ML",
+   "ML with Spark: trees & ensembles"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W7-Q8",
+    "year": 2026,
+    "week": 7,
+    "qno": 8
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   7
+  ]
+ },
+ {
+  "id": "2026-W7-Q9",
+  "year": 2026,
+  "week": 7,
+  "qno": 9,
+  "type": "MCQ",
+  "question": "Cross-validation is mainly used to:",
+  "options": [
+   {
+    "k": "A",
+    "text": "Increase dataset size"
+   },
+   {
+    "k": "B",
+    "text": "Assess model quality and select best parameters"
+   },
+   {
+    "k": "C",
+    "text": "Reduce number of features"
+   },
+   {
+    "k": "D",
+    "text": "Perform clustering"
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explanation": "Lec 29 — cross-validation \"helps to assess the quality of a machine learning model and to find the best model among the family of models\" (Spark: `CrossValidator` + `ParamGridBuilder`, e.g. maxDepth 1–8, 10 folds).",
+  "source": {
+   "file": "notes/week-7/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "ML",
+   "ML with Spark: trees & ensembles"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W7-Q9",
+    "year": 2026,
+    "week": 7,
+    "qno": 9
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   7
+  ]
+ },
+ {
+  "id": "2026-W7-Q10",
+  "year": 2026,
+  "week": 7,
+  "qno": 10,
+  "type": "MCQ",
+  "question": "Recommended learning rate for Gradient Boosting is:",
+  "options": [
+   {
+    "k": "A",
+    "text": "Greater than 1"
+   },
+   {
+    "k": "B",
+    "text": "Equal to 5"
+   },
+   {
+    "k": "C",
+    "text": "Less than or equal to 0.1"
+   },
+   {
+    "k": "D",
+    "text": "Equal to 10"
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explanation": "Lec 29 GBT algorithm slide: v (regularization / learning rate) recommended ≤ 0.1; small steps, like gradient descent, need more iterations but give a better model.",
+  "source": {
+   "file": "notes/week-7/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "ML",
+   "ML with Spark: trees & ensembles"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W7-Q10",
+    "year": 2026,
+    "week": 7,
+    "qno": 10
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
   ],
   "weeks": [
    7
@@ -21597,6 +25463,549 @@
   "repeat": 1,
   "years": [
    2025
+  ],
+  "weeks": [
+   8
+  ]
+ },
+ {
+  "id": "2026-W8-Q1",
+  "year": 2026,
+  "week": 8,
+  "qno": 1,
+  "type": "MCQ",
+  "question": "What is the main goal of GraphX?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Database management"
+   },
+   {
+    "k": "B",
+    "text": "Unify data-parallel and graph-parallel analytics"
+   },
+   {
+    "k": "C",
+    "text": "Replace Spark SQL"
+   },
+   {
+    "k": "D",
+    "text": "Replace HDFS"
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explanation": "Lec 32/34 — GraphX is a distributed framework that unifies graph-parallel and data-parallel computation so the whole analytics pipeline runs in one system (tables and graphs as views of the same data).",
+  "source": {
+   "file": "notes/week-8/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "Graph processing",
+   "GraphX/PageRank",
+   "HDFS",
+   "Spark"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W8-Q1",
+    "year": 2026,
+    "week": 8,
+    "qno": 1
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   8
+  ]
+ },
+ {
+  "id": "2026-W8-Q2",
+  "year": 2026,
+  "week": 8,
+  "qno": 2,
+  "type": "MCQ",
+  "question": "Which phase is NOT part of the Graph-Parallel Pattern?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Gather"
+   },
+   {
+    "k": "B",
+    "text": "Apply"
+   },
+   {
+    "k": "C",
+    "text": "Scatter"
+   },
+   {
+    "k": "D",
+    "text": "Shuffle Sort"
+   }
+  ],
+  "answer": [
+   "D"
+  ],
+  "explanation": "Lec 32 — the graph-parallel pattern is Gather (collect from neighbours), Apply (compute the new value), Scatter (send to neighbours). Shuffle Sort belongs to MapReduce.",
+  "source": {
+   "file": "notes/week-8/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "Graph processing",
+   "GraphX/PageRank"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W8-Q2",
+    "year": 2026,
+    "week": 8,
+    "qno": 2
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   8
+  ]
+ },
+ {
+  "id": "2026-W8-Q3",
+  "year": 2026,
+  "week": 8,
+  "qno": 3,
+  "type": "MCQ",
+  "question": "Which GraphX operator joins vertices and edges together?",
+  "options": [
+   {
+    "k": "A",
+    "text": "`mapV()`"
+   },
+   {
+    "k": "B",
+    "text": "`subgraph()`"
+   },
+   {
+    "k": "C",
+    "text": "`triplets`"
+   },
+   {
+    "k": "D",
+    "text": "`reverse()`"
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explanation": "Lec 33 — the `triplets` operator joins vertices and edges: an edge plus both its end vertices. Trap: `subgraph` filters, `reverse` flips edge direction, `mapV` transforms vertex properties.",
+  "source": {
+   "file": "notes/week-8/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "Graph processing",
+   "GraphX/PageRank"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W8-Q3",
+    "year": 2026,
+    "week": 8,
+    "qno": 3
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   8
+  ]
+ },
+ {
+  "id": "2026-W8-Q4",
+  "year": 2026,
+  "week": 8,
+  "qno": 4,
+  "type": "MCQ",
+  "question": "In GraphX, a Property Graph consists of:",
+  "options": [
+   {
+    "k": "A",
+    "text": "Only vertices"
+   },
+   {
+    "k": "B",
+    "text": "Only edges"
+   },
+   {
+    "k": "C",
+    "text": "Vertices and edges with properties"
+   },
+   {
+    "k": "D",
+    "text": "Tables only"
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explanation": "Lec 33 — a property graph is a vertex property table (ID + property) and an edge property table (source ID, destination ID, property).",
+  "source": {
+   "file": "notes/week-8/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "Graph processing",
+   "GraphX/PageRank"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W8-Q4",
+    "year": 2026,
+    "week": 8,
+    "qno": 4
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   8
+  ]
+ },
+ {
+  "id": "2026-W8-Q5",
+  "year": 2026,
+  "week": 8,
+  "qno": 5,
+  "type": "MCQ",
+  "question": "Which graph algorithm is commonly used to identify influential vertices?",
+  "options": [
+   {
+    "k": "A",
+    "text": "K-Means"
+   },
+   {
+    "k": "B",
+    "text": "PageRank"
+   },
+   {
+    "k": "C",
+    "text": "Apriori"
+   },
+   {
+    "k": "D",
+    "text": "Frequent Pattern Growth"
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explanation": "Lec 31/32/34 — PageRank scores vertices by the links pointing to them (links from many pages and from high-rank pages); the flight case study uses it to list the most influential airports.",
+  "source": {
+   "file": "notes/week-8/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "Graph processing",
+   "GraphX/PageRank",
+   "ML"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W8-Q5",
+    "year": 2026,
+    "week": 8,
+    "qno": 5
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   8
+  ]
+ },
+ {
+  "id": "2026-W8-Q6",
+  "year": 2026,
+  "week": 8,
+  "qno": 6,
+  "type": "MCQ",
+  "question": "Triangle Counting is mainly used for:",
+  "options": [
+   {
+    "k": "A",
+    "text": "Sorting vertices"
+   },
+   {
+    "k": "B",
+    "text": "Community detection"
+   },
+   {
+    "k": "C",
+    "text": "Data compression"
+   },
+   {
+    "k": "D",
+    "text": "Replication"
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explanation": "Lec 32/33 — counting triangles through a vertex measures the cohesiveness of its community: more triangles = a stronger community, fewer = weaker.",
+  "source": {
+   "file": "notes/week-8/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "Graph processing",
+   "HDFS"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W8-Q6",
+    "year": 2026,
+    "week": 8,
+    "qno": 6
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   8
+  ]
+ },
+ {
+  "id": "2026-W8-Q7",
+  "year": 2026,
+  "week": 8,
+  "qno": 7,
+  "type": "MCQ",
+  "question": "Which optimization reduces communication by avoiding unnecessary joins?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Join Elimination"
+   },
+   {
+    "k": "B",
+    "text": "Data Duplication"
+   },
+   {
+    "k": "C",
+    "text": "Replication Factor"
+   },
+   {
+    "k": "D",
+    "text": "Hash Partitioning"
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explanation": "Lec 33 — join elimination identifies and bypasses the join for unused triplet fields (PageRank reads only the source attribute), giving about a 2× reduction in communication.",
+  "source": {
+   "file": "notes/week-8/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "Graph processing",
+   "HDFS"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W8-Q7",
+    "year": 2026,
+    "week": 8,
+    "qno": 7
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   8
+  ]
+ },
+ {
+  "id": "2026-W8-Q8",
+  "year": 2026,
+  "week": 8,
+  "qno": 8,
+  "type": "MCQ",
+  "question": "Which GraphX feature helps accelerate joins and construct subgraphs efficiently?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Bloom Filters"
+   },
+   {
+    "k": "B",
+    "text": "Indexing and Bitmaps"
+   },
+   {
+    "k": "C",
+    "text": "Commit Logs"
+   },
+   {
+    "k": "D",
+    "text": "MemTables"
+   }
+  ],
+  "answer": [
+   "B"
+  ],
+  "explanation": "Lec 33 \"Additional Query Optimizations\" — indexing and bitmaps accelerate joins across graphs and efficiently construct subgraphs. Trap: (c) and (d) are not GraphX features.",
+  "source": {
+   "file": "notes/week-8/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "Graph processing",
+   "GraphX/PageRank"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W8-Q8",
+    "year": 2026,
+    "week": 8,
+    "qno": 8
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   8
+  ]
+ },
+ {
+  "id": "2026-W8-Q9",
+  "year": 2026,
+  "week": 8,
+  "qno": 9,
+  "type": "MCQ",
+  "question": "Which statement best describes GraphX?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Graph-only processing framework"
+   },
+   {
+    "k": "B",
+    "text": "Batch-only processing framework"
+   },
+   {
+    "k": "C",
+    "text": "Unified analytics framework for graph and data processing"
+   },
+   {
+    "k": "D",
+    "text": "SQL replacement system"
+   }
+  ],
+  "answer": [
+   "C"
+  ],
+  "explanation": "Lec 32/34 — tables and graphs are composable views of the same physical data; GraphX unifies data-parallel and graph-parallel processing in one system.",
+  "source": {
+   "file": "notes/week-8/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "Graph processing",
+   "GraphX/PageRank"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W8-Q9",
+    "year": 2026,
+    "week": 8,
+    "qno": 9
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
+  ],
+  "weeks": [
+   8
+  ]
+ },
+ {
+  "id": "2026-W8-Q10",
+  "year": 2026,
+  "week": 8,
+  "qno": 10,
+  "type": "MCQ",
+  "question": "Which GraphX optimization reuses routing tables, edge adjacency information, and indices across graphs and subgraphs?",
+  "options": [
+   {
+    "k": "A",
+    "text": "Substantial Index and Data Reuse"
+   },
+   {
+    "k": "B",
+    "text": "Active Edge Indexing"
+   },
+   {
+    "k": "C",
+    "text": "Join Elimination"
+   },
+   {
+    "k": "D",
+    "text": "Pregel Messaging"
+   }
+  ],
+  "answer": [
+   "A"
+  ],
+  "explanation": "Lec 33 — \"Substantial index and data reuse: reuse routing tables across graphs and sub-graphs; reuse edge adjacency information and indices.\" Trap: (b) active-edge indexing avoids scanning all edges each iteration; it is a different optimisation.",
+  "source": {
+   "file": "notes/week-8/assignment.md",
+   "page": null
+  },
+  "flags": [],
+  "topics": [
+   "Graph processing",
+   "GraphX/PageRank"
+  ],
+  "appearances": [
+   {
+    "id": "2026-W8-Q10",
+    "year": 2026,
+    "week": 8,
+    "qno": 10
+   }
+  ],
+  "repeat": 1,
+  "years": [
+   2026
   ],
   "weeks": [
    8

@@ -24,6 +24,8 @@ $PY $P/parse_solutions.py "$F/2023_A-0 to 8_solu.pdf" 2023 $D/2023s.json 4
 $PY $P/parse_solutions.py "$F/2024_A-0 to 8_solu.pdf" 2024 $D/2024s.json 6
 $PY $P/parse_solutions.py "$F/2025_A-0 to 8_solu.pdf" 2025 $D/2025s.json 2
 $PY $P/resolve_2024.py $D/2024s.json
+# 2026: this repo's own assignment notes
+$PY $P/parse_assignments.py $D/2026.json
 PYQ_DRAFTS=$D $PY $P/build_bank.py
 $PY $P/validate.py
 $PY $P/build_outputs.py

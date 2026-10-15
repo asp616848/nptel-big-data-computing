@@ -257,6 +257,7 @@ def main():
     sets.append((2023, "2023", w23 + load("2023s")))
     sets.append((2024, "2024", strip_email(load("2024w0")) + fix_2024(load("2024s"))))
     sets.append((2025, "2025", portal_fix_2025(load("2025w0")) + load("2025s")))
+    sets.append((2026, "2026", load("2026")))  # this repo's notes/week-N/assignment.md
 
     bank = []
     for year, sk, rows in sets:
@@ -282,7 +283,7 @@ def main():
                 "question": norm(x["stem"]),
                 "options": opts, "answer": letters,
                 "explanation": x.get("explanation", "") or "",
-                "source": {"file": SRC[sk], "page": x.get("page")},
+                "source": {"file": x.get("path") or SRC[sk], "page": x.get("page")},
                 "flags": sorted(set(flags)),
             }
             ov = OVERRIDES.get(q["id"])
@@ -356,6 +357,8 @@ def main():
         canon["weeks"] = sorted({a["week"] for a in apps})
         canon["topics"] = sorted(set().union(*[set(m["topics"]) for m in members]))
         canon["flags"] = sorted(set(canon["flags"]))
+        if not canon["explanation"]:
+            canon["explanation"] = next((m["explanation"] for m in members if m["explanation"]), "")
         imgs = []
         for m in members:
             for im in m.get("images", []):

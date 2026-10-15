@@ -1,7 +1,7 @@
 # PYQ: previous-year question bank
 
-380 unique questions (510 asked in total) from the NPTEL *Big Data Computing* assignments of 2019, 2021, 2022, 2023, 2024 and 2025.
-Source PDFs: [Shivammittal13ai/Big-Data-Computing_NPTEL-2025](https://github.com/Shivammittal13ai/Big-Data-Computing_NPTEL-2025/tree/main/Assignments).
+460 unique questions (590 asked in total) from the NPTEL *Big Data Computing* assignments of 2019, 2021, 2022, 2023, 2024 and 2025, plus the 2026 session from this repo's own `notes/week-N/assignment.md`.
+Source PDFs (2019-2025): [Shivammittal13ai/Big-Data-Computing_NPTEL-2025](https://github.com/Shivammittal13ai/Big-Data-Computing_NPTEL-2025/tree/main/Assignments).
 
 | File | What |
 | --- | --- |
@@ -39,6 +39,7 @@ Source PDFs: [Shivammittal13ai/Big-Data-Computing_NPTEL-2025](https://github.com
 | 2021, 2022, 2023, 2025 (W1-8) | solution documents | the printed answer line |
 | 2024 (W1-8) | solution document with no answer line | **read from the explanation text** (flag `answer-inferred-from-explanation`) |
 | 2021 Week 0 | question paper only, no key | taken from the identical 2023 question, plus 2 solved by us |
+| 2026 | `notes/week-N/assignment.md` | the answer in that file; weeks 3-5 had no key in the portal paste and were solved from the notes (flag `answer-solved`). The file's *Why* and *Trap* lines are kept as the explanation |
 
 ## Known gaps and judgement calls
 
